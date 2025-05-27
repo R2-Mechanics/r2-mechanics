@@ -4,7 +4,16 @@ Willkommen im offiziellen Dokumentations-Repository für **R2 Mechanics** – ei
 
 > Dieses Repository dient als öffentlich datierter Nachweis und dokumentarische Referenz für die zugrunde liegende Methodik. Es enthält **keinen operativen Quellcode**. Das vollständige System läuft lokal und ist im Rahmen von Kooperationen auf Anfrage einsehbar.
 
+---
+
+## 🔗 Projekt-Website (GitHub Pages)
+
+👉 [Zur öffentlichen Landingpage](https://r2-mechanics.github.io/r2-mechanics/)
+
+---
+
 ## Zielsetzung
+
 R2 Mechanics wurde entwickelt, um sensible Audiomaterialien (z. B. Interviews, Zeitzeugenberichte) strukturiert, transparent und datenschutzkonform aufzubereiten. Das System bietet:
 
 - Lokale Transkription (WhisperX-basiert)
@@ -13,14 +22,44 @@ R2 Mechanics wurde entwickelt, um sensible Audiomaterialien (z. B. Interviews,
 - Visuelle HTML-Ausgabe mit Audioeinbettung
 - Optional: automatische Szenenillustration
 
+---
+
 ## Motivation
+
 Forschungseinrichtungen, Archive und kulturelle Institutionen benötigen Werkzeuge zur strukturierten Verarbeitung von Audio – ohne Cloudabhängigkeit oder Lizenzrisiken. R2 Mechanics schließt diese Lücke.
 
+---
+
 ## Komponentenüberblick (abstrahiert)
+
 - WhisperX (lokal, CUDA-beschleunigt)
 - Kapiteldaten (.txt mit Zeitmarken, Titeln, optionalen Notizen)
 - HTML-Generator (visuell angepasst)
 - Optional: LLM-basierte Zusammenfassungen (offline)
 - Optional: Bildgenerator (Stable Diffusion auf separatem System)
 
-## Repositorium-Gliederung
+---
+
+## 📄 Dokumentation
+
+- [System Overview (DE)](docs/system_overview.md)
+- [System Overview (EN)](docs/system_overview_en.md)
+- [Whitepaper (PDF, DE)](docs/whitepaper_de.pdf)
+- [Whitepaper (PDF, EN)](docs/whitepaper_en.pdf)
+
+---
+
+## 📬 Kontakt
+
+Für Anfragen, Kooperationen oder Pilotprojekte:
+
+**David Thiry**  
+✉️ office@r2-mechanics.com  
+🔗 [GitHub: R2-Mechanics/r2-mechanics](https://github.com/R2-Mechanics/r2-mechanics)
+
+---
+
+## Status
+
+🛠 Dieses Repository dokumentiert die Architektur und Zielsetzung von R2 Mechanics.  
+🔒 Der Quellcode und die operative Pipeline sind nicht öffentlich, aber verifiziert vorhanden.
