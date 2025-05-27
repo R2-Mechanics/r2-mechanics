@@ -62,7 +62,9 @@ Für Anfragen, Kooperationen oder Pilotprojekte:
 ## Status
 
 🛠 Dieses Repository dokumentiert die Architektur und Zielsetzung von R2 Mechanics.  
+
 🔒 Der Quellcode und die operative Pipeline sind nicht öffentlich, aber verifiziert vorhanden.
+
 ---
 
 📄 [English version available → README_EN.md](README_EN.md)
