@@ -12,6 +12,16 @@ Welcome to the official documentation repository for **R2 Mechanics** – a modu
 
 ---
 
+## 🚀 Live Demo Available
+
+Explore a sample HTML output with interactive navigation, embedded audio, chapter markers, and speaker-labeled segments:
+
+▶️ [View JFK Moon Speech Demo](https://r2-mechanics.github.io/r2-mechanics/JFK-Moonspeech.html)
+
+This demonstration shows the structured output of the R2 Mechanics system, combining privacy-focused offline transcription with a visual HTML rendering layer.
+
+---
+
 ## Objective
 
 R2 Mechanics was developed to process sensitive audio material (e.g., interviews, oral history) in a structured, transparent and privacy-compliant manner. The system offers:
