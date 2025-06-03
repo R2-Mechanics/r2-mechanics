@@ -56,7 +56,7 @@ Forschungseinrichtungen, Archive und kulturelle Institutionen benötigen Werkzeu
 - [System Overview (EN)](docs/system_overview_en.md)
 - [Whitepaper (PDF, DE)](docs/whitepaper_de.pdf)
 - [Whitepaper (PDF, EN)](docs/whitepaper_en.pdf)
-
+- [Projektsteckbrief (DE)](docs/projektsteckbrief.md)
 ---
 
 ## 📬 Kontakt
