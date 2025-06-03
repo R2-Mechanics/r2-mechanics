@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Why go to the moon? - John F. Kennedy at Rice University</title>
+  <style>
+    body {
+      background: url('background-texture.jpg') repeat;
+      font-family: 'Segoe UI', sans-serif;
+      color: #ffffff;
+      margin: 0;
+      padding: 2em;
+      max-width: 900px;
+      margin: auto;
+    }
+    .logo-container { text-align: center; margin-top: 30px; margin-bottom: 20px; }
+    .logo-container img { height: 180px; }
+    h1 {
+      text-align: center;
+      font-size: 2.5em;
+      color: #aadfff;
+      text-shadow: 0 0 6px #5599cc, 0 0 12px #3377aa;
+      font-weight: bold;
+      margin-top: 1em;
+    }
+    .summary {
+      background: rgba(0, 0, 0, 0.35);
+      padding: 25px 30px;
+      margin-bottom: 25px;
+      border-radius: 14px;
+      font-size: 1.2em;
+      text-align: start;
+      font-weight: 600;
+      box-shadow: 0 0 18px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(3px);
+    }
+    .toc {
+      background: rgba(0, 0, 0, 0.35);
+      padding: 50px;
+      border-radius: 14px;
+      margin-bottom: 30px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(3px);
+    }
+    .toc h3 {
+      text-align: start;
+      font-size: 2.0em;
+      color: #aadfff;
+      text-shadow: 0 0 6px #5599cc, 0 0 12px #3377aa;
+    }
+    .toc ul { list-style: none; padding-left: 0; line-height: 1.6; font-size: 1.25em; }
+    .toc li { margin: 0.4em 0; }
+    .toc a { color: #aadfff; text-decoration: underline; font-weight: bold; }
+    audio {
+    display: block;
+ display: block;
+  width: 100%;
+  margin: 3em auto;
+  padding: 3px;
+  background: #000c;
+  border-radius: 33px;
+  box-shadow: 0 0 14px rgba(22, 199, 227, 0.6);
+  border: 2px solid #66aaff44;
+  backdrop-filter: blur(2px);
+  transition: transform 0.2s ease-in-out;
+    }
+    .chapter {
+      background: rgba(0, 0, 0, 0.4);
+      padding: 25px;
+      margin-bottom: 30px;
+      border-radius: 14px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      backdrop-filter: blur(2px);
+    }
+    .chapter h2 {
+      font-size: 2.0em;
+      color: #ffc65ae5;
+      text-shadow: 0 0 6px #362717, 0 0 12px #3377aa;
+    }
+    .chapter p {
+      color: #fff;
+      margin-bottom: 1em;
+      font-size: 1.2em;
+      font-weight: bold;
+      text-shadow: 0 0 6px #5a6166, 0 0 2px #07528a;
+    }
+    .segment { margin-bottom: 1.4em; }
+    .timestamp {
+      color: #f58612;
+      font-size: 1.4em;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: black;
+      font-family: inherit;
+    }
+    .timestamp:hover { color: #66aaff; text-shadow: 0 0 4px #66aaff; }
+    .play-btn, .pause-btn {
+      background: transparent;
+      border: 2px solid #66aaff;
+      color: #66aaff;
+      font-size: 0.9em;
+      border-radius: 4px;
+      margin-left: 10px;
+      cursor: pointer;
+      padding: 2px 6px;
+    }
+    .play-btn:hover, .pause-btn:hover {
+      background: #66aaff;
+      color: #001f3f;
+    }
+    .speaker {
+    font-weight: bold;
+  color: #ffc65a;
+  display: block;
+  margin-top: 0.5em;
+  padding: 0px;
+  margin-bottom: 1em;
+  font-size: 1.35em;
+    }
+    .segment-text {
+      font-size: 1.15em;
+      line-height: 1.55;
+      color: #eeeeee;
+    }
+    .notes {
+      margin-top: 30px;
+      padding: 15px;
+      border: 2px dashed #66aaff;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .notes textarea {
+      width: 100%;
+      height: 150px;
+      background: #222;
+      color: #ddd;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #555;
+    }
+    .cover-image {
+      text-align: center;
+      margin: 30px auto 20px;
+    }
+    .cover-image img {
+      max-width: 100%;
+      height: 512px;
+      border-radius: 12px;
+      box-shadow: 0 0 18px rgba(0,0,0,0.4);
+    }
+    .audio-title {
+  text-align: center;
+  font-size: 2.5em;
+  margin: 1.5em 0 0.5em;
+  color: #c8e7ff;
+  text-shadow: 0 0 4px #18234a;
+    }
+    .chapter-image {
+  float: left;
+  max-width: 400px;
+  margin-right: 25px;
+  border-radius: 14px;
+  box-shadow: 0 0 14px rgba(0,0,0,0.5);
+}
+    .back-to-top {
+      display: block;
+      text-align: center;
+      margin: 40px auto 20px;
+      color: #aadfff;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .cover-caption {
+  text-align: center;
+  font-style: oblique;
+  color: #cccccc;
+  margin-top: 2px;
+  font-size: 1.5em; /* Erhöhe hier z. B. auf 1.2em oder 1.3em bei Bedarf */
+}
+  </style>
+</head>
+<body>
+<a id="top"></a>
+<div class="logo-container">
+  <img src="logo.svg" alt="R2 Mechanics Logo">
+</div>
+<h1>Transcript: John F. Kennedy’s “We Choose to Go to the Moon” Speech at Rice University (1962)</h1>
+<div class="cover-image">
+  <img src="cover.jpg" alt="Titelbild">
+  <p class="cover-caption">Visual interpretations of President John F. Kennedy’s landmark speech on space exploration and the pioneering spirit of a nation.</p>
+</div>
+<div class="summary"><h2>Summary</h2>Cosmic whispers echo through the fabric of existence, as ancient mysteries unfold amidst a tapestry of technological innovation and scientific discovery. The call to explore the unknown beckons, fueled by the fire of human curiosity and the quest for knowledge.
+
+Ethereal energies converge, as the trajectory of progress is charted across the celestial expanse. In this dance of light and shadow, humanity's aspirations merge with the infinite possibilities awaiting discovery in the vast expanse of space and time.</div>
+<div class="toc"><h3>Selected Passages of Vision and Resolve</h3><ul>
+<li><a href="#chapter-1">Introduction and Presidential Address</a></li>
+<li><a href="#chapter-34">The Pace of Progress</a></li>
+<li><a href="#chapter-271">Pioneering the Frontiers of Space</a></li>
+<li><a href="#chapter-507">Space Exploration and Development</a></li>
+<li><a href="#chapter-734">The Space Frontier Unfolds</a></li>
+<li><a href="#chapter-959">Bold Steps into Space</a></li>
+<li><a href="#chapter-1161">Seeking Divine Guidance and Blessings</a></li>
+<li><a href="#chapter-1255">Initial Greeting Established</a></li>
+</ul></div>
+<h2 class="audio-title">🎧 Listen to the Full Address by President Kennedy</h2>
+<audio id="audio" controls src="jfk-moonspeech.mp3"></audio>
+<div class="chapter" id="chapter-1">
+<div class="chapter-content">
+                              <img src="kapitelbild-1.jpg" class="chapter-image" alt="Kapitelbild"><div class="chapter-text"><h2>Introduction and Presidential Address</h2>
+<p>The President opens with a formal and solemn address, acknowledging the audience with a tone of gravity and historical significance. The occasion marks the beginning of a message tied to national ambition and global perspective.</p>
+</div></div>
+<div class="segment">
+  <span class="timestamp" data-time="1.18">[1.18s]</span>
+  <button class="play-btn" data-time="1.18">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">SPEAKER</span>
+  <div class="segment-text">And now, ladies and gentlemen, the President of the United States.</div>
+</div>
+</div>
+<div class="chapter" id="chapter-34">
+<div class="chapter-content">
+                              <img src="kapitelbild-34.jpg" class="chapter-image" alt="Kapitelbild"><div class="chapter-text"><h2>The Pace of Progress</h2>
+<p>Speaking as an honorary guest, the President reflects on a century of unprecedented scientific and technological advancement. While acknowledging humanity’s progress, he highlights the enduring mysteries that still await discovery.</p>
+</div></div>
+<div class="segment">
+  <span class="timestamp" data-time="34.56">[34.56s]</span>
+  <button class="play-btn" data-time="34.56">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">John F. Kennedy</span>
+  <div class="segment-text">President Kitsa, Mr. Vice President, Governor, Congressman Thomas, Senator Wiley and Congressman Miller, Mr. Webb, Mr. Bell, scientists, distinguished guests, ladies and gentlemen. I appreciate your president having made me an honorary visiting professor, and I will assure you that my first lecture will be very brief. I am delighted to be here, and I'm particularly delighted to be here on this occasion. We meet at a college noted for knowledge,</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="93.57">[93.57s]</span>
+  <button class="play-btn" data-time="93.57">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">John F. Kennedy</span>
+  <div class="segment-text">in a city noted for progress, in a state noted for strength. And we stand in need of all three. For we meet in an hour of change and challenge, in a decade of hope and fear, in an age of both knowledge and ignorance. The greater our knowledge increases, the greater our ignorance unfolds. Despite the striking fact that most of the scientists that the world has ever known are alive and working today, despite the fact that this nation's own scientific manpower is doubling every 12 years in a rate of growth more than three times that of our population as a whole, despite that, the vast stretches of the unknown and the unanswered and the unfinished still far outstripped</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="152.26">[152.26s]</span>
+  <button class="play-btn" data-time="152.26">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">John F. Kennedy</span>
+  <div class="segment-text">our collective comprehension. No man can fully grasp how far and how fast we have come, but condense, if you will, the 50,000 years of man's recorded history in a time span of but a half a century. Stated in these terms, we know very little about the first 40 years, except at the end of them, advanced men had learned to use the skins of animals to cover them. Then about 10 years ago, under this standard, man emerged from his caves to construct other kinds of shelter. Only five years ago, man learned to write and use a cart with wheels. Christianity began less than two years ago. The printing press came this year. And then less than two months ago,</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="211.25">[211.25s]</span>
+  <button class="play-btn" data-time="211.25">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">John F. Kennedy</span>
+  <div class="segment-text">During this whole 50-year span of human history, the steam engine provided a new source of power. Newton explored the meaning of gravity. Last month, electric lights and telephones and automobiles and airplanes became available. Only last week did we develop penicillin and television and nuclear power. And now, if America's new spacecraft succeeds in reaching Venus, we will have literally reached the stars before midnight tonight. This is a breathtaking pace, and such a pace cannot help but create new ills as it dispels old, new ignorance, new problems, new dangers. Surely the opening vistas of space promise high costs and hardships, as well as high reward.</div>
+</div>
+</div>
+<div class="chapter" id="chapter-271">
+<div class="chapter-content">
+                              <img src="kapitelbild-271.jpg" class="chapter-image" alt="Kapitelbild"><div class="chapter-text"><h2>Pioneering the Frontiers of Space</h2>
+<p>The United States embraces the challenge of space exploration not as a pursuit of conquest, but as a mission grounded in freedom, knowledge, and peace. The speech affirms the nation's responsibility to lead, explore, and govern this new domain for the benefit of all mankind.</p>
+</div></div>
+<div class="segment">
+  <span class="timestamp" data-time="271.69">[271.69s]</span>
+  <button class="play-btn" data-time="271.69">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">John F. Kennedy</span>
+  <div class="segment-text">So it is not surprising that some would have us stay where we are a little longer, to rest, to wait. But this city of Houston, this state of Texas, this country of the United States was not built by those who waited and rested and wished to look behind them. This country was conquered by those who move forward, and so will space. William Bradford, speaking in 1630 of the founding of the Plymouth Bay Colony, said that all great and honorable actions are accompanied with great difficulty, and both must be enterprised and overcome with answerable courage.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="328.13">[328.13s]</span>
+  <button class="play-btn" data-time="328.13">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">John F. Kennedy</span>
+  <div class="segment-text">If this capsule history of our progress teaches us anything, it is that man in his quest for knowledge and progress is determined and cannot be deterred. The exploration of space will go ahead, whether we join in it or not. And it is one of the great adventures of all time. And no nation which expects to be the leader of other nations can expect to stay behind. in this race for space. Those who came before us made certain that this country rode the first waves of the industrial revolution, the first waves of modern invention, and the first wave of nuclear power. And this generation does not intend to founder in the backwash of the coming age of space. We mean to be a part of it. We mean to lead it.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="395.73">[395.73s]</span>
+  <button class="play-btn" data-time="395.73">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">John F. Kennedy</span>
+  <div class="segment-text">for the eyes of the world now look into space, to the moon and to the planets beyond. And we have vowed that we shall not see it governed by a hostile flag of conquest, but by a banner of freedom and peace. We have vowed that we shall not see space filled with weapons of mass destruction, but with instruments of knowledge and understanding. Yet the vows of this nation can only be fulfilled if we in this nation are first, and therefore we intend to be first. In short, our leadership in science and industry</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="449.53">[449.53s]</span>
+  <button class="play-btn" data-time="449.53">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">John F. Kennedy</span>
+  <div class="segment-text">our hopes for peace and security, our obligations to ourselves as well as others, all require us to make this effort, to solve these mysteries, to solve them for the good of all men, and to become the world's leading space-faring nation. We set sail on this new sea because there is new knowledge to be gained and new rights to be won. and they must be won and used for the progress of all people. For space science, like nuclear science and all technology, has no conscience of its own. Whether it will become a force for good or ill depends on man. And only if the United States occupies a position of preeminence can we help decide whether this new ocean</div>
+</div>
+</div>
+<div class="chapter" id="chapter-507">
+<div class="chapter-content">
+                              <img src="kapitelbild-507.jpg" class="chapter-image" alt="Kapitelbild"><div class="chapter-text"><h2>Space Exploration and Development</h2>
+<p>Kennedy emphasizes the necessity of space exploration—despite its risks—as a task worthy of national effort. Success, he asserts, requires discipline, coordination, and unwavering commitment to measurable goals.</p>
+</div></div>
+<div class="segment">
+  <span class="timestamp" data-time="507.53">[507.53s]</span>
+  <button class="play-btn" data-time="507.53">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">John F. Kennedy</span>
+  <div class="segment-text">will be a sea of peace or a new terrifying theater of war. I do not say that we should or will go unprotected against the hostile misuse of space any more than we go unprotected against the hostile use of land or sea. But I do say that space can be explored and mastered without feeding the fires of war without repeating the mistakes that man has made in extending his writ around this globe of ours. There is no strife, no prejudice, no national conflict in outer space as yet. Its hazards are hostile to us all. Its conquest deserves the best of all mankind and its opportunity for peaceful cooperation may never come again. But why, some say, the moon? Why choose this as our goal?</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="568.31">[568.31s]</span>
+  <button class="play-btn" data-time="568.31">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">John F. Kennedy</span>
+  <div class="segment-text">And they may well ask, why climb the highest mountain? Why 35 years ago, fly the Atlantic? Why does Rice play Texas? We choose to go to the moon. We choose to go to the moon. We choose to go to the moon in this decade and do the other things, not because they are easy, but because they are hard. Because that goal will serve to organize and measure the best of our energies and skills. Because that challenge is one that we're willing to accept, one we are unwilling to postpone, and one we intend to win, and the others too.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="620.58">[620.58s]</span>
+  <button class="play-btn" data-time="620.58">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">John F. Kennedy</span>
+  <div class="segment-text">It is for these reasons that I regard the decision last year to shift our efforts in space from low to high gear as among the most important decisions that will be made during my incumbency in the office of the presidency. In the last 24 hours, we have seen facilities now being created for the greatest and most complex exploration in man's history. We have felt the ground shake. and the air shattered by the testing of a Saturn C-1 booster rocket, many times as powerful as the Atlas which launched John Glenn, generating power equivalents to 10,000 automobiles with their accelerator on the floor. We have seen the site where five F-1 rocket engines, each one as powerful as all eight engines of the Saturn combined,</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="677.98">[677.98s]</span>
+  <button class="play-btn" data-time="677.98">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">John F. Kennedy</span>
+  <div class="segment-text">will be clustered together to make the advanced Saturn missile, assembled in a new building to be built at Cape Canaveral, as tall as a 48-story structure, as wide as a city block, and as long as two lengths of this field. Within these last 19 months, at least 45 satellites have circled the Earth. Some 40 of them were made in the United States of America. And they were far more sophisticated and supplied far more knowledge to the people of the world than those of the Soviet Union. The Mariner spacecraft now on its way to Venus is the most intricate instrument in the history of space science. The accuracy of that shot</div>
+</div>
+</div>
+<div class="chapter" id="chapter-734">
+<div class="chapter-content">
+                              <img src="kapitelbild-734.jpg" class="chapter-image" alt="Kapitelbild"><div class="chapter-text"><h2>The Space Frontier Unfolds</h2>
+<p>The speaker outlines tangible applications of space technology, such as satellite navigation and weather forecasting. Acknowledging setbacks, he expresses confidence in growth, innovation, and the expanding economic impact of the space program.</p>
+</div></div>
+<div class="segment">
+  <span class="timestamp" data-time="734.33">[734.33s]</span>
+  <button class="play-btn" data-time="734.33">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">John F. Kennedy</span>
+  <div class="segment-text">is comparable to firing a missile from Cape Canaveral and dropping it in this stadium between the 40-yard lines. Transit satellites are helping our ships at sea to steer a safer course. TIRAS satellites have given us unprecedented warnings of hurricanes and storms, and will do the same for forest fires and icebergs. We have had our failures, but so have others, even if they do not admit them, and they may be less public. To be sure. To be sure we are behind and will be behind for some time in manned flight. But we do not intend to stay behind and in this decade we shall make up and move ahead. The growth of our science and education</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="793.56">[793.56s]</span>
+  <button class="play-btn" data-time="793.56">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">John F. Kennedy</span>
+  <div class="segment-text">will be enriched by new knowledge of our universe and environment by new techniques of learning and mapping and observation by new tools and computers for industry medicine and the home as well as the school technical institutions such as rice will reap the harvest of these gains and finally the space effort itself while still in its infancy has already created a great number of new companies and tens of thousands of new jobs space and related industries are generating new demand in investment and skilled personnel and this city and this state and this region will share greatly in this growth What was once the furthest outpost on the old frontier of the West will be the furthest outpost on the new frontier of science and space.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="849.71">[849.71s]</span>
+  <button class="play-btn" data-time="849.71">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">John F. Kennedy</span>
+  <div class="segment-text">Houston, your city of Houston, with its manned spacecraft center, will become the heart of a large scientific and engineering community. During the next five years, the National Aeronautic and Space Administration expects to double the number of scientists and engineers in this area, to increase its outlays for salaries and expenses to $60 million a year, to invest some $200 million in plant and laboratory facilities, and to direct or contract for new space efforts over $1 billion from this center in this city. To be sure, all this costs us all a good deal of money.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="899.12">[899.12s]</span>
+  <button class="play-btn" data-time="899.12">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">John F. Kennedy</span>
+  <div class="segment-text">This year's space budget is three times what it was in January 1961, and it is greater than the space budget of the previous eight years combined. That budget now stands at $5,400,000,000 a year, a staggering sum, though somewhat less than we pay for cigarettes and cigars every year. Space expenditures will soon rise Samoa from $0.40 per person per week to more than $0.50 a week for every man, woman, and child in the United States. For we have given this program a high national priority, even though I realize that this is in some measure an act of faith and vision, for we do not now know what benefits await us.</div>
+</div>
+</div>
+<div class="chapter" id="chapter-959">
+<div class="chapter-content">
+                              <img src="kapitelbild-959.jpg" class="chapter-image" alt="Kapitelbild"><div class="chapter-text"><h2>Bold Steps into Space</h2>
+<p>With passion and urgency, the President commits to landing a man on the moon within the decade. He appeals to American courage and determination, framing the mission as a defining act of exploration and national identity.</p>
+</div></div>
+<div class="segment">
+  <span class="timestamp" data-time="959.36">[959.36s]</span>
+  <button class="play-btn" data-time="959.36">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">John F. Kennedy</span>
+  <div class="segment-text">But if I were to say, my fellow citizens, that we shall send to the moon 240,000 miles away from the control station in Houston a giant rocket more than 300 feet tall, the length of this football field, made of new metal alloys, some of which have not yet been invented, capable of standing heat and stresses several times more than have ever been experienced, fitted together with a precision better than the finest watch, carrying all the equipment needed for propulsion, guidance, control, communications, food, and survival on an untried mission to an unknown celestial body, and then return it safely to Earth</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="1009.02">[1009.02s]</span>
+  <button class="play-btn" data-time="1009.02">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">John F. Kennedy</span>
+  <div class="segment-text">reentering the atmosphere at speeds of over 25,000 miles per hour, causing heat about half that on the temperature of the sun, almost as hot as it is here today, and do all this, and do all this, and do it right, and do it first before this dictator's out, then we must be bold. I'm the one who's doing all the work, so stay cool for a minute. However, I think we're going to do it. And I think that we must pay what needs to be paid. I don't think we ought to waste any money, but I think we ought to do the job. And this will be done in the decade of the 60s. It may be done while some of you are still here at school, at this college and university. It will be done during the terms of office of some of the people who sit here on this platform. But it will be done.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="1067.95">[1067.95s]</span>
+  <button class="play-btn" data-time="1067.95">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">John F. Kennedy</span>
+  <div class="segment-text">And it will be done before the end of this decade. And I am delighted that this university is playing a part in putting a man on the moon as part of a great national effort of the United States of America. Many years ago, the great British explorer George Mallory, who was to die on Mount Everest, was asked why did he want to climb it. He said, because it is there. Well, space is there. And we're going to climb it. And the moon and the planets are there. And new hopes for knowledge and peace are there. And therefore, as we set sail, we ask God's blessing on the most hazardous and dangerous and greatest adventure on which man has ever embarked. Thank you.</div>
+</div>
+</div>
+<div class="chapter" id="chapter-1161">
+<div class="chapter-content">
+                              <img src="kapitelbild-1161.jpg" class="chapter-image" alt="Kapitelbild"><div class="chapter-text"><h2>Seeking Divine Guidance and Blessings</h2>
+<p>A solemn prayer closes the address, invoking wisdom, peace, and divine guidance for the nation, its leaders, and its endeavors—including the bold pursuit of space exploration.</p>
+</div></div>
+<div class="segment">
+  <span class="timestamp" data-time="1161.45">[1161.45s]</span>
+  <button class="play-btn" data-time="1161.45">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">SPEAKER</span>
+  <div class="segment-text">Please remain standing. God of all space, who has set the stars in their courses and who does also dwell in the human heart, God of the light years, infinite beyond infinity, who does also give meaning to our brief years, to thee we turn for thy benediction. We give thee thanks, O God, for the rights with which thou hast endowed us, for the freedoms which Americans have secured and cherished and shared, for the love of truth and the dreams of adventure which propel pioneers out into space. We are grateful for the lofty vision of our president, for the intelligence and the eloquence which give wings to his words. Guide and protect him, O Father, and all who are entrusted with the destiny of this great nation. May thy blessing rest upon us all.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="1220.65">[1220.65s]</span>
+  <button class="play-btn" data-time="1220.65">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">SPEAKER</span>
+  <div class="segment-text">Bless us in our homes, in our schools, in our laboratories, our farms, our factories, our space capsules. Prosper us in our cities and our states. Make our country a worthy leader of the free world. And grant the blessings of peace to all mankind. Amen.</div>
+</div>
+</div>
+<div class="chapter" id="chapter-1255">
+<div class="chapter-content">
+                              <img src="kapitelbild-1255.jpg" class="chapter-image" alt="Kapitelbild"><div class="chapter-text"><h2>Initial Greeting Established</h2>
+<p>An informal voice marks the return to everyday human connection: “Albert, how you doing?” — a quiet reminder of the personal dimension beneath the grand vision.</p>
+</div></div>
+<div class="segment">
+  <span class="timestamp" data-time="1255.63">[1255.63s]</span>
+  <button class="play-btn" data-time="1255.63">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">John F. Kennedy</span>
+  <div class="segment-text">Albert, how you doing?</div>
+</div>
+</div>
+
+<div class="notes">
+  <h3>Notes:</h3>
+  <textarea placeholder="Your notes ..."></textarea>
+</div>
+<a href="#top" class="back-to-top">↑ Back to Top</a>
+<footer style="text-align:center; font-size:0.8em; margin-top:50px; color:#888;">
+ © 2025 R2 Mechanics · Educational Use Only
+Not affiliated with NASA, Rice University, or any governmental institution.
+Audio excerpt derived from public domain material provided by the JFK Library.
+Adapted and structured for demonstration purposes. Not for commercial use.
+</footer>
+<script>
+  const audio = document.getElementById("audio");
+  let lastPlayedButton = null;
+
+  document.querySelectorAll(".timestamp").forEach(function(ts) {
+    ts.addEventListener("click", function() {
+      const t = parseFloat(ts.dataset.time);
+      audio.currentTime = t;
+      audio.play();
+      lastPlayedButton = null;
+    });
+  });
+
+  document.querySelectorAll(".play-btn").forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      const t = parseFloat(btn.dataset.time);
+      if (btn !== lastPlayedButton) {
+        audio.currentTime = t;
+        lastPlayedButton = btn;
+      }
+      audio.play();
+    });
+  });
+
+  document.querySelectorAll(".pause-btn").forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      audio.pause();
+    });
+  });
+</script>
+</body>
+</html>
