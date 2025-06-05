@@ -1,89 +1,113 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>R2 Mechanics – Transkription & Archivlösung</title>
-  <style>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>R2 Mechanics – Lokale Transkription &amp; Archivvisualisierung</title>
+    <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #111;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('background-texture.jpg') repeat;
       color: #eee;
       line-height: 1.6;
     }
+
     header {
-      background-color: #1a1a1a;
-      padding: 2rem;
+      background-color: rgba(0, 0, 0, 0.7);
       text-align: center;
+      padding: 2rem;
+      box-shadow: 0 0 18px rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(3px);
     }
+
     header img {
-      width: 100px;
+      height: 120px;
       margin-bottom: 1rem;
     }
+
     h1 {
-      font-size: 1.8rem;
+      font-size: 2rem;
+      color: #aadfff;
+      text-shadow: 0 0 6px #5599cc, 0 0 12px #3377aa;
       margin: 0;
     }
+
     .section {
+      max-width: 860px;
+      margin: 2rem auto;
       padding: 2rem;
-      max-width: 800px;
-      margin: auto;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(2px);
     }
+
+    .buttons {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
     .buttons a {
       display: inline-block;
       margin: 0.5rem;
-      padding: 0.75rem 1.5rem;
-      background-color: #444;
+      padding: 0.8rem 1.5rem;
+      background-color: #007acc;
       color: #fff;
       text-decoration: none;
-      border-radius: 4px;
+      border-radius: 6px;
+      box-shadow: 0 0 8px rgba(0, 180, 255, 0.4);
+      transition: background 0.3s ease;
     }
+
     .buttons a:hover {
-      background-color: #666;
+      background-color: #00b4ff;
     }
+
+    h2 {
+      font-size: 1.6rem;
+      color: #ffc65a;
+      text-shadow: 0 0 6px #362717, 0 0 12px #3377aa;
+    }
+
     footer {
       text-align: center;
       font-size: 0.9rem;
-      padding: 1rem;
+      padding: 1.5rem;
       color: #aaa;
+      margin-top: 2rem;
     }
   </style>
-</head>
-<body>
+  </head>
+  <body>
+    <header> <img src="logo-r2-mechanics.png" alt="R2 Mechanics Logo">
+      <h1>R2 Mechanics – Lokale Transkription &amp; Archivvisualisierung</h1>
+    </header>
+    <div class="section">
+      <p><strong>R2 Mechanics</strong> ist ein vollständig offline betriebenes
+        System zur Transkription, Strukturierung und Visualisierung von
+        Audioinhalten für Forschung, Archive und kulturwissenschaftliche
+        Dokumentation. Die Verarbeitung erfolgt lokal, sicher und modular – ohne
+        Cloud-Abhängigkeit.</p>
+      <p>Die Lösung eignet sich für Oral History, wissenschaftliche Interviews,
+        mediale Sammlungen und Einrichtungen mit erhöhtem Datenschutzbedarf.</p>
+      <div class="buttons"> <a href="whitepaper_de.pdf" download="">📄
+          Whitepaper (DE)</a> <a href="whitepaper_en.pdf" download="">📄
+          Whitepaper (EN)</a> <a href="https://github.com/R2-Mechanics/r2-mechanics"
 
-<header>
-  <img src="logo-r2-mechanics.png" alt="R2 Mechanics Logo">
-  <h1>R2 Mechanics – Lokale Transkription & Archivvisualisierung</h1>
-</header>
-
-<div class="section">
-  <p><strong>R2 Mechanics</strong> ist ein vollständig offline betriebenes System zur Transkription, Strukturierung und Visualisierung von Audioinhalten für Forschung, Archive und kulturwissenschaftliche Dokumentation. Die Verarbeitung erfolgt lokal, sicher und modular – ohne Cloud-Abhängigkeit.</p>
-
-  <p>Das System richtet sich an Forschungseinrichtungen, Museen, Oral-History-Projekte und Institutionen mit hohem Datenschutzanspruch.</p>
-
-  <div class="buttons">
-    <a href="whitepaper_de.pdf" download>📄 Whitepaper (DE)</a>
-    <a href="whitepaper_en.pdf" download>📄 Whitepaper (EN)</a>
-    <a href="https://github.com/R2-Mechanics/r2-mechanics" target="_blank">🔗 GitHub Repository</a>
-    <a href="mailto:office@r2-mechanics.com">📬 Kontakt aufnehmen</a>
-  </div>
-</div>
-
-<div class="section" style="margin-top: 2rem; padding: 2rem; background: linear-gradient(145deg, #1a1a1a, #222); border: 1px solid #333; border-radius: 10px; box-shadow: 0 0 10px #000;">
-  <h2 style="font-size: 1.5rem;">🚀 Live-Demo: JFK Moon Speech</h2>
-  <p style="font-size: 1.1rem;">
-    Strukturierte Transkription mit Kapiteln, Sprechererkennung und Audio – direkt im Browser erlebbar.
-  </p>
-  <div class="buttons" style="margin-top: 1rem;">
-    <a href="JFK-Moonspeech.html" target="_blank" style="background-color: #007acc;">🎧 Demo jetzt ansehen</a>
-  </div>
-</div>
-</div>
-
-<footer>
-  &copy; 2025 David Thiry – R2 Mechanics. All rights reserved.
-</footer>
-
-</body>
+          target="_blank">🔗 GitHub Repository</a> <a href="mailto:office@r2-mechanics.com">📬
+          Kontakt aufnehmen</a> </div>
+    </div>
+    <div class="section">
+      <h2>🎧 Live-Demo: JFK Moon Speech</h2>
+      <p>Strukturierte HTML-Transkription mit Kapiteln, Audio, Zeitmarken und
+        Sprecheranzeige – ideal als Archiv- oder Publikationsformat.</p>
+      <div class="buttons"> <a href="JFK-Moonspeech.html" target="_blank">🔍
+          Jetzt ansehen</a> </div>
+    </div>
+    <footer> © 2025 David Thiry – R2 Mechanics · <em>Engineered for Structure,
+        Speed &amp; Silence</em>
+    </footer>
+    
+  </body>
 </html>
