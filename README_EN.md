@@ -12,15 +12,14 @@ Welcome to the official documentation repository for **R2 Mechanics** – a modu
 
 ---
 
-## 🚀 Live Demo Available
+## 🚀 Live Demos
 
-Explore a sample HTML output with interactive navigation, embedded audio, chapter markers, and speaker-labeled segments:
+Explore sample HTML outputs with interactive navigation, embedded audio, chapter markers, and clearly attributed speakers:
 
-▶️ [View JFK Moon Speech Demo](https://r2-mechanics.github.io/r2-mechanics/JFK-Moonspeech.html)
+▶️ [View JFK Moon Speech Demo](https://r2-mechanics.github.io/r2-mechanics/JFK-Moonspeech.html)  
+▶️ [View Apollo 11 Press Conference Demo](https://r2-mechanics.github.io/r2-mechanics/demo-apollo11/apollo11.html)
 
-This demonstration shows the structured output of the R2 Mechanics system, combining privacy-focused offline transcription with a visual HTML rendering layer.
-
----
+These demonstrations showcase the structured offline output of the R2 Mechanics system, combining secure local transcription with visual segmentation and time-aligned speaker labeling.
 
 ## Objective
 
