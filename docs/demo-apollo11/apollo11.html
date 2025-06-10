@@ -1,0 +1,365 @@
++<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Apollo 11 Post Flight Press Conference, 12 August 1969.</title>
+  <style>
+     body {
+      background: url('background-texture.jpg')  center center;
+      background-size: 100% 40%;
+      font-family: 'Segoe UI', sans-serif;
+      color: #ffffff;
+      margin: 0;
+      padding: 2em;
+      max-width: 900px;
+      margin: auto;
+    }
+    .logo-container { text-align: center; margin-top: 30px; margin-bottom: 20px; }
+    .logo-container img { height: 150px; }
+    h1 {
+      text-align: center;
+      font-size: 2.5em;
+      color: #aadfff;
+      text-shadow: 0 0 6px #5599cc, 0 0 12px #3377aa;
+      font-weight: bold;
+      margin-top: 1em;
+    }
+    .summary {
+      background: rgba(0, 0, 0, 0.35);
+      padding: 25px 30px;
+      margin-bottom: 25px;
+      border-radius: 14px;
+      font-size: 1.2em;
+      text-align: start;
+      font-weight: 600;
+      box-shadow: 0 0 18px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(3px);
+    }
+    .toc {
+      background: rgba(0, 0, 0, 0.35);
+      padding: 50px;
+      border-radius: 14px;
+      margin-bottom: 30px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(3px);
+    }
+    .toc h3 {
+      text-align: start;
+      font-size: 2.0em;
+      color: #aadfff;
+      text-shadow: 0 0 6px #5599cc, 0 0 12px #3377aa;
+    }
+    .toc ul { list-style: none; padding-left: 0; line-height: 1.6; font-size: 1.25em; }
+    .toc li { margin: 0.4em 0; }
+	.toc li a {
+  display: inline-block;
+  padding: 6px 10px;
+  color: #aadfff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+.toc li a:hover {
+  background-color: rgba(102, 170, 255, 0.1);
+  color: #66aaff;
+  text-shadow: 0 0 6px #66aaff;
+  transform: scale(1.03);
+}
+    audio {
+    display: block;
+ display: block;
+  width: 100%;
+  margin: 3em auto;
+  padding: 3px;
+  background: #000c;
+  border-radius: 33px;
+  box-shadow: 0 0 14px rgba(22, 199, 227, 0.6);
+  border: 2px solid #66aaff44;
+  backdrop-filter: blur(2px);
+  transition: transform 0.2s ease-in-out;
+    }
+    .chapter {
+      background: rgba(0, 0, 0, 0.4);
+      padding: 25px;
+      margin-bottom: 30px;
+      border-radius: 14px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      backdrop-filter: blur(2px);
+    }
+    .chapter h2 {
+      font-size: 2.0em;
+      color: #ffc65ae5;
+      text-shadow: 0 0 6px #362717, 0 0 12px #3377aa;
+    }
+    .chapter p {
+      color: #fff;
+      margin-bottom: 1em;
+      font-size: 1.2em;
+      font-weight: bold;
+      text-shadow: 0 0 6px #5a6166, 0 0 2px #07528a;
+    }
+    .segment { margin-bottom: 1.4em; }
+    .timestamp {
+      color: #f58612;
+      font-size: 1.4em;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: black;
+      font-family: inherit;
+    }
+    .timestamp:hover { color: #66aaff; text-shadow: 0 0 4px #66aaff; }
+    .play-btn, .pause-btn {
+      background: transparent;
+      border: 2px solid #66aaff;
+      color: #66aaff;
+      font-size: 0.9em;
+      border-radius: 4px;
+      margin-left: 10px;
+      cursor: pointer;
+      padding: 2px 6px;
+    }
+    .play-btn:hover, .pause-btn:hover {
+      background: #66aaff;
+      color: #001f3f;
+    }
+    .speaker {
+    font-weight: bold;
+  color: #ffc65a;
+  display: block;
+  margin-top: 0.5em;
+  padding: 0px;
+  margin-bottom: 1em;
+  font-size: 1.35em;
+    }
+    .segment-text {
+      font-size: 1.15em;
+      line-height: 1.55;
+      color: #eeeeee;
+    }
+    .notes {
+      margin-top: 30px;
+      padding: 15px;
+      border: 2px dashed #66aaff;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .notes textarea {
+      width: 100%;
+      height: 150px;
+      background: #222;
+      color: #ddd;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #555;
+    }
+    .cover-image {
+      text-align: center;
+      margin: 30px auto 20px;
+    }
+    .cover-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 0 18px rgba(0,0,0,0.4);
+    }
+    .audio-title {
+  text-align: center;
+  font-size: 2.5em;
+  margin: 1.5em 0 0.5em;
+  color: #c8e7ff;
+  text-shadow: 0 0 4px #18234a;
+    }
+    .chapter-image {
+  float: left;
+  max-width: 400px;
+  margin-right: 25px;
+  border-radius: 14px;
+  box-shadow: 0 0 14px rgba(0,0,0,0.5);
+}
+    .back-to-top {
+      display: block;
+      text-align: center;
+      margin: 40px auto 20px;
+      color: #aadfff;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .cover-caption {
+  text-align: center;
+  font-style: oblique;
+  color: #cccccc;
+  margin-top: 2px;
+  font-size: 1.5em; /* Erhöhe hier z. B. auf 1.2em oder 1.3em bei Bedarf */
+}
+  </style>
+</head>
+<body>
+<a id="top"></a>
+<div class="logo-container">
+  <img src="logo.svg" alt="R2 Mechanics Logo">
+</div>
+<h1>Apollo 11 Post Flight Press Conference, 12 August 1969.</h1>
+<div class="cover-image">
+  <img src="cover.jpg" alt="Titelbild">
+  <p class="cover-caption">Mission Debrief: Apollo 11 astronauts recount the journey</p>
+</div>
+<div class="summary">From the echoes of earlier Saturn missions to the intricate ballet of orbital mechanics, the journey unfolds as a continuum of knowledge and precision. Armstrong recalls the inherited wisdom that shaped their own launch, while Collins provides a window into the meticulous maneuvers of docking and inspection.
+
+As Aldrin initiates the lunar module’s systems, the crew separates from the command module and confirms trajectory through practiced coordination and radar tracking. The descent follows with calculated adjustments, each decision honed by prior missions.
+
+Upon landing, the Moon reveals itself — a silent witness to eons past. Aldrin describes a terrain both familiar and alien: scattered rocks, layered dust, and crater edges bearing the marks of cosmic time. This landscape, once only imagined, becomes a stage for human presence and memory.</div>
+<div class="toc"><h3>Selected Passages of the journey</h3><ul>
+<li><a href="#chapter-1">Mission Preparation and Overview</a></li>
+<li><a href="#chapter-58">Orbital Maneuvers and Visual Inspection</a></li>
+<li><a href="#chapter-217">Lunar Module Activation and Separation Check</a></li>
+<li><a href="#chapter-364">Descent Trajectory and Landing Process</a></li>
+<li><a href="#chapter-474">Lunar Surface Features</a></li>
+</ul></div>
+<h2 class="audio-title">🎧 Original NASA Recording – Apollo 11 Press Conference (First 10 Minutes)</h2>
+<audio id="audio" controls src="start.mp3"></audio>
+<div class="chapter" id="chapter-1">
+<div class="chapter-content">
+                              <img src="kapitelbild-1.jpg" class="chapter-image" alt="Kapitelbild"><div class="chapter-text"><h2>Mission Preparation and Overview</h2>
+<p>Neil Armstrong describes how memories of earlier Saturn V missions align with official reports, emphasizing their importance in preparing for Apollo 11. He highlights how previous experience benefited key phases such as the boost and coast stages. The discussion then intentionally skips over Earth orbit and resumes at the translunar coast phase and the transposition and docking sequence.</p>
+</div></div>
+<div class="segment">
+  <span class="timestamp" data-time="1.60">[1.60s]</span>
+  <button class="play-btn" data-time="1.60">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Neil Armstrong</span>
+  <div class="segment-text">Our memory of that actually differs little from the reports that you have all heard from those previous Saturn V flights. And the previous flights served us well in preparation for this flight in the boost as well as the subsequent phases. We would like to skip directly to the Translunar Coast phase and transposition and docking sequence.</div>
+</div>
+</div>
+<div class="chapter" id="chapter-58">
+<div class="chapter-content">
+                              <img src="kapitelbild-58.jpg" class="chapter-image" alt="Kapitelbild"><div class="chapter-text"><h2>Orbital Maneuvers and Visual Inspection</h2>
+<p>Michael Collins recounts the maneuvers performed with the command module. He specifically mentions viewing the S-IVB stage after separation and explains the manual docking approach to the lunar module using the alignment target. During this process, both motion pictures and still photographs were taken through the module's windows.</p>
+</div></div>
+<div class="segment">
+  <span class="timestamp" data-time="58.23">[58.23s]</span>
+  <button class="play-btn" data-time="58.23">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Michael Collins</span>
+  <div class="segment-text">This was our first look at the magnificent machinery which had been behind us up until this point the uh the booster of course the first and the second stages have long since separated but this shows the limb nestled inside the third stage the s4b after the translator inject burn this maneuver was an interesting combination of manual and automated techniques in that we programmed the onboard computer to make the turnaround and then these final maneuvers were made completely manually As I approached the LAM, I had an easy time because I had a docking target, which is not too clearly visible here, which allowed me to align the probe and the drogue, which is the dark spot you see on the upper right. During this time, I also checked out the proper vehicle response to my stick inputs, and here shortly you'll see the actual docking somewhat speeded up.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="120.77">[120.77s]</span>
+  <button class="play-btn" data-time="120.77">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Michael Collins</span>
+  <div class="segment-text">There's a point of contact. And in just a second, you'll see a second right there, a second small indication of the retract cycle when the 12.4, the lunar module, of course, is in a sense upside down relative to the command module. This is in lunar orbit showing the separation of the lunar module from the command module as viewed through my window. This was a busy time for me in that I was taking these motion pictures through the right-hand window. At the same time, I was taking still photos through the left-hand window and also flying my vehicle and... Probably poorly and taking... A close look at the limb as he turned around.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="175.38">[175.38s]</span>
+  <button class="play-btn" data-time="175.38">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Michael Collins</span>
+  <div class="segment-text">My most important job here was to make sure that all his landing gear were down and properly locked prior to his... Gives you a better idea of the detail available with the 70 millimeter. Of course, this is a still and shows the limb either right side up or upside down, I'm not sure which. It looks more like, to me it looks like a praying mantis than it does a first class flying machine in this view, but it was a beautiful piece of machinery. The landing gear are at the top and you can see the probes which indicate lunar contact as thin wires extending upward from the landing gear.</div>
+</div>
+</div>
+<div class="chapter" id="chapter-217">
+<div class="chapter-content">
+                              <img src="kapitelbild-217.jpg" class="chapter-image" alt="Kapitelbild"><div class="chapter-text"><h2>Lunar Module Activation and Separation Check</h2>
+<p>Buzz Aldrin discusses the activation of the lunar module following docking. After a short joint flight phase, the two modules separated again to allow for independent guidance system checks. A successful radar verification confirmed their relative separation speed.</p>
+</div></div>
+<div class="segment">
+  <span class="timestamp" data-time="217.90">[217.90s]</span>
+  <button class="play-btn" data-time="217.90">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Buzz Aldrin</span>
+  <div class="segment-text">Of course, before we could undock, as is shown in this picture, we had to complete the activation. Now the day before we undocked, we entered the LEM and went through an entire switch configuration check, and we exercised the various communication modes. In retrospect, since we did have a little bit of communication problems on the following day during power descent, we would recommend that we might make a more thorough check of this on the day before descent. On the day that we did finally enter the LM for the landing maneuver, we went through a staggered sequence of shooting, and we found that with all the simulations that we had run back here in Houston,</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="264.07">[264.07s]</span>
+  <button class="play-btn" data-time="264.07">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Buzz Aldrin</span>
+  <div class="segment-text">Or with Houston tied with our simulations in the Cape that we were quite confident that we would be able to complete this Lem activation in a given time period which was approximately four hours We managed to get 30 minutes ahead of the time and it allowed us to get a more accurate platform alignment check at one point After the Undocking maneuver we went through a brief radar check and then the command module Executed a two foot per second maneuver away from us so that we would both be able to independently Exercise our guidance system through a star alignment check which we did following this this separation maneuver</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="316.08">[316.08s]</span>
+  <button class="play-btn" data-time="316.08">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Buzz Aldrin</span>
+  <div class="segment-text">Now, this occurred in a vicinity close to the landing site, and you can see at this point the command module is traveling right over the center of our targeted point. It's approaching now what we call the cat's paw. Following this separation maneuver on the backside of the moon, we made a decent orbit insertion, which is a slightly over 70 foot per second maneuver that lowers our altitude down to 50,000 feet. We had two guidance systems working for us. They behaved perfectly. Both of them agreed extremely closely as to the results of this maneuver. Following this, we used the radar to confirm the actual departure rate from the command module.</div>
+</div>
+</div>
+<div class="chapter" id="chapter-364">
+<div class="chapter-content">
+                              <img src="kapitelbild-364.jpg" class="chapter-image" alt="Kapitelbild"><div class="chapter-text"><h2>Descent Trajectory and Landing Process</h2>
+<p>Neil Armstrong describes the descent path as seen from the lunar module window during system activation. He compares their view with Apollo 8 and 10 imagery to verify their ground track. The emphasis is on accurately managing altitude, rate of descent, and lateral motion during the final landing phase. The surface is noted to be fine-grained with a surprising number of rocks of varying sizes.</p>
+</div></div>
+<div class="segment">
+  <span class="timestamp" data-time="364.16">[364.16s]</span>
+  <button class="play-btn" data-time="364.16">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Neil Armstrong</span>
+  <div class="segment-text">This is a view of the descent trajectory area as viewed through the LAM window during our activation. In the bottom right of the The photograph is the crater masculine, and in the bottom center is the final phases of the descent. The landing area itself is in the smooth area at the top of the picture just before we arrive at the shadow on what's called the terminator. seen a number of pictures from Apollo's 8 and 10, which gave us an excellent understanding of the ground track over which we would pass during the descent.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="415.47">[415.47s]</span>
+  <button class="play-btn" data-time="415.47">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Neil Armstrong</span>
+  <div class="segment-text">We're now looking up the right-hand window of the crater, and there is Maskellon W. It occurred approximately two to three seconds late and gave us, degraded our ability to determine not only our altitude and altitude rate in the final phases, but also and probably more importantly, our translational velocities over the ground. It's quite important not to stub your toe during the final phases of touchdown. And once settled on the surface, the dust cleared immediately. And we had an exploit. And of course, the surface was very fine-grained. We could tell that from from our view out the window, but there were a surprisingly large number of rocks of all sizes.</div>
+</div>
+</div>
+<div class="chapter" id="chapter-474">
+<div class="chapter-content">
+                              <img src="kapitelbild-474.jpg" class="chapter-image" alt="Kapitelbild"><div class="chapter-text"><h2>Lunar Surface Features</h2>
+<p>Buzz Aldrin provides a description of the lunar surface as observed from the module. He points out a distant boulder field near the horizon, likely caused by impacts behind the landing site. The crater rims are mostly rounded, though some show sharper features, suggesting different geological ages.</p>
+</div></div>
+<div class="segment">
+  <span class="timestamp" data-time="474.74">[474.74s]</span>
+  <button class="play-btn" data-time="474.74">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Buzz Aldrin</span>
+  <div class="segment-text">This is the view out the right window. Up close to the horizon you see a boulder field that was probably deposited by some of the impacts in the craters that were behind us. You see most of the craters have rounded edges however there is a variation in the in the age of these as we can tell by the sharpness of the edge of the crater the immediate foreground area uh we'll see more pictures of uh later it was relatively uh flat terrain in contrast to uh looking forward along where the shadow of the uh lem is cast on the surface and we see a zero phase glow around the upper portion of the limb. The general color of the terrain looking down sun was a very light tannish color.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="532.71">[532.71s]</span>
+  <button class="play-btn" data-time="532.71">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Buzz Aldrin</span>
+  <div class="segment-text">This blended as we looked more across sun to a more sharper, well-defined features and more of a gray color. During the initial time period after touchdown, We went through various sequences to prepare us for immediate abort or liftoff if we found that that was necessary. We had found we had to vent the fuel and oxidizer</div>
+</div>
+</div>
+
+<div class="notes">
+  <h3>Notes:</h3>
+  <textarea placeholder="your notes ..."></textarea>
+</div>
+<a href="#top" class="back-to-top">↑ back to top</a>
+<script>
+  const audio = document.getElementById("audio");
+  let lastPlayedButton = null;
+
+  document.querySelectorAll(".timestamp").forEach(function(ts) {
+    ts.addEventListener("click", function() {
+      const t = parseFloat(ts.dataset.time);
+      audio.currentTime = t;
+      audio.play();
+      lastPlayedButton = null;
+    });
+  });
+
+  document.querySelectorAll(".play-btn").forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      const t = parseFloat(btn.dataset.time);
+      if (btn !== lastPlayedButton) {
+        audio.currentTime = t;
+        lastPlayedButton = btn;
+      }
+      audio.play();
+    });
+  });
+
+  document.querySelectorAll(".pause-btn").forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      audio.pause();
+    });
+  });
+</script>
+</body>
+</html>
