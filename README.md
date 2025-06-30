@@ -17,11 +17,17 @@ Willkommen im offiziellen Dokumentations-Repository für **R2 Mechanics** – ei
 Erleben Sie exemplarische HTML-Ausgaben mit interaktiver Navigation, eingebettetem Audio, Kapitelmarken und Sprechererkennung:
 
 ▶️ [JFK Moon Speech Demo](https://r2-mechanics.github.io/r2-mechanics/JFK-Moonspeech.html)  
-▶️ [Apollo 11 Press Conference Demo](https://r2-mechanics.github.io/r2-mechanics/demo-apollo11/apollo11.html)
+✅ Strukturierte Rede mit Kapiteln und Zeitmarken
 
-These demos illustrate the structured offline output of R2 Mechanics, featuring embedded audio, speaker-labeled segments and visual segmentation.
+▶️ [Apollo 11 Press Conference Demo](https://r2-mechanics.github.io/r2-mechanics/demo-apollo11/apollo11.html)  
+✅ Mehrere Sprecher, Kapitelstruktur und historische QA-Situation
+
+▶️ [UAP Congressional Hearing (2024)](https://r2-mechanics.github.io/r2-mechanics/uap-hearing/uap-2024.html)  
+✅ Komplette zweistündige Anhörung mit Sprechertrennung und Archivpräsentation
 
 ---
+
+These demos illustrate the structured offline output of R2 Mechanics, featuring embedded audio, speaker-labeled segments and visual segmentation.
 
 
 ## Zielsetzung
