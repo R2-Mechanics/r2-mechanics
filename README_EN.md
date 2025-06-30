@@ -1,8 +1,8 @@
-# R2 Mechanics – Structured Offline Transcription for Research and Archives
+# R2 Mechanics – Structured Offline Transcription and Interactive Archival Output
 
-Welcome to the official documentation repository for **R2 Mechanics** – a modular, fully offline transcription system with visually structured HTML output.
+Welcome to the official documentation repository for **R2 Mechanics** – a modular, fully offline transcription and analysis system that produces interactive, visually structured HTML archives.
 
-> This repository serves as a public timestamped proof and documentation reference for the underlying methodology. It contains **no operational source code**. The full system runs locally and is available for review upon request in the context of institutional cooperation.
+> This repository serves as a public, timestamped proof-of-concept and documentation reference. It contains **no operational source code**. The full system runs entirely offline and is available for review or pilot deployments in cooperation with research and cultural institutions.
 
 ---
 
@@ -14,38 +14,56 @@ Welcome to the official documentation repository for **R2 Mechanics** – a modu
 
 ## 🚀 Live Demos
 
-Explore sample HTML outputs with interactive navigation, embedded audio, chapter markers, and clearly attributed speakers:
+Explore example outputs with interactive navigation, embedded audio players, chapter markers, speaker attributions, and AI-generated annotations:
 
-▶️ [View JFK Moon Speech Demo](https://r2-mechanics.github.io/r2-mechanics/JFK-Moonspeech.html)  
-▶️ [View Apollo 11 Press Conference Demo](https://r2-mechanics.github.io/r2-mechanics/demo-apollo11/apollo11.html)
+▶️ [JFK Moon Speech Demo](https://r2-mechanics.github.io/r2-mechanics/JFK-Moonspeech.html)  
+▶️ [Apollo 11 Press Conference Demo](https://r2-mechanics.github.io/r2-mechanics/demo-apollo11/apollo11.html)  
+▶️ [UAP Congressional Hearing Demo](https://r2-mechanics.github.io/r2-mechanics/demo-uap/uap.html)
 
-These demonstrations showcase the structured offline output of the R2 Mechanics system, combining secure local transcription with visual segmentation and time-aligned speaker labeling.
-
-## Objective
-
-R2 Mechanics was developed to process sensitive audio material (e.g., interviews, oral history) in a structured, transparent and privacy-compliant manner. The system offers:
-
-- Local transcription (based on WhisperX)
-- Speaker separation and attribution
-- Chapter structure with time markers
-- Visual HTML output with embedded audio
-- Optional: automatic scene illustration
+These demos showcase the **structured offline HTML output** with:
+- Secure local transcription (WhisperX)
+- Speaker separation and time-aligned segments
+- Automatic chapter structure
+- Integrated LLM-based notes with precise timestamps
+- Optional Stable Diffusion–generated chapter illustrations
 
 ---
 
-## Motivation
+## 🎯 Objective
 
-Research institutions, archives and cultural organizations need tools to structure audio content without reliance on cloud infrastructure or license risks. R2 Mechanics fills this gap.
+**R2 Mechanics** was developed to help research institutions, archives, and cultural organizations process sensitive audio materials in a structured, transparent, and privacy-compliant manner.  
+
+Key goals:
+- 100 % offline operation, fully auditable
+- No cloud dependencies or license conflicts
+- Human-readable, long-term archivable outputs
 
 ---
 
-## Component Overview (abstracted)
+## ⚙️ Key Features
 
-- WhisperX (local, GPU-accelerated)
-- Chapter files (.txt with timestamps, titles, optional notes)
-- HTML generator (custom visual styling)
-- Optional: LLM-based summaries (offline)
-- Optional: image generator (Stable Diffusion on dedicated system)
+- Local GPU-accelerated transcription (WhisperX)
+- Speaker diarization and time-stamped segmentation
+- Automated LLM annotations (notes/sidenotes) with exact timecodes
+- Chapter-based summaries with generated time markers
+- Stable Diffusion integration for chapter illustrations
+- Fully structured HTML export:
+  - Audio player with jump links
+  - Table of contents
+  - Chapter headings with images
+  - Per-chapter summaries and notes
+  - Clear speaker roles and time anchors
+  - CSS-styled for readability
+
+---
+
+## 🧩 Component Overview (abstracted)
+
+- **Transcription**: WhisperX (local, CUDA-accelerated)
+- **Structuring**: Chapter files (.txt with timestamps, titles, descriptions)
+- **LLM-based Analysis**: Offline generation of summaries and time-aligned notes
+- **Image Generation**: Stable Diffusion (local prompt-to-image pipeline)
+- **HTML Generator**: Fully styled, interactive output with audio and navigation
 
 ---
 
@@ -68,7 +86,9 @@ For cooperation inquiries, demos, or pilot projects:
 
 ---
 
-## Status
+## 🚦 Status
 
-🛠 This repository documents the architecture and design intent of R2 Mechanics.  
-🔒 The full codebase and processing pipeline are not public but verifiably implemented.
+🛠 This repository documents the system architecture, use cases, and demo outputs.  
+🔒 The full codebase and processing pipeline remain private but are verifiably implemented and available for institutional cooperation.
+
+---
