@@ -17,8 +17,16 @@ Welcome to the official documentation repository for **R2 Mechanics** – a modu
 Explore example outputs with interactive navigation, embedded audio players, chapter markers, speaker attributions, and AI-generated annotations:
 
 ▶️ [JFK Moon Speech Demo](https://r2-mechanics.github.io/r2-mechanics/JFK-Moonspeech.html)  
+✅ Structured speech with chapters and time markers
+
 ▶️ [Apollo 11 Press Conference Demo](https://r2-mechanics.github.io/r2-mechanics/demo-apollo11/apollo11.html)  
-▶️ [UAP Congressional Hearing Demo](https://r2-mechanics.github.io/r2-mechanics/demo-uap/uap.html)
+✅ Multiple speakers with chapter structure and historical Q&A
+
+▶️ [UAP Congressional Hearing Demo](https://r2-mechanics.github.io/r2-mechanics/uap-hearing/uap-2024.html)  
+✅ Full two-hour hearing with speaker separation and archival presentation
+
+▶️ [Oral-History.Digital – Pagenstecher Project](https://r2-mechanics.github.io/r2-mechanics/vortraege-de/pagenstecher-project.html)  
+✅ Simple, text-only lecture transcription with chapter links and audio
 
 These demos showcase the **structured offline HTML output** with:
 - Secure local transcription (WhisperX)
