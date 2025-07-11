@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Pagenstecher Projekt</title>
+  <style>
+    body {
+      background-color: #111;
+      font-family: 'Segoe UI', sans-serif;
+      color: #ffffff;
+      margin: 0;
+      padding: 2em;
+      max-width: 900px;
+      margin: auto;
+    }
+    .logo-container { text-align: center; margin-top: 30px; margin-bottom: 20px; }
+    .logo-container img { height: 250px; }
+    h1 {
+      text-align: center;
+      font-size: 2.5em;
+      color: #aadfff;
+      text-shadow: 0 0 6px #5599cc, 0 0 12px #3377aa;
+      font-weight: bold;
+      margin-top: 1em;
+    }
+    .summary {
+      background: rgba(0, 0, 0, 0.35);
+      padding: 25px 30px;
+      margin-bottom: 25px;
+      border-radius: 14px;
+      font-size: 1.2em;
+      text-align: start;
+      font-weight: 600;
+      box-shadow: 0 0 18px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(3px);
+    }
+    .toc {
+      background: rgba(0, 0, 0, 0.35);
+      padding: 50px;
+      border-radius: 14px;
+      margin-bottom: 30px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(3px);
+    }
+    .toc h3 {
+      text-align: start;
+      font-size: 2.0em;
+      color: #aadfff;
+      text-shadow: 0 0 6px #5599cc, 0 0 12px #3377aa;
+    }
+    .toc ul { list-style: none; padding-left: 0; line-height: 1.6; font-size: 1.25em; }
+    .toc li { margin: 0.4em 0; }
+    .toc a { color: #aadfff; text-decoration: underline; font-weight: bold; }
+    audio {
+    display: block;
+ display: block;
+  width: 100%;
+  margin: 3em auto;
+  padding: 3px;
+  background: #000c;
+  border-radius: 33px;
+  box-shadow: 0 0 14px rgba(22, 199, 227, 0.6);
+  border: 2px solid #66aaff44;
+  backdrop-filter: blur(2px);
+  transition: transform 0.2s ease-in-out;
+    }
+    .chapter {
+      background: rgba(0, 0, 0, 0.4);
+      padding: 25px;
+      margin-bottom: 30px;
+      border-radius: 14px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      backdrop-filter: blur(2px);
+    }
+    .chapter h2 {
+      font-size: 2.0em;
+      color: #ffc65ae5;
+      text-shadow: 0 0 6px #362717, 0 0 12px #3377aa;
+    }
+    .chapter p {
+      color: #fff;
+      margin-bottom: 1em;
+      font-size: 1.2em;
+      font-weight: bold;
+      text-shadow: 0 0 6px #5a6166, 0 0 2px #07528a;
+    }
+    .segment { margin-bottom: 1.4em; }
+    .timestamp {
+      color: #f58612;
+      font-size: 1.4em;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: black;
+      font-family: inherit;
+    }
+    .timestamp:hover { color: #66aaff; text-shadow: 0 0 4px #66aaff; }
+    .play-btn, .pause-btn {
+      background: transparent;
+      border: 2px solid #66aaff;
+      color: #66aaff;
+      font-size: 0.9em;
+      border-radius: 4px;
+      margin-left: 10px;
+      cursor: pointer;
+      padding: 2px 6px;
+    }
+    .play-btn:hover, .pause-btn:hover {
+      background: #66aaff;
+      color: #001f3f;
+    }
+    .speaker {
+    font-weight: bold;
+  color: #ffc65a;
+  display: block;
+  margin-top: 0.5em;
+  padding: 0px;
+  margin-bottom: 1em;
+  font-size: 1.35em;
+    }
+    .segment-text {
+      font-size: 1.15em;
+      line-height: 1.55;
+      color: #eeeeee;
+    }
+    .notes {
+      margin-top: 30px;
+      padding: 15px;
+      border: 2px dashed #66aaff;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .notes textarea {
+      width: 100%;
+      height: 150px;
+      background: #222;
+      color: #ddd;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #555;
+    }
+    .cover-image {
+      text-align: center;
+      margin: 30px auto 20px;
+    }
+    .cover-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 0 18px rgba(0,0,0,0.4);
+    }
+    .audio-title {
+  text-align: center;
+  font-size: 2.5em;
+  margin: 1.5em 0 0.5em;
+  color: #c8e7ff;
+  text-shadow: 0 0 4px #18234a;
+    }
+    .chapter-image {
+  float: left;
+  max-width: 400px;
+  margin-right: 25px;
+  border-radius: 14px;
+  box-shadow: 0 0 14px rgba(0,0,0,0.5);
+}
+    .back-to-top {
+      display: block;
+      text-align: center;
+      margin: 40px auto 20px;
+      color: #aadfff;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .cover-caption {
+  text-align: center;
+  font-style: oblique;
+  color: #cccccc;
+  margin-top: 2px;
+  font-size: 1.5em; /* Erhöhe hier z. B. auf 1.2em oder 1.3em bei Bedarf */
+}
+  </style>
+</head>
+<body>
+<a id="top"></a>
+<div class="logo-container">
+  <img src="logo.svg" alt="R2 Mechanics Logo">
+</div>
+<h1>Oral-History.Digital - Pagenstecher Project</h1>
+<div class="cover-image">
+  <img src="cover.jpg" alt="Titelbild">
+  <p class="cover-caption">Dr.Cord Pagenstecher spricht zum Publikum in der FU Berlin</p>
+</div>
+<div class="summary">Oral History Interviews sind lebendige Quellen der mündlichen Geschichte, die wichtige historische Informationen bieten. Die Herausforderungen bei der Suche und Verwendung von Interviews werden im Kontext von Portalen und digitaler Archivierung beleuchtet.
+
+Die Analyse von Interviews ist mit verschiedenen Filtern und Metadaten möglich, um die unvollständige Natur des Archivs und der Interviews zu verstehen.</div>
+<div class="toc"><h3>Themen des Vortrags</h3><ul>
+<li><a href="#chapter-1">Oral History Interviews</a></li>
+<li><a href="#chapter-156">Interviewarchivausrichtung</a></li>
+<li><a href="#chapter-311">Fair-Prinzipien</a></li>
+<li><a href="#chapter-461">Archivverwaltung</a></li>
+<li><a href="#chapter-622">Archiv und Interviews</a></li>
+<li><a href="#chapter-754">Suche und Filterung</a></li>
+<li><a href="#chapter-919">Oral History & Fluchterfahrungen</a></li>
+<li><a href="#chapter-1086">Interviewarchiv</a></li>
+<li><a href="#chapter-1234">Software-Integration</a></li>
+<li><a href="#chapter-1401">Zusammenarbeit</a></li>
+</ul></div>
+<h2 class="audio-title">🎧  Hören Sie sich den Vortrag hier an</h2>
+<audio id="audio" controls src="start.mp3"></audio>
+<div class="chapter" id="chapter-1">
+<div class="chapter-content">
+                              <img src="kapitelbild-1.jpg" class="chapter-image" alt="Kapitelbild"><div class="chapter-text"><h2>Oral History Interviews</h2>
+<p>Oral History Interviews sind lebensgeschichtliche Interviews, die als Quellen der mündlichen Geschichte dienen und wichtige historische Informationen, insbesondere in Bereichen wie Alltagsgeschichte und Geschichte von unten, bieten.</p>
+</div></div>
+<div class="segment">
+  <span class="timestamp" data-time="1.09">[1.09s]</span>
+  <button class="play-btn" data-time="1.09">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> Vielen Dank für die netten Worte.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="6.08">[6.08s]</span>
+  <button class="play-btn" data-time="6.08">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Ich trete am Anfang mal einen kleinen Schritt zurück.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="9.41">[9.41s]</span>
+  <button class="play-btn" data-time="9.41">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Was sind eigentlich Oral History Interviews?</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="13.29">[13.29s]</span>
+  <button class="play-btn" data-time="13.29">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Das sind zunächst einfach lebensgeschichtliche Interviews, in der Regel mit Audio oder Video aufgezeichnet, die als Quellen der mündlichen Geschichte, insbesondere in Bereichen wie Alltagsgeschichte oder Geschichte von unten,</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="28.35">[28.35s]</span>
+  <button class="play-btn" data-time="28.35">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> aber auch Geschichte der Diktaturen und ihrer Opfer in der Forschung eine wichtige Rolle spielen.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="37.34">[37.34s]</span>
+  <button class="play-btn" data-time="37.34">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Im Zuge des digitalen Wandels verstehen wir sie in den letzten Jahren immer stärker auch als audiovisuelle Forschungsdaten, was verschiedene Chancen und Herausforderungen mit sich bringt, insbesondere einen interdisziplinären Blick auf diese historischen Quellen.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="57.44">[57.44s]</span>
+  <button class="play-btn" data-time="57.44">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> Aber sie sind natürlich nicht nur interessant für Universitäten.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="62.15">[62.15s]</span>
+  <button class="play-btn" data-time="62.15">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Sie sind auch überwiegend nicht entstanden an Universitäten, sondern ganz stark in Initiativen der Erinnerungskultur, oft ehrenamtlich, manchmal von Stiftungen oder anderen Töpfen notdürftig finanziert und stellen heute ein ganz wichtiges</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="83.60">[83.60s]</span>
+  <button class="play-btn" data-time="83.60">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> einen wichtigen Teil unseres kulturellen Erbes dar, gerade an der Grenze zwischen dem kommunikativen Gedächtnis der ZeitzeugInnen und dem kulturellen Gedächtnis von uns Gesellschaften.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="100.30">[100.30s]</span>
+  <button class="play-btn" data-time="100.30">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Als solche werden sie auch viel genutzt in Ausstellungen und in Bildungsmaterialien und da haben wir auch in den vergangenen Jahren</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="110.85">[110.85s]</span>
+  <button class="play-btn" data-time="110.85">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> Susanne hat es erwähnt, schon einiges an Materialien dafür aufgrund unserer Interviewarchive erarbeitet.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="122.17">[122.17s]</span>
+  <button class="play-btn" data-time="122.17">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Also ein echter vielfältiger Schatz, aber er birgt doch auch große Herausforderungen.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="130.39">[130.39s]</span>
+  <button class="play-btn" data-time="130.39">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> Die Interviewführung selber ist schon mal sehr aufwendig, nicht nur jetzt wegen der Technik von Videokamera und dem ganzen weiteren Speicher- und Verarbeitungsprozess, sondern vor allem auch, weil man geeignete Zeitzeug innen finden muss und den Kontakt dann mit ihnen halten und für viele Themen, die jetzt schon länger zurückliegen, geht das schon gleich gar nicht mehr.</div>
+</div>
+</div>
+<div class="chapter" id="chapter-156">
+<div class="chapter-content">
+                              <img src="kapitelbild-156.jpg" class="chapter-image" alt="Kapitelbild"><div class="chapter-text"><h2>Interviewarchivausrichtung</h2>
+<p><Zusammenfassung> Dieser Abschnitt konzentriert sich auf die Herausforderungen bei der Suche und Verwendung von Interviews, da diese häufig verstreut und nicht aufbereitet sind. Das Portal Our History Digital und ROC Digital bieten eine Infrastruktur, um Interviews zu erschließen, zu sichern und zu präsentieren, und gleichzeitig eine archivergreifende Suche zu ermöglichen.</p>
+</div></div>
+<div class="segment">
+  <span class="timestamp" data-time="156.97">[156.97s]</span>
+  <button class="play-btn" data-time="156.97">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Das heißt, wenn ich jetzt heute eine neue Forschung</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="160.58">[160.58s]</span>
+  <button class="play-btn" data-time="160.58">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> oder Ausstellung machen möchte, bietet es sich eigentlich an, erst mal zu gucken, welche Interviews gibt es denn überhaupt, die schon vorhanden sind.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="170.63">[170.63s]</span>
+  <button class="play-btn" data-time="170.63">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Kann ich selber noch eigene führen?</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="172.96">[172.96s]</span>
+  <button class="play-btn" data-time="172.96">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Aber auch eine solche Nachnutzung ist nicht leicht, weil die Bestände sehr verstreut sind über Museen, Archive, Geschichtswerkstätten, Gedenkstätten, Vereine und auch die universitären</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="185.69">[185.69s]</span>
+  <button class="play-btn" data-time="185.69">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> Interviewprojekte ihre Daten nicht unbedingt aufbereitet haben zu einer Nachnutzung.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="192.68">[192.68s]</span>
+  <button class="play-btn" data-time="192.68">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Meistens sind Interviews nur vor Ort nutzbar.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="197.27">[197.27s]</span>
+  <button class="play-btn" data-time="197.27">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Schwer auffindbar, wo es überhaupt welche gibt.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="199.77">[199.77s]</span>
+  <button class="play-btn" data-time="199.77">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Es gibt da also keinen Bibliothekskatalog für Interviewsammlungen.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="205.48">[205.48s]</span>
+  <button class="play-btn" data-time="205.48">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Und je nach Einrichtung sind sie nach sehr unterschiedlichen Richtlinien mit unterschiedlichen Softwares und Datenbanksystemen erschlossen.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="215.02">[215.02s]</span>
+  <button class="play-btn" data-time="215.02">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> Hier möchte also das Portal Our History Digital ansetzen und adressiert zwei Hauptgruppen, die in der Praxis sich tatsächlich natürlich überschneiden.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="229.25">[229.25s]</span>
+  <button class="play-btn" data-time="229.25">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Aber das eine sind eben Forschende in Klammern und andere Interessierte aus der Erinnerungskultur der Öffentlichkeit und so weiter im Bildungsbereich.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="240.58">[240.58s]</span>
+  <button class="play-btn" data-time="240.58">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Bei der Recherche, Annotation und Analyse von Interviews.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="245.44">[245.44s]</span>
+  <button class="play-btn" data-time="245.44">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> Und ROC Digital unterstützt andererseits Archive oder eben Einrichtungen und Personen, die Interviews haben, bei ihrer Erschließung, Sicherung und Bereitstellung oder Präsentation.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="262.73">[262.73s]</span>
+  <button class="play-btn" data-time="262.73">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Diese eine Infrastruktur hat also sowohl die Funktion eines Portals, was eine archivübergreifende Suche unterstützt,</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="271.21">[271.21s]</span>
+  <button class="play-btn" data-time="271.21">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> als auch einer Forschungsumgebung, der Begriff war mal vor ein paar Jahren sehr in Mode, jetzt nicht mehr ganz so, aber es ist eben nicht nur ein Nachweis dieser Interviews, sondern die konkrete quellnahe Arbeit mit diesen Beständen wird durch verschiedene Werkzeuge und Ansichten konkret unterstützt.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="298.70">[298.70s]</span>
+  <button class="play-btn" data-time="298.70">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> Und die Archivpartner, also die Inhaber von Sammlungen, werden bei der effizienten und auch an Standards orientierten Erschließung unterstützt.</div>
+</div>
+</div>
+<div class="chapter" id="chapter-311">
+<div class="chapter-content">
+                              <img src="kapitelbild-311.jpg" class="chapter-image" alt="Kapitelbild"><div class="chapter-text"><h2>Fair-Prinzipien</h2>
+<p><Zusammenfassung> Der Autor betont die Bedeutung von Fair-Prinzipien wie Aufwendbarkeit, Zugänglichkeit und Kontextualisierung bei der Verwendung von Quellen, einschließlich digitaler Plattformen.</p>
+</div></div>
+<div class="segment">
+  <span class="timestamp" data-time="311.34">[311.34s]</span>
+  <button class="play-btn" data-time="311.34">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Das Ganze ordnet sich also ein in diese Fair-Prinzipien der Aufwendbarkeit, der Zugänglichkeit, auch der Kontextualisierung oder Verknüpfbarkeit, Interoperabilität.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="326.17">[326.17s]</span>
+  <button class="play-btn" data-time="326.17">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> und der Nachnutzbarkeit dieser Quellen.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="331.80">[331.80s]</span>
+  <button class="play-btn" data-time="331.80">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Bei all diesen simplen Spiegelstrichen, die jetzt hier stehen, dahinter verbergen sich natürlich bei jedem einzelnen Punkt zahlreiche Probleme und ausführliche Diskussionen, die wir an verschiedenen Stellen auch geführt hatten und gerade in Zukunft auch weiterführen werden.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="349.85">[349.85s]</span>
+  <button class="play-btn" data-time="349.85">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> was etwa die Persönlichkeitsrechte der Interviewten betrifft, wie die zu schützen sind, wie die zu interpretieren sind, was die Frage der Kontextualisierung betrifft, also die digitale Plattformen haben immer die Gefahr der Dekontextualisierung und vieles andere mehr, auf das ich jetzt hier nicht so eingehen will.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="377.52">[377.52s]</span>
+  <button class="play-btn" data-time="377.52">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> Es wurde schon gesagt, dass das eben als DFG-Projekt unterstützt gefördert worden ist.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="384.75">[384.75s]</span>
+  <button class="play-btn" data-time="384.75">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Auch die Projektpartner wurden hier teilweise schon erwähnt.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="389.76">[389.76s]</span>
+  <button class="play-btn" data-time="389.76">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Ich habe es hier nochmal aufgelistet, sozusagen die drei ersten, die quasi für die Oral History stehen, teils aus Sammlungssicht, teils aus Forschungssicht.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="399.58">[399.58s]</span>
+  <button class="play-btn" data-time="399.58">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> Und dann die Medieninformatik von der Uni Bamberg und das Bayerische Archiv für Sprachsignale, die nachher auch noch ihre Arbeit vorstellen werden.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="412.54">[412.54s]</span>
+  <button class="play-btn" data-time="412.54">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Und wir, die das eben koordiniert, aber auch einen Großteil der Entwicklungsarbeiten hier geleistet haben.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="420.20">[420.20s]</span>
+  <button class="play-btn" data-time="420.20">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Und das Folgeprojekt wurde schon gesagt.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="422.61">[422.61s]</span>
+  <button class="play-btn" data-time="422.61">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Ich zeige jetzt mal so nochmal eine kurze</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="425.63">[425.63s]</span>
+  <button class="play-btn" data-time="425.63">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> Grafik dieses Portals, ehe ich das dann live zeigen will.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="433.19">[433.19s]</span>
+  <button class="play-btn" data-time="433.19">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Wenn man also auf dieses Portal kommt, kann man ohne weitere Anmeldung schon einen Katalog</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="443.32">[443.32s]</span>
+  <button class="play-btn" data-time="443.32">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> nutzen, indem man Institutionen, Archive und Sammlungen findet, die Interviews zur Verfügung stellen.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="452.85">[452.85s]</span>
+  <button class="play-btn" data-time="452.85">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Man hat eine Suchfunktion, um auf die einzelnen Interviews zumindest mit ihren anonymisierten Metadaten zu kommen.</div>
+</div>
+</div>
+<div class="chapter" id="chapter-461">
+<div class="chapter-content">
+                              <img src="kapitelbild-461.jpg" class="chapter-image" alt="Kapitelbild"><div class="chapter-text"><h2>Archivverwaltung</h2>
+<p><Zusammenfassung> Dieser Abschnitt bespricht die Bedeutung von Eigenverantwortung und Erschließungswerkzeugen bei der Verwaltung von Archiven, einschließlich der Archivierung von Audio- und Videodaten.</p>
+</div></div>
+<div class="segment">
+  <span class="timestamp" data-time="461.44">[461.44s]</span>
+  <button class="play-btn" data-time="461.44">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Wenn man sich dann registriert in dieser Forschungsumgebung und für einzelne der dort enthaltenen Archive freischalten lässt, dann kann man mit den kompletten</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="473.44">[473.44s]</span>
+  <button class="play-btn" data-time="473.44">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> Medien, Audios, Videos, Transkripten, Fotos, Begleitdokumenten arbeiten.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="481.65">[481.65s]</span>
+  <button class="play-btn" data-time="481.65">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Wenn man selber ein Sammlungsinhaber oder Inhaberin ist und sein eigenes Archiv, ich habe es jetzt hier mal einfach Pilotarchiv genannt, dort mit einstellen, erschließen will, dann kann man das hochladen und dort zu einem eigenen Bereich bekommen.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="498.63">[498.63s]</span>
+  <button class="play-btn" data-time="498.63">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Also das ist uns wichtig.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="500.26">[500.26s]</span>
+  <button class="play-btn" data-time="500.26">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> Nicht wir sammeln alles ein und uns gehört es alles, sondern jedes Archiv bleibt eigenständig mit eigener Verantwortlichkeit, auch mit eigenen Entscheidungen, zum Beispiel, wem man den Zugang dazu gewährt.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="517.60">[517.60s]</span>
+  <button class="play-btn" data-time="517.60">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Was wir dann anbieten, ist eine Unterstützung mit verschiedenen Erschließungswerkzeugen, etwa im Bereich Spracherkennung oder Normdaten.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="527.31">[527.31s]</span>
+  <button class="play-btn" data-time="527.31">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Und was dann auch möglich wird,</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="529.55">[529.55s]</span>
+  <button class="play-btn" data-time="529.55">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> ist der Nachweis dieser einzelnen Archive in übergeordneten allgemeineren Verzeichnissen, sowie die Langzeitarchivierung der hochwertigen Audio- und Videodateien über unseren Münchner Partner aus dem Clarion-Verbund.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="549.62">[549.62s]</span>
+  <button class="play-btn" data-time="549.62">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Und das ist natürlich für viele Institutionen und Projekte auch wichtig, selber sichtbar zu werden mit einer eigenen Adresse, einer eigenen</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="558.22">[558.22s]</span>
+  <button class="play-btn" data-time="558.22">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> Logo, Design etc.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="560.42">[560.42s]</span>
+  <button class="play-btn" data-time="560.42">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Also nicht hier unterzugehen in einer anonymen Infrastruktur.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="568.21">[568.21s]</span>
+  <button class="play-btn" data-time="568.21">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">So, wie sieht das jetzt konkret aus?</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="573.08">[573.08s]</span>
+  <button class="play-btn" data-time="573.08">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Ich drücke jetzt mal sozusagen auf diesen berühmten roten Knopf, den man früher bei solchen Veranstaltungen immer gehabt hat.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="581.01">[581.01s]</span>
+  <button class="play-btn" data-time="581.01">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Und bin jetzt auf der Startseite des Portals Eurohistory Digital.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="587.96">[587.96s]</span>
+  <button class="play-btn" data-time="587.96">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> wo es vor allem zwei wesentliche Einstiegspunkte gibt, die Suche und den Katalog.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="597.97">[597.97s]</span>
+  <button class="play-btn" data-time="597.97">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Ich fange mal an mit dem Katalog.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="600.15">[600.15s]</span>
+  <button class="play-btn" data-time="600.15">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Das ist also eine Liste der Institutionen, von denen bereitgestellten Archive und dem untergeordnet sozusagen die Sammlungen, die in diesen Archiven enthalten sind.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="616.17">[616.17s]</span>
+  <button class="play-btn" data-time="616.17">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> kann das auch hier nach der Anzahl der Interviews sortieren.</div>
+</div>
+</div>
+<div class="chapter" id="chapter-622">
+<div class="chapter-content">
+                              <img src="kapitelbild-622.jpg" class="chapter-image" alt="Kapitelbild"><div class="chapter-text"><h2>Archiv und Interviews</h2>
+<p><Zusammenfassung> Dieser Abschnitt konzentriert sich auf die Suche und Analyse von Interviews in einem digitalen Archiv. Es wird auf die unvollständige Natur des Archivs und die unvollständigen Interviews hingewiesen, da einige Interviews noch nicht freigegeben sind.</p>
+</div></div>
+<div class="segment">
+  <span class="timestamp" data-time="622.00">[622.00s]</span>
+  <button class="play-btn" data-time="622.00">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Insgesamt ist das sehr unterschiedlich in der Größe, was da enthalten ist.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="628.79">[628.79s]</span>
+  <button class="play-btn" data-time="628.79">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Bei manchen steht auch noch 1 oder 0.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="631.46">[631.46s]</span>
+  <button class="play-btn" data-time="631.46">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Das verweist einerseits darauf, dass es eben ein Projekt im Aufbau ist.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="636.00">[636.00s]</span>
+  <button class="play-btn" data-time="636.00">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Wir sind ja tatsächlich jetzt im Grunde</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="638.23">[638.23s]</span>
+  <button class="play-btn" data-time="638.23">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> ist es ein betriebsfähiger Prototyp, da wo normalerweise eigentlich noch gar nichts drin ist, aber hier haben wir doch jetzt schon eine ganze Menge Inhalte zu sehen.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="649.00">[649.00s]</span>
+  <button class="play-btn" data-time="649.00">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Aber die Archivinhaber nutzen diese Infrastruktur, auch wenn sie noch nicht fertig sind.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="653.97">[653.97s]</span>
+  <button class="play-btn" data-time="653.97">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Das muss nicht sozusagen perfekt alles sein, sondern es hilft einem gerade bei der laufenden Arbeit.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="660.45">[660.45s]</span>
+  <button class="play-btn" data-time="660.45">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Und manche</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="661.33">[661.33s]</span>
+  <button class="play-btn" data-time="661.33">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> Interviews sind auch einfach noch nicht freigegeben aus verschiedenen organisatorischen, rechtlichen Gründen und stehen deswegen hier auf Null.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="670.68">[670.68s]</span>
+  <button class="play-btn" data-time="670.68">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Wenn man jetzt zum Beispiel, ich greife jetzt mal hier die Forschungsstelle für Zeitgeschichte in Hamburg raus, die haben ihr Archiv Werkstatt der Erinnerung und wenn man da draufklickt, dann bekommt man hier eine genauere Beschreibung dieses Archivs, wie es entstanden ist, welche Schwerpunkte es hat.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="690.05">[690.05s]</span>
+  <button class="play-btn" data-time="690.05">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> Und welche untergeordneten Sammlungen zu diesem Archiv auch gehören.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="694.82">[694.82s]</span>
+  <button class="play-btn" data-time="694.82">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Und dort kann man jeweils auf Klick dann nochmal weitere Informationen bekommen.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="703.78">[703.78s]</span>
+  <button class="play-btn" data-time="703.78">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Ich wechsle dann jetzt, ach so, also zur Werkstatt der Erinnerung möchte ich nochmal sagen, wir machen ja morgen einen Workshop in etwas kleinerer Runde, aber so klein dann auch nicht.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="715.38">[715.38s]</span>
+  <button class="play-btn" data-time="715.38">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Und da wird die Werkstatt der Erinnerung auch nochmal ihre</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="718.42">[718.42s]</span>
+  <button class="play-btn" data-time="718.42">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> Bestände und ihre Arbeit vorstellen und das war also war und ist für uns auch ein ganz wichtiger Partner in unserem Projekt.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="728.05">[728.05s]</span>
+  <button class="play-btn" data-time="728.05">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Neben dem Katalog ist die andere Möglichkeit die Suche und diese Suche führt also direkt zu einzelnen Interviews.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="737.17">[737.17s]</span>
+  <button class="play-btn" data-time="737.17">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Im Moment sind hier 2632 Interviews nachgewiesen.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="743.44">[743.44s]</span>
+  <button class="play-btn" data-time="743.44">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> Auf meinem Screenshot, den ich vorgestern gemacht habe, war noch eine andere Zahl.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="747.71">[747.71s]</span>
+  <button class="play-btn" data-time="747.71">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Also da ist jetzt in letzter Minute hier noch eifriges Geschehen.</div>
+</div>
+</div>
+<div class="chapter" id="chapter-754">
+<div class="chapter-content">
+                              <img src="kapitelbild-754.jpg" class="chapter-image" alt="Kapitelbild"><div class="chapter-text"><h2>Suche und Filterung</h2>
+<p><Zusammenfassung> Dieser Abschnitt beschreibt die Suche und Analyse von Interviews anhand von verschiedenen Filtern und Metadaten, einschließlich des Geburtsdatums und des Medientyps.</p>
+</div></div>
+<div class="segment">
+  <span class="timestamp" data-time="754.36">[754.36s]</span>
+  <button class="play-btn" data-time="754.36">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Und man sieht hier, dass es also teilweise Video, teilweise Audiointerviews sind, erkennt, zu welchem Archiv die gehören, teilweise, wenn es da nochmal Sammlungen gibt, in welcher Sammlung die sind.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="769.65">[769.65s]</span>
+  <button class="play-btn" data-time="769.65">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> Ich bin jetzt nicht angemeldet hier, deswegen ist hier überall so ein geschlossenes Kreuz, wo ich also nicht wirklich dann schon auf die Transkripte oder Mediendateien zugreifen kann.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="786.38">[786.38s]</span>
+  <button class="play-btn" data-time="786.38">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Hier habe ich eine Reihe von Facetten, mit denen ich filtern kann.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="792.87">[792.87s]</span>
+  <button class="play-btn" data-time="792.87">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Zum Beispiel gucke ich jetzt mal hier nach dem Geburtsdatum, schau mal, jetzt haben wir eigentlich</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="800.11">[800.11s]</span>
+  <button class="play-btn" data-time="800.11">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> Leute, die jetzt schon über 100 Jahre alt wären, immerhin 731 Interviews vor dem Geburtsjahr 1923.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="809.48">[809.48s]</span>
+  <button class="play-btn" data-time="809.48">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Ich könnte das dann noch eingrenzen, zum Beispiel, wenn ich da nur an Frauen interessiert bin.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="817.85">[817.85s]</span>
+  <button class="play-btn" data-time="817.85">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Und kann dann auch noch etwas umfangreichere Metadaten hier in dieser Listenansicht bekommen.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="827.88">[827.88s]</span>
+  <button class="play-btn" data-time="827.88">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> Das wird dann auch etwas unübersichtlich, aber ist eben mehr sozusagen so eine Art Expertenansicht für genauere Forschungen.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="838.88">[838.88s]</span>
+  <button class="play-btn" data-time="838.88">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Man wird jetzt sehen, dass es bei vielen, die ich jetzt hier aufgerufen habe, wie etwa hier bei diesem ersten, was ich mal eben anklicke, nur Metadaten zu sehen sind.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="854.23">[854.23s]</span>
+  <button class="play-btn" data-time="854.23">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Das ist sozusagen also diese</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="856.37">[856.37s]</span>
+  <button class="play-btn" data-time="856.37">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> dieser Nachweis, dieses Interview gibt es mit diesen Schlagworten.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="861.94">[861.94s]</span>
+  <button class="play-btn" data-time="861.94">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Wenn ich da jetzt aber genauer das sehen will, dann muss ich mich zu dem Archivinhaber, in dem Fall dem Historischen Datenzentrum in Halle begeben und dort kriege ich dann einen Zugang.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="875.30">[875.30s]</span>
+  <button class="play-btn" data-time="875.30">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Wenn ich jetzt</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="877.11">[877.11s]</span>
+  <button class="play-btn" data-time="877.11">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> gucken will, nur die, von denen wirklich hier Medien und Transkripte vorhanden sind, dann sind es immerhin auch noch 97, die eben von Frauen, die vor 1923 geboren sind, viele hier aus dem Archiv Deutsches Gedächtnis, die dann online verfügbar sind.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="897.51">[897.51s]</span>
+  <button class="play-btn" data-time="897.51">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Dazu werden wir ja noch mehr nachher von Almut Lee hören.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="906.39">[906.39s]</span>
+  <button class="play-btn" data-time="906.39">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> Jetzt ist das natürlich insgesamt eine etwas formale Recherche, Geburtsdatum, Medientyp etc.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="914.68">[914.68s]</span>
+  <button class="play-btn" data-time="914.68">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Das geht noch nicht so richtig in die historischen Thematiken rein.</div>
+</div>
+</div>
+<div class="chapter" id="chapter-919">
+<div class="chapter-content">
+                              <img src="kapitelbild-919.jpg" class="chapter-image" alt="Kapitelbild"><div class="chapter-text"><h2>Oral History & Fluchterfahrungen</h2>
+<p>In diesem Abschnitt werden verschiedene Oral History Archive und die Herausforderungen bei der Zusammenstellung eines Thesauri von Fluchterfahrungen besprochen.</p>
+</div></div>
+<div class="segment">
+  <span class="timestamp" data-time="919.99">[919.99s]</span>
+  <button class="play-btn" data-time="919.99">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Deswegen haben wir begonnen, ein Themenregister auch zu erarbeiten, was wir aber hier mit Beta nochmal gekennzeichnet haben, weil wir da eben ziemliches Neuland betreten.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="932.11">[932.11s]</span>
+  <button class="play-btn" data-time="932.11">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Es wurden</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="932.93">[932.93s]</span>
+  <button class="play-btn" data-time="932.93">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> einfach noch nie so verschiedene Oral History Archive zusammen in einem Portal verzeichnet und also einen übergreifenden Thesaurus hier zu erarbeiten, ist da also eine echte Herausforderung, wo wir auch weiter daran diskutieren werden und da gerne auch auf Ihr wohlwollendes Feedback, insbesondere von den Experten für die einzelnen Themen zurückkommen.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="961.75">[961.75s]</span>
+  <button class="play-btn" data-time="961.75">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> Ich klicke jetzt einfach mal einen Begriff hier an, Flucht.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="966.98">[966.98s]</span>
+  <button class="play-btn" data-time="966.98">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Da haben wir 111 Interviews, die damit schon jetzt verschlagwortet worden sind.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="974.57">[974.57s]</span>
+  <button class="play-btn" data-time="974.57">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Wenn man dann schaut, aus welchen Archiven die kommen, kriegt man schon den Eindruck, dass sehr unterschiedliche Fluchterfahrungen hier erzählt werden.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="983.38">[983.38s]</span>
+  <button class="play-btn" data-time="983.38">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Es gibt jüdische Geschichten, es gibt DDR-Geschichten, es gibt Flucht und Vertreibung.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="991.27">[991.27s]</span>
+  <button class="play-btn" data-time="991.27">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> 1945 und es gibt aktuelle Fluchterfahrungen, wie zum Beispiel in diesem kleinen Interviewprojekt 40 Jahre Asyl in der Kirche, was wir hier in den letzten Monaten auch an der FU entwickelt haben.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="1013.20">[1013.20s]</span>
+  <button class="play-btn" data-time="1013.20">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Wenn ich jetzt ein Interview gefunden habe,</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="1019.28">[1019.28s]</span>
+  <button class="play-btn" data-time="1019.28">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> Auf das ich dann mal klicken will, dann bekomme ich zunächst mal die Information, um auf die Interviews zuzugreifen, ist eine Registrierung und eine Freischaltung für dieses Archiv notwendig.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="1036.74">[1036.74s]</span>
+  <button class="play-btn" data-time="1036.74">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Das mache ich jetzt mal und hoffe, dass ich mich an mein richtiges Passwort erinnere.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="1047.31">[1047.31s]</span>
+  <button class="play-btn" data-time="1047.31">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Jawohl.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="1048.24">[1048.24s]</span>
+  <button class="play-btn" data-time="1048.24">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> So, dann bin ich also in einem Interview drin und kann das jetzt im Einzelnen, ich habe jetzt nicht die Zeit, das anzuspielen und da weiter reinzugehen, aber das Besondere an dieser Plattform ist eben, dass dieses Transkript den sozialen Problem, die sich aus dem Video oder dem Audio gekoppelt ist, dass es ein mitlaufendes Transkript ist, dass es da also diese enge Verzahnung gibt,</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="1078.09">[1078.09s]</span>
+  <button class="play-btn" data-time="1078.09">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> zwischen Medium und Text gibt und ich da jederzeit dann an die Stelle springen kann, die ich suche.</div>
+</div>
+</div>
+<div class="chapter" id="chapter-1086">
+<div class="chapter-content">
+                              <img src="kapitelbild-1086.jpg" class="chapter-image" alt="Kapitelbild"><div class="chapter-text"><h2>Interviewarchiv</h2>
+<p><Zusammenfassung> Dieser Abschnitt präsentiert verschiedene Methoden des Interviewarchivs, einschließlich direkter Zitierung, Annotation und Volltextsuche. Die Autorin betont die Bedeutung von archivübergreifenden Suchen und der Analyse mehrerer Interviews zu einem Thema.</p>
+</div></div>
+<div class="segment">
+  <span class="timestamp" data-time="1086.62">[1086.62s]</span>
+  <button class="play-btn" data-time="1086.62">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Das ist hier ein 5 Stunden 26 Minuten Interview, durchaus nicht ungewöhnlich für Oral History.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="1093.91">[1093.91s]</span>
+  <button class="play-btn" data-time="1093.91">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Deswegen haben wir hier also ein Inhaltsverzeichnis angelegt, was dann auch klickbar ist und wo man dann gleich an entsprechende Stellen springen kann.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="1104.14">[1104.14s]</span>
+  <button class="play-btn" data-time="1104.14">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> Wenn ich jetzt als Nutzer sage, aber genau diese Stelle hier finde ich jetzt besonders interessant und die will ich mir mal merken, annotieren, später damit irgendwas machen, dann kann ich das eben als Forschender, als Nutzer mir dieses Segment merken, dazu auch irgendeine Notiz machen und das in meiner Arbeitsmappe speichern, beziehungsweise auch direkt hier diese Stelle dann auch analysieren.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="1133.44">[1133.44s]</span>
+  <button class="play-btn" data-time="1133.44">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> in meiner Publikation zitieren, also direkt mit dem Link zu der Minute auch.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="1140.81">[1140.81s]</span>
+  <button class="play-btn" data-time="1140.81">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Das ist also was, wo wir uns dann schon da einen Fortschritt sehen, dass man eben nicht das ganze Interview zitiert und dann vielleicht noch im Transkript auf Seite 85, aber wenn das Transkript anders ausgedruckt wird, dann stimmt es schon nicht mehr, sondern eben zitierfähig diese genaue Stelle, auf die man sich bezieht.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="1162.95">[1162.95s]</span>
+  <button class="play-btn" data-time="1162.95">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> Es gibt auch noch die Möglichkeit jetzt der Volltextsuche innerhalb des einen Interviews, aber eben auch archivübergreifend zumindest für die Interviews, zu denen ich einen Zugang habe.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="1184.16">[1184.16s]</span>
+  <button class="play-btn" data-time="1184.16">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Und wenn ich jetzt zum Beispiel mal hier nach Angst suche, ein Thema, was in vielen Interviews angesprochen wird, was aber nicht</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="1192.69">[1192.69s]</span>
+  <button class="play-btn" data-time="1192.69">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> Thema eines Interviews ist oder eines Projekts.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="1195.75">[1195.75s]</span>
+  <button class="play-btn" data-time="1195.75">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Und wenn man das hier archivübergreifend diese Suche macht, dann sieht man, dass manche Interviewten zweimal in ihrem Transkript das erwähnen, manche 13.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="1209.17">[1209.17s]</span>
+  <button class="play-btn" data-time="1209.17">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Und man kann dann also direkt auch an die entsprechende Stelle quasi zumindest so ein Segment, ein Snippet davon sehen und dann da hinspringen und schauen, war das die Stelle, die ich gesucht habe und</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="1222.86">[1222.86s]</span>
+  <button class="play-btn" data-time="1222.86">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> dann muss man es natürlich noch mal genauer interpretieren.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="1228.37">[1228.37s]</span>
+  <button class="play-btn" data-time="1228.37">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">So, ich fürchte, ich bin schon völlig über die Zeit hinweg.</div>
+</div>
+</div>
+<div class="chapter" id="chapter-1234">
+<div class="chapter-content">
+                              <img src="kapitelbild-1234.jpg" class="chapter-image" alt="Kapitelbild"><div class="chapter-text"><h2>Software-Integration</h2>
+<p>Die Software wird mit dem Leipzig-Korpus kompatibel gemacht, um interdisziplinäre, linguistische oder Digital Humanities zu ermöglichen.</p>
+</div></div>
+<div class="segment">
+  <span class="timestamp" data-time="1234.70">[1234.70s]</span>
+  <button class="play-btn" data-time="1234.70">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Entschuldigung, ich gehe trotzdem noch mal ganz kurz zurück in die Präsentation, um noch ein bisschen als Rahmen zu sagen,</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="1247.82">[1247.82s]</span>
+  <button class="play-btn" data-time="1247.82">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> Wenn ich jetzt selber ein Archiv habe und die Interviews weiter bearbeiten will, habe ich eine eigene Redaktionsansicht, in der ich zum Beispiel das so gestalten kann, wie ich das anzeigen will, farblich mit bestimmten Metadaten.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="1265.74">[1265.74s]</span>
+  <button class="play-btn" data-time="1265.74">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Und ich habe die Möglichkeit, an Ort und Stelle das Transkript zu korrigieren, editorische Anmerkungen zu machen, diese Überschriften zu erzeugen.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="1277.89">[1277.89s]</span>
+  <button class="play-btn" data-time="1277.89">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> Das kann dann ziemlich viel Arbeit machen, wenn ich ein entsprechendes Team habe, dann kann ich auch Mitarbeitern da Rechte und Rollen dafür geben, dass sie das weiter machen können und ich das dann in so einer Art Workflow Management kontrolliere.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="1297.45">[1297.45s]</span>
+  <button class="play-btn" data-time="1297.45">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Wir haben eine Webseite gemacht, eben auch unter dieser leicht zu merkenden Domain, oral-history.digital.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="1306.04">[1306.04s]</span>
+  <button class="play-btn" data-time="1306.04">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> wo es allerhand Anleitungen und Unterstützung dazu gibt, auch die Vertragsunterlagen, die diese wissenschaftliche Dienstleistung der FU hier dann ermöglichen.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="1327.52">[1327.52s]</span>
+  <button class="play-btn" data-time="1327.52">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Ergänzen möchte ich noch, dass die Software, mit der das alles gebaut ist, auch Open Source verfügbar ist.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="1335.16">[1335.16s]</span>
+  <button class="play-btn" data-time="1335.16">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> Und wir hoffen, dass sie weiter auch möglicherweise von anderen Institutionen genutzt wird.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="1342.31">[1342.31s]</span>
+  <button class="play-btn" data-time="1342.31">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Da gab es schon einige Anfragen.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="1344.45">[1344.45s]</span>
+  <button class="play-btn" data-time="1344.45">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Und außer dieser schon erwähnten For Memory sind wir auch interessiert natürlich an anderen Kooperationsprojekten, um eben zu gucken, wie man das jetzt konkret in der Forschung auch nutzen kann.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="1361.52">[1361.52s]</span>
+  <button class="play-btn" data-time="1361.52">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> Genau, das Folgeprojekt OHD2 ist schon erwähnt worden.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="1368.03">[1368.03s]</span>
+  <button class="play-btn" data-time="1368.03">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Das sind so die Arbeitspakete, die wir uns da vorgenommen haben.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="1372.16">[1372.16s]</span>
+  <button class="play-btn" data-time="1372.16">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Fett gemacht habe ich mal hier Software-Integration.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="1375.84">[1375.84s]</span>
+  <button class="play-btn" data-time="1375.84">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Da geht es unter anderem darum, den Leipzig-Korpus meiner anzugliedern an unsere Software, um eben interdisziplinäre, linguistische oder Digital Humanities zu</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="1390.73">[1390.73s]</span>
+  <button class="play-btn" data-time="1390.73">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text"> Verfahren dort in Zukunft weiterzuentwickeln.</div>
+</div>
+<div class="segment">
+  <span class="timestamp" data-time="1396.43">[1396.43s]</span>
+  <button class="play-btn" data-time="1396.43">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Da wird morgen in dem Workshop auch ein bisschen genauer darüber gesprochen.</div>
+</div>
+</div>
+<div class="chapter" id="chapter-1401">
+<div class="chapter-content">
+                              <img src="kapitelbild-1401.jpg" class="chapter-image" alt="Kapitelbild"><div class="chapter-text"><h2>Zusammenarbeit</h2>
+<p><Zusammenfassung> Der Abschnitt geht auf die Zusammenarbeit im Zusammenhang mit einem Projekt namens For Memory ein.</p>
+</div></div>
+<div class="segment">
+  <span class="timestamp" data-time="1401.20">[1401.20s]</span>
+  <button class="play-btn" data-time="1401.20">▶</button>
+  <button class="pause-btn">⏸</button><br>
+  <span class="speaker">Dr. Cord Pagenstecher</span>
+  <div class="segment-text">Ebenfalls über die Zusammenarbeit im Rahmen von 4-Memory.</div>
+</div>
+</div>
+
+<div class="notes">
+  <h3>Bemerkungen:</h3>
+  <textarea placeholder="Deine eigenen Notizen ..."></textarea>
+</div>
+<a href="#top" class="back-to-top">↑ Zurück zum Anfang</a>
+<footer style="text-align:center; font-size:0.8em; margin-top:50px; color:#888;">
+ © 2025 R2 Mechanics · Educational Use Only<br>
+Source used: <br> https://medien.cedis.fu-berlin.de/ohd/ohd/release2023/PART2_Pagenstecher_projekt_720p.mp4
+</footer>
+<script>
+  const audio = document.getElementById("audio");
+  let lastPlayedButton = null;
+
+  document.querySelectorAll(".timestamp").forEach(function(ts) {
+    ts.addEventListener("click", function() {
+      const t = parseFloat(ts.dataset.time);
+      audio.currentTime = t;
+      audio.play();
+      lastPlayedButton = null;
+    });
+  });
+
+  document.querySelectorAll(".play-btn").forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      const t = parseFloat(btn.dataset.time);
+      if (btn !== lastPlayedButton) {
+        audio.currentTime = t;
+        lastPlayedButton = btn;
+      }
+      audio.play();
+    });
+  });
+
+  document.querySelectorAll(".pause-btn").forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      audio.pause();
+    });
+  });
+</script>
+</body>
+</html>
