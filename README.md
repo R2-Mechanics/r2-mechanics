@@ -25,6 +25,9 @@ Erleben Sie exemplarische HTML-Ausgaben mit interaktiver Navigation, eingebettet
 ▶️ [UAP Congressional Hearing (2024)](https://r2-mechanics.github.io/r2-mechanics/uap-hearing/uap-2024.html)  
 ✅ Komplette zweistündige Anhörung mit Sprechertrennung und Archivpräsentation
 
+▶️ [UAP Congressional Hearing (PL/EN Demo)](https://r2-mechanics.github.io/r2-mechanics/uap-hearing-pl/start-pl.html)  
+✅ Englische Demo mit polnischen Erklärungen und zweisprachiger Struktur
+
 ▶️ [Oral-History.Digital – Pagenstecher Project](https://r2-mechanics.github.io/r2-mechanics/vortraege-de/pagenstecher-project.html)  
 ✅ Vortrag mit einfacher, bildloser Transkription, Kapitellinks und Audio für archivische Nutzung
 
