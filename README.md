@@ -1,94 +1,113 @@
-# R2 Mechanics – Strukturierte Offline-Transkription für Forschung und Archive
+# R2 Mechanics – Structured Offline Transcription & AI Analysis Infrastructure
 
-Willkommen im offiziellen Dokumentations-Repository für **R2 Mechanics** – ein modulares, offline arbeitendes Transkriptionssystem mit visuell strukturierter HTML-Ausgabe.
+Official documentation repository of R2 Mechanics — a modular offline transcription and analysis system designed for archives, research institutions, and cultural heritage projects.  
+The platform converts complex audio and video materials into structured, speaker-labeled, and navigable HTML reports — **without any cloud dependency**.
 
-> Dieses Repository dient als öffentlich datierter Nachweis und dokumentarische Referenz für die zugrunde liegende Methodik. Es enthält **keinen operativen Quellcode**. Das vollständige System läuft lokal und ist im Rahmen von Kooperationen auf Anfrage einsehbar.
-
----
-
-## 🔗 Projekt-Website (GitHub Pages)
-
-👉 [Zur öffentlichen Landingpage](https://r2-mechanics.github.io/r2-mechanics/)
+> This repository serves as a public, timestamped reference of methodology and system architecture.  
+> It **does not** include operational source code. The full pipeline runs locally and is available for review within cooperation frameworks or NDA-based audits.
 
 ---
 
-## 🚀 Live-Demos
+## 🌐 Public Website
 
-Erleben Sie exemplarische HTML-Ausgaben mit interaktiver Navigation, eingebettetem Audio, Kapitelmarken und Sprechererkennung:
-
-▶️ [JFK Moon Speech Demo](https://r2-mechanics.github.io/r2-mechanics/JFK-Moonspeech.html)  
-✅ Strukturierte Rede mit Kapiteln und Zeitmarken
-
-▶️ [Apollo 11 Press Conference Demo](https://r2-mechanics.github.io/r2-mechanics/demo-apollo11/apollo11.html)  
-✅ Mehrere Sprecher, Kapitelstruktur und historische QA-Situation
-
-▶️ [UAP Congressional Hearing (2024)](https://r2-mechanics.github.io/r2-mechanics/uap-hearing/uap-2024.html)  
-✅ Komplette zweistündige Anhörung mit Sprechertrennung und Archivpräsentation
-
-▶️ [UAP Congressional Hearing (PL/EN Demo)](https://r2-mechanics.github.io/r2-mechanics/uap-hearing-pl/start-pl.html)  
-✅ Englische Demo mit polnischen Erklärungen und zweisprachiger Struktur
-
-▶️ [Oral-History.Digital – Pagenstecher Project](https://r2-mechanics.github.io/r2-mechanics/vortraege-de/pagenstecher-project.html)  
-✅ Vortrag mit einfacher, bildloser Transkription, Kapitellinks und Audio für archivische Nutzung
+👉 [Official Landing Page (GitHub Pages)](https://r2-mechanics.github.io/r2-mechanics/)
 
 ---
 
-These demos illustrate the structured offline output of R2 Mechanics, featuring embedded audio, speaker-labeled segments and visual segmentation.
+## 🎧 Live Demos
 
+Explore interactive HTML reports featuring embedded audio, chapter navigation, and diarized speaker segmentation:
 
-## Zielsetzung
+- ▶️ [JFK Moon Speech Demo](https://r2-mechanics.github.io/r2-mechanics/JFK-Moonspeech.html) — structured speech with chapters & timestamps  
+- ▶️ [Apollo 11 Press Conference](https://r2-mechanics.github.io/r2-mechanics/demo-apollo11/apollo11.html) — multi-speaker historic Q&A session  
+- ▶️ [Kennedy v. Braidwood Management — Oral Argument Transcript (Demo)](https://project.r2-mechanics.com/demos/Kennedy-Braidwood/Kennedy.v.Braidwood.Management.html) — dual-pipeline showcase featuring an interactive playback interface (Pipeline A) and a research-optimized transcript (Pipeline B). [🔗 Open in full view](https://project.r2-mechanics.com/demos/Kennedy-Braidwood/Kennedy.v.Braidwood.Management.html)  
+- ▶️ [Alan Watts — The Natural Environment (Interactive Edition)](https://project.r2-mechanics.com/demos/Alan_Watts/The_Natural_Environment.html) — philosophical lecture demo featuring precise diarization, synchronized audio-text alignment, structured chapters, and offline-ready documentation. [🔗 Open in full view](https://project.r2-mechanics.com/demos/Alan_Watts/The_Natural_Environment.html)  
+- ▶️ [UAP Congressional Hearing (2024)](https://r2-mechanics.github.io/r2-mechanics/uap-hearing/uap-2024.html) — full-length, two-hour session  
+- ▶️ [UAP Hearing 2025 (EN Demo)](https://project.r2-mechanics.com/demos/uap-hearing-Sep-2025/uap-hearing-Sep-2025.html) — structured with annotations and auto-scroll  
+- ▶️ [UAP Hearing (PL/EN Demo)](https://r2-mechanics.github.io/r2-mechanics/uap-hearing-pl/start-pl.html) — bilingual structure example  
+- ▶️ [Oral-History.Digital – Pagenstecher Project](https://r2-mechanics.github.io/r2-mechanics/vortraege-de/pagenstecher-project.html) — archive-style HTML transcript  
 
-R2 Mechanics wurde entwickelt, um sensible Audiomaterialien (z. B. Interviews, Zeitzeugenberichte) strukturiert, transparent und datenschutzkonform aufzubereiten. Das System bietet:
+These demos illustrate **structured offline output** with semantic segmentation, speaker attribution, and optional visual enrichments.
 
-- Lokale Transkription (WhisperX-basiert)
-- Sprechertrennung und Zuordnung
-- Kapitelstruktur mit Zeitmarken
-- Visuelle HTML-Ausgabe mit Audioeinbettung
-- Optional: automatische Szenenillustration
 
 ---
 
-## Motivation
+## 🎯 Objectives
 
-Forschungseinrichtungen, Archive und kulturelle Institutionen benötigen Werkzeuge zur strukturierten Verarbeitung von Audio – ohne Cloudabhängigkeit oder Lizenzrisiken. R2 Mechanics schließt diese Lücke.
+R2 Mechanics enables the **structured, transparent, and GDPR-compliant processing** of sensitive audio and video material  
+(e.g. interviews, oral history, archival recordings).
+
+### Key features
+
+- 100 % **offline operation** — air-gapped, telemetry-free  
+- **GPU-accelerated transcription** with WhisperX (large-v3)  
+- **Speaker diarization** using pyannote.audio (4.x)  
+- **Semantic chaptering & summaries** via local LLMs (LM Studio / Ollama)  
+- **Structured HTML / DOCX outputs** ready for archiving or publication  
+- **Energy-autonomous infrastructure** with UPS-buffered redundancy  
 
 ---
 
-## Komponentenüberblick (abstrahiert)
+## 🧩 System Architecture (Overview)
 
-- WhisperX (lokal, CUDA-beschleunigt)
-- Kapiteldaten (.txt mit Zeitmarken, Titeln, optionalen Notizen)
-- HTML-Generator (visuell angepasst)
-- Optional: LLM-basierte Zusammenfassungen (offline)
-- Optional: Bildgenerator (Stable Diffusion auf separatem System)
+R2 Mechanics operates within the isolated environment `r2_asr4`, combining:
+
+| Layer | Component | Function |
+|-------|------------|-----------|
+| **ASR + Diarization** | WhisperX (large-v3) + pyannote.audio (4.x) | word-level transcription & speaker segmentation |
+| **Semantic Analysis** | local LLM (LM Studio / Ollama) | topic, entity & summary generation |
+| **Output Generation** | Markdown / DOCX / HTML | structured reports with chapter navigation |
+| **Audit & Resilience** | WARC archives + logs | deterministic, reproducible runs |
+| **Energy System** | Renewable / UPS / NVMe infra | sustained 24-7 operation (10-year design cycle) |
 
 ---
 
-## 📄 Dokumentation
+## 🛡 Governance & Compliance Snapshot
 
-- [System Overview (DE)](docs/system_overview.md)
-- [System Overview (EN)](docs/system_overview_en.md)
-- [Whitepaper (PDF, DE)](docs/whitepaper_de.pdf)
-- [Whitepaper (PDF, EN)](docs/whitepaper_en.pdf)
-- [Projektsteckbrief (DE)](docs/projektsteckbrief.md)
+- **Access Control & Governance** – per-project isolation, RBAC (owner / contributor / viewer), optional 2FA/MFA; no subprocessors.  
+- **Data Lifecycle & Retention** – defined cycle (ingest → process → review → delivery → deletion); configurable 30 / 60 / 90 days policy.  
+- **Reproducibility & Version Pinning** – each run records model versions (WhisperX large-v3, pyannote.audio 4.x), CUDA/Torch stack and config hashes.  
+- **Security Posture** – fully air-gapped infrastructure, encrypted ingest/storage, immutable offline backups.  
+- **Compliance** – processing exclusively within EU (Poland); AVV/DPA and TOM documents available on request.  
+- **Release Management** – quarterly releases; project versions remain frozen until approved for upgrade.  
+- **Privacy & Transparency** – NDA-based access possible; all stages audit-ready; source kept private for security integrity.
+
 ---
 
-## 📬 Kontakt
+## ⚙️ Components (Abstracted)
 
-Für Anfragen, Kooperationen oder Pilotprojekte:
+- **WhisperX (offline CUDA)** – ASR + alignment  
+- **Pyannote.audio (4.x)** – speaker diarization  
+- **LLM Analysis (LM Studio / Ollama)** – topics, entities, summaries  
+- **HTML Generator** – structured reports with audio playback  
+- **Optional Modules** – SDXL image generation, multilingual context layers  
+
+---
+
+## 📄 Documentation
+
+- [System Overview (DE)](docs/system_overview.md)  
+- [System Overview (EN)](docs/system_overview_en.md)  
+- [Whitepaper (DE, PDF)](docs/whitepaper_de.pdf)  
+- [Whitepaper (EN, PDF)](docs/whitepaper_en.pdf)  
+- [Project Profile (DE)](docs/projektsteckbrief.md)
+
+---
+
+## 📬 Contact
 
 **David Thiry**  
-✉️ office@r2-mechanics.com  
-🔗 [GitHub: R2-Mechanics/r2-mechanics](https://github.com/R2-Mechanics/r2-mechanics)
+📧 office@r2-mechanics.com  
+🌐 [https://r2-mechanics.com](https://r2-mechanics.com)  
+🔗 [GitHub: R2-Mechanics / r2-mechanics](https://github.com/R2-Mechanics/r2-mechanics)
 
 ---
 
-## Status
+## 🔒 Status
 
-🛠 Dieses Repository dokumentiert die Architektur und Zielsetzung von R2 Mechanics.  
-
-🔒 Der Quellcode und die operative Pipeline sind nicht öffentlich, aber verifiziert vorhanden.
+🧱 This repository documents the **architecture, methodology, and compliance framework** of R2 Mechanics.  
+🛠 The operational pipeline is fully functional and verifiable under NDA but not publicly distributed.
 
 ---
 
-📄 [English version available → README_EN.md](README_EN.md)
+📄 [Français → README_FR.md](README_FR.md)  |  [Deutsch → README_DE.md](README_DE.md)
