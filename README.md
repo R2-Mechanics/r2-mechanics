@@ -13,19 +13,35 @@ The platform converts complex audio and video materials into structured, speaker
 👉 [Official Landing Page (GitHub Pages)](https://r2-mechanics.github.io/r2-mechanics/)
 
 ---
+## 🎧 Live Demos (Chronological Overview)
 
-## 🎧 Live Demos
+Explore interactive HTML reports featuring embedded audio, chapter navigation, and diarized speaker segmentation — illustrating the evolution of the R2 Mechanics pipeline from early proof-of-concepts to advanced multi-pipeline applications.
 
-Explore interactive HTML reports featuring embedded audio, chapter navigation, and diarized speaker segmentation:
+---
 
-- ▶️ [JFK Moon Speech Demo](https://r2-mechanics.github.io/r2-mechanics/JFK-Moonspeech.html) — structured speech with chapters & timestamps  
-- ▶️ [Apollo 11 Press Conference](https://r2-mechanics.github.io/r2-mechanics/demo-apollo11/apollo11.html) — multi-speaker historic Q&A session  
-- ▶️ [Kennedy v. Braidwood Management — Oral Argument Transcript (Demo)](https://project.r2-mechanics.com/demos/Kennedy-Braidwood/Kennedy.v.Braidwood.Management.html) — dual-pipeline showcase featuring an interactive playback interface (Pipeline A) and a research-optimized transcript (Pipeline B). [🔗 Open in full view](https://project.r2-mechanics.com/demos/Kennedy-Braidwood/Kennedy.v.Braidwood.Management.html)  
-- ▶️ [Alan Watts — The Natural Environment (Interactive Edition)](https://project.r2-mechanics.com/demos/Alan_Watts/The_Natural_Environment.html) — philosophical lecture demo featuring precise diarization, synchronized audio-text alignment, structured chapters, and offline-ready documentation. [🔗 Open in full view](https://project.r2-mechanics.com/demos/Alan_Watts/The_Natural_Environment.html)  
-- ▶️ [UAP Congressional Hearing (2024)](https://r2-mechanics.github.io/r2-mechanics/uap-hearing/uap-2024.html) — full-length, two-hour session  
-- ▶️ [UAP Hearing 2025 (EN Demo)](https://project.r2-mechanics.com/demos/uap-hearing-Sep-2025/uap-hearing-Sep-2025.html) — structured with annotations and auto-scroll  
-- ▶️ [UAP Hearing (PL/EN Demo)](https://r2-mechanics.github.io/r2-mechanics/uap-hearing-pl/start-pl.html) — bilingual structure example  
-- ▶️ [Oral-History.Digital – Pagenstecher Project](https://r2-mechanics.github.io/r2-mechanics/vortraege-de/pagenstecher-project.html) — archive-style HTML transcript  
+### 🕰️ April / May 2025 – Early Proof-of-Concepts
+- ▶️ **April 2025** – [JFK Moon Speech Demo](https://r2-mechanics.github.io/r2-mechanics/JFK-Moonspeech.html) — structured speech with chapters & timestamps  
+- ▶️ **April / May 2025** – [Apollo 11 Press Conference](https://r2-mechanics.github.io/r2-mechanics/demo-apollo11/apollo11.html) — multi-speaker historic Q&A session  
+
+---
+
+### 🗃️ July 2025 – Archive Project
+- ▶️ **July 2025 – Early Pipeline:** [Oral-History.Digital – Pagenstecher Project](https://r2-mechanics.github.io/r2-mechanics/vortraege-de/pagenstecher-project.html) — archive-style HTML transcript  
+
+---
+
+### 🧾 September / October 2025 – Institutional & Hearing Demos
+- ▶️ **Sept 2025** – [UAP Congressional Hearing (2024)](https://r2-mechanics.github.io/r2-mechanics/uap-hearing/uap-2024.html) — full-length, two-hour session  
+- ▶️ **Sept / Oct 2025** – [UAP Hearing (PL / EN Demo)](https://r2-mechanics.github.io/r2-mechanics/uap-hearing-pl/start-pl.html) — bilingual structure example  
+
+---
+
+### ⚙️ October 2025 – Advanced Pipelines & Research Formats
+- ▶️ **Oct 2025 – New Pipeline:** [Kennedy v. Braidwood Management — Oral Argument Transcript (Demo)](https://project.r2-mechanics.com/demos/Kennedy-Braidwood/Kennedy.v.Braidwood.Management.html) — dual-pipeline showcase featuring an interactive playback interface (Pipeline A) and a research-optimized transcript (Pipeline B). [🔗 Open in full view](https://project.r2-mechanics.com/demos/Kennedy-Braidwood/Kennedy.v.Braidwood.Management.html)  
+- ▶️ **Oct 2025 – New Pipeline:** [Alan Watts — The Natural Environment (Interactive Edition)](https://project.r2-mechanics.com/demos/Alan_Watts/The_Natural_Environment.html) — philosophical lecture demo featuring precise diarization, synchronized audio-text alignment, structured chapters, and offline-ready documentation. [🔗 Open in full view](https://project.r2-mechanics.com/demos/Alan_Watts/The_Natural_Environment.html)  
+- ▶️ **Oct 2025 – New Pipeline:** [UAP Hearing 2025 (EN Demo)](https://project.r2-mechanics.com/demos/uap-hearing-Sep-2025/uap-hearing-Sep-2025.html) — structured with annotations and auto-scroll  
+
+---
 
 These demos illustrate **structured offline output** with semantic segmentation, speaker attribution, and optional visual enrichments.
 
