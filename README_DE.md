@@ -1,4 +1,4 @@
-# 🧭 R2 Mechanics – Strukturierte Offline-Transkription & KI-Analyse-Infrastruktur
+# R2 Mechanics – Strukturierte Offline-Transkription & KI-Analyse-Infrastruktur
 
 Dies ist das offizielle Dokumentations-Repository von **R2 Mechanics** — ein modulares, vollständig offline arbeitendes Transkriptions- und Analysesystem für Archive, Forschungseinrichtungen und kulturelle Institutionen.  
 Die Plattform verarbeitet komplexes Audio- und Videomaterial zu strukturierten, sprechergetrennten und navigierbaren HTML-Berichten — **ohne Cloud-Abhängigkeit**.
@@ -6,7 +6,6 @@ Die Plattform verarbeitet komplexes Audio- und Videomaterial zu strukturierten, 
 > Dieses Repository dient als öffentlicher, datierter Nachweis der Methodik und Systemarchitektur.  
 > Es enthält **keinen operativen Quellcode**. Das vollständige System läuft lokal und kann im Rahmen von Kooperationen oder NDA-basierten Audits eingesehen werden.
 
----
 
 ## 🌐 Öffentliche Website
 
@@ -14,20 +13,37 @@ Die Plattform verarbeitet komplexes Audio- und Videomaterial zu strukturierten, 
 
 ---
 
-## 🎧 Live-Demos
+## 🎧 Live-Demos (Chronologische Übersicht)
 
-Interaktive HTML-Berichte mit eingebettetem Audio, Kapitelnavigation und Sprecher-Diarisierung:
+Erkunden Sie interaktive HTML-Berichte mit eingebettetem Audio, Kapitel-Navigation und Sprechersegmentierung — sie zeigen die Entwicklung der R2-Mechanics-Pipeline von den frühen Proof-of-Concepts bis zu den aktuellen Multi-Pipeline-Analysen.
 
-- ▶️ [JFK Moon Speech Demo](https://r2-mechanics.github.io/r2-mechanics/JFK-Moonspeech.html) — strukturierte Rede mit Kapiteln und Zeitmarken  
-- ▶️ [Apollo 11 Press Conference](https://r2-mechanics.github.io/r2-mechanics/demo-apollo11/apollo11.html) — mehrere Sprecher, historische Q&A-Sitzung  
-- ▶️ [Kennedy v. Braidwood Management — Oral Argument Transcript (Demo)](https://project.r2-mechanics.com/demos/Kennedy-Braidwood/Kennedy.v.Braidwood.Management.html) — Dual-Pipeline-Beispiel mit interaktiver Wiedergabe (Pipeline A) und forschungsorientiertem Transkript (Pipeline B). [🔗 Vollansicht öffnen](https://project.r2-mechanics.com/demos/Kennedy-Braidwood/Kennedy.v.Braidwood.Management.html)  
-- ▶️ [Alan Watts — The Natural Environment (Interactive Edition)](https://project.r2-mechanics.com/demos/Alan_Watts/The_Natural_Environment.html) — philosophische Vorlesung mit präziser Diarisierung, synchronisiertem Audio-Text-Abgleich, Kapitelstruktur und offline-kompatibler Dokumentation. [🔗 Vollansicht öffnen](https://project.r2-mechanics.com/demos/Alan_Watts/The_Natural_Environment.html)  
-- ▶️ [UAP Congressional Hearing (2024)](https://r2-mechanics.github.io/r2-mechanics/uap-hearing/uap-2024.html) — zweistündige Sitzung mit vollständiger Struktur  
-- ▶️ [UAP Hearing 2025 (EN Demo)](https://project.r2-mechanics.com/demos/uap-hearing-Sep-2025/uap-hearing-Sep-2025.html) — strukturierte Version mit Annotationen und Auto-Scroll  
-- ▶️ [UAP Hearing (PL/EN Demo)](https://r2-mechanics.github.io/r2-mechanics/uap-hearing-pl/start-pl.html) — zweisprachige Demo  
-- ▶️ [Oral-History.Digital – Pagenstecher Project](https://r2-mechanics.github.io/r2-mechanics/vortraege-de/pagenstecher-project.html) — Archiv-Transkript im HTML-Format  
+---
 
-Diese Demos zeigen die **strukturierte Offline-Ausgabe** mit semantischer Segmentierung, Sprecher-Zuordnung und optionalen visuellen Erweiterungen.
+### 🕰️ April / Mai 2025 – Frühe Proof-of-Concepts
+- ▶️ **April 2025** – [JFK Moon Speech Demo](https://r2-mechanics.github.io/r2-mechanics/JFK-Moonspeech.html) — strukturierte Rede mit Kapiteln & Zeitstempeln  
+- ▶️ **April / Mai 2025** – [Apollo 11 Press Conference](https://r2-mechanics.github.io/r2-mechanics/demo-apollo11/apollo11.html) — mehrstimmige historische Q&A-Session  
+
+---
+
+### 🗃️ Juli 2025 – Archivprojekt
+- ▶️ **Juli 2025 – Early Pipeline:** [Oral-History.Digital – Pagenstecher Project](https://r2-mechanics.github.io/r2-mechanics/vortraege-de/pagenstecher-project.html) — archivgerechtes HTML-Transkript  
+
+---
+
+### 🧾 September / Oktober 2025 – Institutionelle & Hearing-Demos
+- ▶️ **Sept 2025** – [UAP Congressional Hearing (2024)](https://r2-mechanics.github.io/r2-mechanics/uap-hearing/uap-2024.html) — zweistündige Sitzung, vollständig transkribiert  
+- ▶️ **Sept / Okt 2025** – [UAP Hearing (PL / EN Demo)](https://r2-mechanics.github.io/r2-mechanics/uap-hearing-pl/start-pl.html) — zweisprachiges Beispiel  
+
+---
+
+### ⚙️ Oktober 2025 – Erweiterte Pipelines & Forschungsformate
+- ▶️ **Okt 2025 – Neue Pipeline:** [Kennedy v. Braidwood Management — Oral Argument Transcript (Demo)](https://project.r2-mechanics.com/demos/Kennedy-Braidwood/Kennedy.v.Braidwood.Management.html) — Dual-Pipeline-Demo mit interaktivem Playback (Pipeline A) und Forschungs-Transkript (Pipeline B)  
+- ▶️ **Okt 2025 – Neue Pipeline:** [Alan Watts — The Natural Environment (Interactive Edition)](https://project.r2-mechanics.com/demos/Alan_Watts/The_Natural_Environment.html) — philosophischer Vortrag mit präziser Diarisierung, Audio-Sync und strukturierter Kapiteleinteilung  
+- ▶️ **Okt 2025 – Neue Pipeline:** [UAP Hearing 2025 (EN Demo)](https://project.r2-mechanics.com/demos/uap-hearing-Sep-2025/uap-hearing-Sep-2025.html) — mit Annotationen und automatischem Scrollen  
+
+---
+
+Diese Demos zeigen **strukturierte Offline-Ausgaben** mit semantischer Segmentierung, Sprecherzuordnung und optionalen visuellen Erweiterungen.
 
 ---
 
