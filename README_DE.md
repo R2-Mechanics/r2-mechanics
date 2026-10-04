@@ -7,6 +7,8 @@ R2 Mechanics macht schwierige, lange und mehrsprachige Audio- und Videoaufnahmen
 > Dieses Repository dokumentiert Architektur, Methodik, Fähigkeiten und öffentliche Demonstrationen.
 > Die operative Produktionspipeline, ihre Orchestrierungslogik und die Implementierungsdetails bleiben proprietär und sind **nicht** Teil dieses Repositories.
 
+R2 Mechanics wird von der R2 MECHANICS sp. z o.o., einer polnischen Gesellschaft mit beschränkter Haftung, betrieben (Polen).
+
 **Website:** [r2-mechanics.com](https://r2-mechanics.com) · **Live-Demos:** [r2-mechanics.com/de/transkriptions-demos](https://r2-mechanics.com/de/transkriptions-demos/)
 
 ---
@@ -154,9 +156,13 @@ Die folgenden Dokumente sind historisch (2025). Sie beschreiben **nicht** den ak
 
 ## Kontakt
 
-**R2 MECHANICS sp. z o.o.** · David Thiry
+**R2 MECHANICS sp. z o.o.**
+Grabowa 14, 72-343 Karnice, Polen
 office@r2-mechanics.com
 [r2-mechanics.com](https://r2-mechanics.com)
+
+Eingetragen im Unternehmerregister des Nationalen Gerichtsregisters (KRS), Registergericht: Amtsgericht Stettin-Centrum (Szczecin-Centrum), XIII. Wirtschaftsabteilung. KRS 0001230326 · NIP 8571944744 · REGON 544304629
+
 Member of NVIDIA Inception
 
 ---

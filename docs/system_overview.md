@@ -88,4 +88,4 @@ Dieses Dokument dient der **transparenzbasierten Prioritätssicherung**:
 
 Für kooperationsbereite Institutionen stehen Vorführversionen und Testläufe auf Anfrage bereit.
 
-📧 Kontakt: **David Thiry** – office@r2-mechanics.com
+📧 Kontakt: **R2 MECHANICS sp. z o.o.** – office@r2-mechanics.com

@@ -97,4 +97,4 @@ This document serves **transparency-based priority protection**:
 
 Demo versions and test runs are available for interested institutions upon request.
 
-📧 Contact: **David Thiry** – [office@r2-mechanics.com](mailto:office@r2-mechanics.com)
+📧 Contact: **R2 MECHANICS sp. z o.o.** – [office@r2-mechanics.com](mailto:office@r2-mechanics.com)

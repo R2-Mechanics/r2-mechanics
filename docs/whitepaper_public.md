@@ -44,7 +44,7 @@ R2 Mechanics wurde entwickelt, um sensible Audiodaten – z. B. aus Oral Histo
 Ein nicht-operativer Demonstrator steht auf Anfrage für Kooperationsgespräche bereit.  
 Für Forschungseinrichtungen sind Testläufe und technische Gespräche möglich.
 
-📬 Kontakt: **David Thiry**  
+📬 Kontakt: **R2 MECHANICS sp. z o.o.**  
 ✉️ office@r2-mechanics.com  
 🔗 GitHub: [R2 Mechanics Repository](https://github.com/R2-Mechanics/r2-mechanics)
 

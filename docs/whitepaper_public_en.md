@@ -44,6 +44,6 @@ R2 Mechanics was developed to process sensitive audio material — such as oral 
 A non-operational demonstrator is available upon request for institutional cooperation.  
 Test runs and technical exchange are possible with research partners.
 
-📬 Contact: **David Thiry**  
+📬 Contact: **R2 MECHANICS sp. z o.o.**  
 ✉️ office@r2-mechanics.com  
 🔗 GitHub: [R2 Mechanics Repository](https://github.com/R2-Mechanics/r2-mechanics)

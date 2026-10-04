@@ -7,6 +7,8 @@ R2 Mechanics turns difficult, long-form and multilingual audio and video into st
 > This repository documents architecture, methodology, capabilities and public demonstrations.
 > The operational production pipeline, its orchestration logic and implementation details remain proprietary and are **not** part of this repository.
 
+R2 Mechanics is operated by R2 MECHANICS sp. z o.o., a Polish limited liability company based in Poland.
+
 **Website:** [r2-mechanics.com](https://r2-mechanics.com) · **Live demos:** [r2-mechanics.com/en/demos](https://r2-mechanics.com/en/demos/)
 
 ---
@@ -156,9 +158,13 @@ The following documents are historical (2025). They do **not** describe the curr
 
 ## Contact
 
-**R2 MECHANICS sp. z o.o.** · David Thiry
+**R2 MECHANICS sp. z o.o.**
+Grabowa 14, 72-343 Karnice, Poland
 office@r2-mechanics.com
 [r2-mechanics.com](https://r2-mechanics.com/en/contact/)
+
+Registered in the Register of Entrepreneurs of the National Court Register (KRS), District Court Szczecin-Centrum in Szczecin, XIII Commercial Division. KRS 0001230326 · NIP 8571944744 · REGON 544304629
+
 Member of NVIDIA Inception
 
 ---

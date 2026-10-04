@@ -8,7 +8,7 @@
 ---
 
 ## ✅ Projektträger / Ansprechpartner
-**David Thiry**  
+**R2 MECHANICS sp. z o.o.**, Polen  
 📧 office@r2-mechanics.com  
 🌐 [https://r2-mechanics.com](https://r2-mechanics.com)
 
@@ -71,4 +71,4 @@ Die aktuellen Demos (u. a. Nixon Exhibit 21, Kennedy v. Braidwood, Multilingual 
 
 ---
 
-© 2025 David Thiry – R2 Mechanics
+© R2 MECHANICS sp. z o.o.
