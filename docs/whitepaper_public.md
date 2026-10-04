@@ -1,3 +1,5 @@
+> **Historisches Dokument (2025).** Beschreibt nicht den aktuellen Produktionsstand von R2 Mechanics. Aktuell: [README_DE.md](../README_DE.md) und [r2-mechanics.com](https://r2-mechanics.com).
+
 # R2 Mechanics – Offline-Transkriptionssystem für Forschung & Archive
 
 ## 🧭 Ziel & Mission

@@ -1,3 +1,5 @@
+> **Historisches Dokument (2025).** Beschreibt nicht den aktuellen Produktionsstand von R2 Mechanics. Aktuell: [README_DE.md](../README_DE.md) und [r2-mechanics.com](https://r2-mechanics.com).
+
 # 📜 System Overview – R2 Mechanics (öffentlich, nicht-operativ)
 
 Dieses Dokument beschreibt die Grundstruktur, Zielsetzung und methodische Umsetzung von **R2 Mechanics** – einem System zur strukturierten, datenschutzkonformen Transkription, Annotation und interaktiven Visualisierung audiobasierter Inhalte.

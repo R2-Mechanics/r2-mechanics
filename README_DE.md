@@ -1,127 +1,164 @@
-# R2 Mechanics – Strukturierte Offline-Transkription & KI-Analyse-Infrastruktur
+# R2 Mechanics – Offline-First Archiv-Transkription & Evidence Mapping
 
-Dies ist das offizielle Dokumentations-Repository von **R2 Mechanics** — ein modulares, vollständig offline arbeitendes Transkriptions- und Analysesystem für Archive, Forschungseinrichtungen und kulturelle Institutionen.  
-Die Plattform verarbeitet komplexes Audio- und Videomaterial zu strukturierten, sprechergetrennten und navigierbaren HTML-Berichten — **ohne Cloud-Abhängigkeit**.
+Öffentliches Dokumentations-Repository von R2 Mechanics.
 
-> Dieses Repository dient als öffentlicher, datierter Nachweis der Methodik und Systemarchitektur.  
-> Es enthält **keinen operativen Quellcode**. Das vollständige System läuft lokal und kann im Rahmen von Kooperationen oder NDA-basierten Audits eingesehen werden.
+R2 Mechanics macht schwierige, lange und mehrsprachige Audio- und Videoaufnahmen zu strukturierten, quellenverknüpften Dokumenten: navigierbar, prüfbar und portabel, mit lokaler, Offline-First-Verarbeitung.
 
+> Dieses Repository dokumentiert Architektur, Methodik, Fähigkeiten und öffentliche Demonstrationen.
+> Die operative Produktionspipeline, ihre Orchestrierungslogik und die Implementierungsdetails bleiben proprietär und sind **nicht** Teil dieses Repositories.
 
-## 🌐 Öffentliche Website
-
-👉 [Offizielle Landingpage (GitHub Pages)](https://r2-mechanics.github.io/r2-mechanics/)
+**Website:** [r2-mechanics.com](https://r2-mechanics.com) · **Live-Demos:** [r2-mechanics.com/de/transkriptions-demos](https://r2-mechanics.com/de/transkriptions-demos/)
 
 ---
 
-## 🎧 Live-Demos (Chronologische Übersicht)
+## Was R2 Mechanics leistet
 
-Erkunden Sie interaktive HTML-Berichte mit eingebettetem Audio, Kapitel-Navigation und Sprechersegmentierung — sie zeigen die Entwicklung der R2-Mechanics-Pipeline von den frühen Proof-of-Concepts bis zu den aktuellen Multi-Pipeline-Analysen.
+Archive, Forschungseinrichtungen und Dokumentarprojekte besitzen oft Aufnahmen, an denen Standard-Transkription scheitert: degradiertes oder historisches Audio, viele Sprecher, schnelle Sprachwechsel, sehr lange Sitzungen.
 
----
+R2 Mechanics behandelt eine solche Aufnahme nicht als einen einzigen Textblock, sondern als strukturierten, navigierbaren Datensatz, der mit dem Originalmedium verbunden bleibt:
 
-### 🕰️ April / Mai 2025 – Frühe Proof-of-Concepts
-- ▶️ **April 2025** – [JFK Moon Speech Demo](https://r2-mechanics.github.io/r2-mechanics/JFK-Moonspeech.html) — strukturierte Rede mit Kapiteln & Zeitstempeln  
-- ▶️ **April / Mai 2025** – [Apollo 11 Press Conference](https://r2-mechanics.github.io/r2-mechanics/demo-apollo11/apollo11.html) — mehrstimmige historische Q&A-Session  
-
----
-
-### 🗃️ Juli 2025 – Archivprojekt
-- ▶️ **Juli 2025 – Early Pipeline:** [Oral-History.Digital – Pagenstecher Project](https://r2-mechanics.github.io/r2-mechanics/vortraege-de/pagenstecher-project.html) — archivgerechtes HTML-Transkript  
+- strukturierte Transkripte mit Sprecherzuordnung und zitierfähigen Zeitmarken
+- Sprach- und Sprecherstruktur entlang der Original-Zeitachse
+- sichtbare Prüfbereiche, wo die Beleglage schwach ist
+- synchronisierte Wiedergabe, Suche und Kapitelnavigation
+- portable Ergebnisse, die ohne Cloud-Dienst funktionieren
 
 ---
 
-### 🧾 September / Oktober 2025 – Institutionelle & Hearing-Demos
-- ▶️ **Sept 2025** – [UAP Congressional Hearing (2024)](https://r2-mechanics.github.io/r2-mechanics/uap-hearing/uap-2024.html) — zweistündige Sitzung, vollständig transkribiert  
-- ▶️ **Sept / Okt 2025** – [UAP Hearing (PL / EN Demo)](https://r2-mechanics.github.io/r2-mechanics/uap-hearing-pl/start-pl.html) — zweisprachiges Beispiel  
+## Architektur
+
+### Quellenerhaltend & Offline-First
+
+- Die Verarbeitung kann vollständig lokal laufen, ohne Cloud-Abhängigkeit.
+- Die Originalaufnahme bleibt die Referenz. Sie wird nie überschrieben; eine kontrollierte Arbeitskopie wird erstellt und dokumentiert.
+- Ergebnisse bleiben auf das Quellmaterial zurückführbar.
+
+### Multi-Engine-Forensik-Transkription
+
+- Mehrere unabhängige Erkennungsperspektiven können gemeinsam auf dasselbe Material angewendet werden.
+- Abweichende Ergebnisse werden verglichen und nachvollziehbar behandelt, statt stillschweigend zusammengeführt zu werden.
+- Unsichere oder problematische Bereiche verschwinden nicht im Endtext.
+- Die Herkunft (Provenance) des gewählten Textes kann erhalten bleiben.
+
+Etablierte offene Technologien wie WhisperX und pyannote.audio bleiben Teil des Stacks. Die konkrete Orchestrierung wird nicht veröffentlicht.
+
+### Evidence Mapping & Timeline Intelligence
+
+Das ist eine zentrale R2-Fähigkeit. Audio und Video werden als navigierbare Zeitachse behandelt, die Folgendes trägt:
+
+- Sprecherbereiche
+- Sprachbereiche
+- Text- und Engine-Provenance
+- Stellen, die eine Prüfung verdienen
+- direkte Navigation vom Transkript zurück zum Originalmedium
+- visuelle Quellen- und Evidence-Maps für lange, mehrsprachige oder schwer transkribierbare Aufnahmen
+
+> R2 Mechanics reduziert eine Aufnahme nicht auf einen einzelnen Textblock. Sprecher-, Sprach-, Transkriptionsquellen- und Prüfinformationen können entlang der Original-Zeitachse erhalten und visualisiert werden.
+
+### Mehrsprachige Verarbeitung
+
+- Erkennung und Strukturierung mehrerer Sprachen innerhalb einer Aufnahme, auch bei schnellen Sprachwechseln
+- Sprach-Zeitachsen und Sprachfilter
+- spezialisierte Workflows für mehrsprachiges und sprachspezifisches Material
+- Ergebnisse unterschiedlicher Erkennungsfähigkeiten werden in einem strukturierten Ergebnis zusammengeführt
+- optionale, getrennte Übersetzungsebene für Recherche und Zugang
+
+### Interaktives Archiv & Auslieferung
+
+- synchronisierter Audio-/Video-Player mit durchsuchbarem Transkript
+- Sprecher-, Sprach- und Quellen-Zeitachsen mit Filtern und direkter Sprungnavigation
+- portable Offline-HTML-Archive, nutzbar auf Desktop, Tablet und Smartphone
+- strukturierte Formate wie JSON, SRT und VTT
+- optionale redaktionelle oder LLM-basierte Auswertung (Kapitel, Zusammenfassungen, Entitäten, Kontexthinweise), stets als solche gekennzeichnet
+
+### Schnelle Media-Workflows
+
+- schnelle Verarbeitung von Medium und Transkript ohne die volle redaktionelle Kaskade
+- Media-Player, Transkript und Navigation in einer portablen Datei
+- optionale, fokussierte LLM-Zusammenfassung
 
 ---
 
-### ⚙️ Oktober 2025 – Erweiterte Pipelines & Forschungsformate
-- ▶️ **Okt 2025 – Neue Pipeline:** [Kennedy v. Braidwood Management — Oral Argument Transcript (Demo)](https://project.r2-mechanics.com/demos/Kennedy-Braidwood/Kennedy.v.Braidwood.Management.html) — Dual-Pipeline-Demo mit interaktivem Playback (Pipeline A) und Forschungs-Transkript (Pipeline B)  
-- ▶️ **Okt 2025 – Neue Pipeline:** [Alan Watts — The Natural Environment (Interactive Edition)](https://project.r2-mechanics.com/demos/Alan_Watts/The_Natural_Environment.html) — philosophischer Vortrag mit präziser Diarisierung, Audio-Sync und strukturierter Kapiteleinteilung  
-- ▶️ **Okt 2025 – Neue Pipeline:** [UAP Hearing 2025 (EN Demo)](https://project.r2-mechanics.com/demos/uap-hearing-Sep-2025/uap-hearing-Sep-2025.html) — mit Annotationen und automatischem Scrollen  
+## Öffentliche Showcases / Aktuelle Demos
+
+Die aktuellen Demos werden ausschließlich auf [r2-mechanics.com](https://r2-mechanics.com) gehostet. Dieses Repository enthält keine Kopie ihrer Ergebnisse. Die Demo-Seiten selbst sind englischsprachig.
+
+**Highlights**
+
+- **[Nixon Exhibit 21 – Schwieriges historisches Audio](https://r2-mechanics.com/showcases/nixon-exhibit-21/)**
+  Eine schwierige historische Aufnahme als strukturierter, prüfbarer Datensatz mit synchronisiertem Quellzugriff, Sprecherstruktur, diagnostischen Prüfbereichen und quellenausgerichtetem Transkript.
+- **[Kennedy v. Braidwood – Lange juristische Aufnahme](https://r2-mechanics.com/showcases/kennedy-braidwood/)**
+  Eine vollständige juristische Aufnahme mit synchronisiertem Audio, Kapitelnavigation, sprecherbewussten Abschnitten und direktem Zugriff auf die Quelle.
+- **[Multilingual Institutional Archive](https://r2-mechanics.com/showcases/multilingual-institutional-archive/)**
+  Eine lange institutionelle Aufnahme, rekonstruiert über 11 erkannte Sprachen und mehrere Sprecher, mit quellenverknüpften Auszügen, Sprach- und Sprechernavigation und einer separaten deutschen Übersetzungsebene.
+
+**Weitere Beispiele**
+
+- **[UAP Congressional Hearing (2024)](https://r2-mechanics.com/en/uap-congressional-hearing-2024)**
+  Eine vollständige öffentliche Anhörung mit etwa 16 Sprechern: sprecherbewusste Segmentierung, Kapitelnavigation, Wiedergabe auf Segmentebene.
+- **[UAP Congressional Hearing (Sep 2025)](https://r2-mechanics.com/en/uap-hearing-sep-2025-v1)**
+  Eine lange öffentliche Anhörung als navigierbares, strukturiertes Transkript mit Zeitmarken-Navigation.
+- **[Alan Watts – The Natural Environment](https://r2-mechanics.com/en/alan-watts-the-natural-environment/)**
+  Ein langer Vortrag als synchronisiertes Lese- und Hörerlebnis.
+
+Die früheren 2025-Demos, die in diesem Repository lagen, wurden zurückgezogen; ihre alten URLs leiten auf die aktuelle Demo-Übersicht weiter.
 
 ---
 
-Diese Demos zeigen **strukturierte Offline-Ausgaben** mit semantischer Segmentierung, Sprecherzuordnung und optionalen visuellen Erweiterungen.
+## Anwendungsfelder
+
+- Archive & Museen
+- Universitäten & Forschungseinrichtungen
+- Öffentliche Einrichtungen & sensible Sammlungen
+- Dokumentar- & Investigativmedien
 
 ---
 
-## 🎯 Zielsetzung
+## Datenschutz / Lokale Verarbeitung
 
-**R2 Mechanics** ermöglicht die strukturierte, transparente und DSGVO-konforme Verarbeitung sensibler Audio- und Videomaterialien – z. B. Interviews, Oral-History-Aufnahmen oder historische Protokolle.
+Lokale und Offline-Verarbeitung wird unterstützt. Betrieb, Handhabung und Aufbewahrung richten sich nach der vereinbarten Umgebung und werden im Projektumfang festgelegt.
 
-### Hauptmerkmale
+Reproduzierbare Läufe: Verarbeitungseinstellungen werden mit jedem Ergebnis festgehalten.
 
-- 100 % **Offline-Betrieb** — air-gapped, ohne Telemetrie  
-- **GPU-beschleunigte Transkription** mit WhisperX (large-v3)  
-- **Sprecher-Diarisierung** mit pyannote.audio (4.x)  
-- **Semantische Kapitelbildung & Zusammenfassungen** über lokale LLMs (LM Studio / Ollama)  
-- **Strukturierte HTML/DOCX-Ausgabe** zur Archivierung oder Publikation  
-- **Energieautarke Infrastruktur** mit USV-gepufferter Redundanz  
 
 ---
 
-## 🧩 Systemarchitektur (Überblick)
+## Aktueller Stand (2026)
 
-R2 Mechanics arbeitet innerhalb der isolierten Umgebung `r2_asr4` und kombiniert:
+R2 Mechanics wurde 2026 aktiv weiterentwickelt. Die heutige Architektur geht deutlich über die 2025er Demos in diesem Repository hinaus:
 
-| Ebene | Komponente | Funktion |
-|-------|-------------|-----------|
-| **ASR + Diarisierung** | WhisperX (large-v3) + pyannote.audio (4.x) | Wortgenaue Transkription und Sprecher-Segmentierung |
-| **Semantische Analyse** | Lokales LLM (LM Studio / Ollama) | Themen-, Entitäten- und Zusammenfassungs-Generierung |
-| **Ausgabe-Ebene** | Markdown / DOCX / HTML | Strukturierte Berichte mit Kapitel-Navigation |
-| **Audit & Resilienz** | WARC-Archive + Logs | Deterministische, reproduzierbare Läufe |
-| **Energie-System** | Erneuerbare / USV / NVMe-Infrastruktur | Dauerbetrieb 24-7 (10-Jahres-Zyklus) |
-
----
-
-## 🛡 Governance & Compliance (Überblick)
-
-- **Zugriffssteuerung & Governance** – projektweise Trennung, RBAC (owner / contributor / viewer), optionale 2FA/MFA; keine Subprozessoren.  
-- **Datenlebenszyklus & Aufbewahrung** – definierter Zyklus (Ingest → Processing → Review → Delivery → Deletion); 30 / 60 / 90-Tage-Optionen.  
-- **Reproduzierbarkeit & Version-Pinning** – jeder Lauf speichert Modell-Versionen (WhisperX large-v3, pyannote.audio 4.x), CUDA/Torch-Stack und Config-Hashes.  
-- **Sicherheits-Profil** – vollständig air-gapped, verschlüsselte Eingabe und Speicherung, unveränderliche Offline-Backups.  
-- **Compliance** – Verarbeitung ausschließlich innerhalb der EU (Polen); AVV/DPA und TOM-Dokumente auf Anfrage verfügbar.  
-- **Release-Management** – quartalsweise Releases; Projekt-Versionen bleiben gefroren bis zur Freigabe.  
-- **Datenschutz & Transparenz** – NDA-basierter Zugang möglich; alle Phasen auditierbar; Quellcode aus Sicherheits- und Integritätsgründen nicht öffentlich.  
+- Multi-Engine-Transkription mit dokumentierter Text-Provenance
+- Evidence- und Review-Maps entlang der Medien-Zeitachse
+- mehrsprachige Verarbeitung mit sprachbewusster Struktur
+- optionale Restaurierungs-Workflows für historische Aufnahmen, bei erhaltenem Original
+- portable Offline-Archive, die auch auf Smartphone und Tablet funktionieren
+- schnelle Media-Workflows neben der vollen redaktionellen Verarbeitung
 
 ---
 
-## ⚙️ Komponenten (abstrahiert)
+## Proprietäre Grenze
 
-- **WhisperX (Offline CUDA)** – ASR + Alignment  
-- **pyannote.audio (4.x)** – Sprecher-Diarisierung  
-- **LLM-Analyse (LM Studio / Ollama)** – Themen, Entitäten, Zusammenfassungen  
-- **HTML-Generator** – strukturierte Berichte mit Audio-Playback  
-- **Optionale Module** – SDXL-Bildgenerierung, mehrsprachige Kontext-Ebenen  
+Das öffentliche Repository dokumentiert Architektur, Methodik, Fähigkeiten und öffentliche Demonstrationen. Die operative Produktionspipeline, die Orchestrierungslogik und die Implementierungsdetails bleiben proprietär. Eine Einsicht ist im Rahmen von Kooperationen oder NDA-basierten Audits möglich.
 
 ---
 
-## 📄 Dokumentation
+## Historische Dokumente (2025)
 
-- [System Overview (DE)](docs/system_overview.md)  
-- [System Overview (EN)](docs/system_overview_en.md)  
-- [Whitepaper (DE, PDF)](docs/whitepaper_de.pdf)  
-- [Whitepaper (EN, PDF)](docs/whitepaper_en.pdf)  
+Die folgenden Dokumente sind historisch (2025). Sie beschreiben **nicht** den aktuellen Produktionsstand; das tun die Abschnitte oben.
+
+- [System Overview (DE)](docs/system_overview.md) · [System Overview (EN)](docs/system_overview_en.md)
+- [Whitepaper (DE, PDF)](docs/whitepaper_de.pdf) · [Whitepaper (EN, PDF)](docs/whitepaper_en.pdf)
 - [Projektsteckbrief (DE)](docs/projektsteckbrief.md)
 
 ---
 
-## 📬 Kontakt
+## Kontakt
 
-**David Thiry**  
-📧 office@r2-mechanics.com  
-🌐 [https://r2-mechanics.com](https://r2-mechanics.com)  
-🔗 [GitHub: R2-Mechanics / r2-mechanics](https://github.com/R2-Mechanics/r2-mechanics)
-
----
-
-## 🔒 Status
-
-🧱 Dieses Repository dokumentiert die **Architektur, Methodik und Compliance-Struktur** von R2 Mechanics.  
-🛠 Die operative Pipeline ist funktionsfähig und unter NDA verifizierbar, jedoch nicht öffentlich verfügbar.
+**R2 MECHANICS sp. z o.o.** · David Thiry
+office@r2-mechanics.com
+[r2-mechanics.com](https://r2-mechanics.com)
+Member of NVIDIA Inception
 
 ---
 
-📄 [Français → README_FR.md](README_FR.md)  |  [English → README.md](README.md)
+[English → README.md](README.md) | [Français → README_FR.md](README_FR.md)

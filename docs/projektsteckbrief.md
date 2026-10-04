@@ -1,3 +1,5 @@
+> **Historisches Dokument (2025).** Beschreibt nicht den aktuellen Produktionsstand von R2 Mechanics. Aktuell: [README_DE.md](../README_DE.md) und [r2-mechanics.com](https://r2-mechanics.com).
+
 # 📜 Projektsteckbrief – R2 Mechanics
 
 ## ✅ Projekttitel
@@ -8,13 +10,13 @@
 ## ✅ Projektträger / Ansprechpartner
 **David Thiry**  
 📧 office@r2-mechanics.com  
-🌐 [https://r2-mechanics.github.io/r2-mechanics/](https://r2-mechanics.github.io/r2-mechanics/)
+🌐 [https://r2-mechanics.com](https://r2-mechanics.com)
 
 ---
 
 ## ✅ Projektstatus
 **Beta-Phase (2025)**  
-Proof of Concept abgeschlossen. Mehrere funktionierende Web-Demos umgesetzt (u. a. JFK-Rede, Apollo 11-Pressekonferenz, UAP-Hearing, Pagenstecher-Vortrag).  
+Proof of Concept abgeschlossen. Mehrere funktionierende Web-Demos umgesetzt. Die aktuellen Demos stehen auf r2-mechanics.com.  
 Kooperationen mit Forschungs-, Archiv- und Bildungseinrichtungen im Aufbau.
 
 ---
@@ -50,10 +52,7 @@ Ziel ist es, Audioquellen strukturiert, nachvollziehbar und nachhaltig zugängli
 
 ## ✅ Anwendungsbeispiele
 **Live-Demos:**  
-- [JFK Moon Speech (1962)](https://r2-mechanics.github.io/r2-mechanics/JFK-Moonspeech.html) – klassische Redeaufbereitung mit Kapiteln und Audio  
-- [Apollo 11 Press Conference](https://r2-mechanics.github.io/r2-mechanics/demo-apollo11/apollo11.html) – Mehrsprechersituation mit Zeitmarken  
-- [UAP Congressional Hearing (2024)](https://r2-mechanics.github.io/r2-mechanics/uap-hearing/uap-2024.html) – zweistündige Anhörung mit Sprechertrennung, Notizen und KI-generierten Kapitelbildern  
-- [Oral-History.Digital – Pagenstecher Project](https://r2-mechanics.github.io/r2-mechanics/vortraege-de/pagenstecher-project.html) – einfache, bildlose Vortragstranskription mit Kapitellinks
+Die aktuellen Demos (u. a. Nixon Exhibit 21, Kennedy v. Braidwood, Multilingual Institutional Archive) stehen auf [r2-mechanics.com](https://r2-mechanics.com/de/transkriptions-demos/). Die früheren 2025-Demos wurden aus diesem Repository entfernt.
 
 ---
 
@@ -68,7 +67,7 @@ Ziel ist es, Audioquellen strukturiert, nachvollziehbar und nachhaltig zugängli
 ## ✅ Weiterführende Dokumente
 - [Whitepaper (PDF, DE)](https://raw.githubusercontent.com/R2-Mechanics/r2-mechanics/main/docs/whitepaper_de.pdf)  
 - [Whitepaper (PDF, EN)](https://raw.githubusercontent.com/R2-Mechanics/r2-mechanics/main/docs/whitepaper_en.pdf)  
-- [README (EN)](https://github.com/R2-Mechanics/r2-mechanics/blob/main/README_EN.md)
+- [README (EN)](https://github.com/R2-Mechanics/r2-mechanics/blob/main/README.md)
 
 ---
 
