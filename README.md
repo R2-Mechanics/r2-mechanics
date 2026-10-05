@@ -69,7 +69,7 @@ This is a core R2 capability. Audio and video are treated as a navigable timelin
 
 - synchronized audio/video player with a searchable transcript
 - speaker, language and source timelines with filters and direct jump navigation
-- portable offline HTML archives, usable on desktop, tablet and phone
+- portable offline HTML archives, responsive and usable across desktop and mobile browsers
 - structured formats such as JSON, SRT and VTT
 - optional editorial or LLM-based analysis (chapters, summaries, entities, context notes), always labelled as such
 
@@ -135,7 +135,7 @@ R2 Mechanics has been actively developed throughout 2026. The architecture today
 - evidence and review maps along the media timeline
 - multilingual processing with language-aware structure
 - optional restoration workflows for historical recordings, with the original preserved
-- portable offline archives that also work on phone and tablet
+- portable offline archives, responsive and usable across desktop and mobile browsers
 - fast media workflows next to the full editorial processing
 
 ---
@@ -146,14 +146,13 @@ The public repository documents architecture, methodology, capabilities and publ
 
 ---
 
-## Historical documents (2025)
+## Documentation
 
-The following documents are historical (2025). They do **not** describe the current production state; the sections above do.
+- [System Overview 2026 (EN)](docs/system_overview_en.md) · [System Overview 2026 (DE)](docs/system_overview.md)
+- [Whitepaper 2026 (EN)](docs/whitepaper_public_en.md) · [Whitepaper 2026 (DE)](docs/whitepaper_public.md)
+- [Architecture diagram 2026](docs/architecture_2026.md)
 
-- [System Overview (DE)](docs/system_overview.md) · [System Overview (EN)](docs/system_overview_en.md)
-- [Whitepaper (DE, PDF)](docs/whitepaper_de.pdf) · [Whitepaper (EN, PDF)](docs/whitepaper_en.pdf)
-- [Project Profile (DE)](docs/projektsteckbrief.md)
-
+**Historical (2025)** – these do **not** describe the current production state: [Whitepaper 2025 (EN, PDF)](docs/whitepaper_en.pdf) · [Whitepaper 2025 (DE, PDF)](docs/whitepaper_de.pdf) · [Project Profile (DE)](docs/projektsteckbrief.md)
 ---
 
 ## Contact

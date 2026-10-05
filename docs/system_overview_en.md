@@ -1,100 +1,124 @@
-> **Historical document (2025).** Does not describe the current production state of R2 Mechanics. Current: [README.md](../README.md) and [r2-mechanics.com](https://r2-mechanics.com).
+# System Overview – R2 Mechanics (public, non-operational) · 2026
 
-# 📜 System Overview – R2 Mechanics (public, non-operational)
+Technical short reference for the architecture of R2 Mechanics. It describes layers, concepts and outputs. It is not an implementation guide: orchestration logic, engine selection, decision rules, thresholds and prompts are proprietary and not part of this repository.
 
-This document describes the basic structure, goals, and methodological approach of **R2 Mechanics** – a system for structured, privacy-compliant transcription, annotation, and interactive visualization of audio-based content.
-
-The goal is to provide a transparent, yet non-reproducible, description of the system architecture that establishes first-mover claims and offers orientation for potential partners.
+Related: [Architecture diagram](architecture_2026.md) · [Whitepaper](whitepaper_public_en.md) · [README](../README.md) · [Live demos](https://r2-mechanics.com/en/demos/)
 
 ---
 
-## 🔧 System Structure (abstracted)
+## 1. What changed since 2025
 
-### **1. Input Formats**
+The 2025 description was a linear chain: transcription, speaker separation, an LLM-written report. Today R2 Mechanics is organised around a different idea:
 
-* Individual audio files (e.g., `.mp3`, `.wav`)
-* Optional: Supplementary metadata such as speaker lists, timecodes, annotations
+> keep the source → structure the evidence → map it on the timeline → keep uncertainty visible → only then, optionally, interpret.
 
----
-
-### **2. Processing Steps**
-
-1. **Transcription (local, offline):**
-
-   * CUDA-accelerated
-   * WhisperX with speaker diarization
-   * Secure, GDPR-compliant operation without cloud
-
-2. **Structuring:**
-
-   * Reading or generating a chapter file (`.txt`)
-   * Includes title, start time, description per chapter
-
-3. **LLM-Assisted Analysis:**
-
-   * Local generation of summaries
-   * Automatic semantic notes with precise timestamps
-   * Formatted as consistent second-based markers
-
-4. **Visual Enrichment:**
-
-   * Chapter-based image generation via Stable Diffusion
-   * Local prompt-to-image pipeline
-   * Serious, documentary-style illustrations
+Transcription is one evidence layer among several. Language and speaker structure, text provenance and review-worthy regions are mapped on the same timeline as the original media. LLM-based analysis is an optional layer on top, not the source of the transcript.
 
 ---
 
-### **3. Output Formats**
+## 2. Architecture layers
 
-* **Interactive HTML Transcript**:
-
-  * Audio player with jump links
-  * Automatically generated table of contents (TOC)
-  * Chapter headings with SD-generated illustrations
-  * Per-chapter summaries
-  * Speaker segments with timestamps and roles
-  * Integrated notes / side annotations (time-correlated)
-  * Fully styled with R2 Mechanics CSS
-  * Optional export as static website / GitHub Pages
-
----
-
-## 🧹 Directory Structure (typical usage)
-
-```
-input_audio/           # Original audio files
-output_html/           # Generated end formats
-  project_transcript.html
-chapters/              # Chapter structure files
-  project_chapters.txt
-summaries/             # Generated summaries
-notes/                 # LLM annotation files
-images/                # Generated illustrations
-scripts/               # Own Python modules (not public)
+```text
+SOURCE MEDIA                        audio / video, original preserved
+        ↓
+SOURCE & TIMELINE ANALYSIS          speech structure · speaker regions
+                                    language regions · media timing
+        ↓
+TRANSCRIPTION LAYER                 multiple independent ASR perspectives
+                                    provenance-aware text selection
+                                    specialist multilingual processing
+        ↓
+EVIDENCE & TIMELINE INTELLIGENCE    speaker · language · text-source mapping
+                                    difficult / review-worthy regions
+                                    synchronized navigation to the source
+        ↓
+OPTIONAL ANALYSIS                   focused summaries, editorial and
+                                    contextual enrichment — only when the
+                                    workflow asks for it
+        ↓
+DELIVERY                            synchronized media player · searchable
+                                    transcript · visual maps · filters
+                                    offline HTML · JSON / SRT / VTT
 ```
 
----
-
-## ✅ Features
-
-* GPU-accelerated local transcription (WhisperX)
-* Speaker diarization and timestamp generation
-* Automated LLM annotations with exact times
-* SD-generated chapter images, fully offline
-* HTML export with audio, navigation, jump links
-* 100 % offline and auditable – no cloud uploads
-* Easily integrable into archival or research workflows
+The same flow as a diagram: [architecture_2026.md](architecture_2026.md).
 
 ---
 
-## 🔐 Disclosure & Protection
+## 3. Core concepts
 
-This document serves **transparency-based priority protection**:
+### A. Source-preserving processing
+The original recording remains the temporal reference. It is never overwritten; a controlled processing copy is created and documented. Every result stays traceable to the source.
 
-* Contains no operational scripts or executable commands
-* Methodology is systematically documented but not directly reproducible
-* The full system is operated **exclusively locally and offline**
+### B. Multi-engine transcription
+Several independent transcription perspectives can be used on the same material. Differences are compared and handled in a documented way rather than silently merged. The provenance of the selected text can be preserved. How candidates are weighed is not published. Established open technologies such as WhisperX and pyannote.audio remain part of the stack.
 
-Demo versions and test runs are available for interested institutions upon request.
+### C. Evidence Mapping & Timeline Intelligence
+A core R2 capability. The recording is treated as a navigable timeline that carries:
 
-📧 Contact: **R2 MECHANICS sp. z o.o.** – [office@r2-mechanics.com](mailto:office@r2-mechanics.com)
+- speaker regions
+- language regions
+- text and engine provenance
+- difficult or review-worthy regions
+- direct navigation back to the original media
+
+> R2 Mechanics does not reduce a recording to a single block of text. It can preserve and visualize speaker, language, transcription-source and review information along the original media timeline.
+
+Review indications are navigation cues for human reviewers. They are not a statement of correctness or error rate.
+
+### D. Multilingual processing
+Several languages, including rapid switches within one recording, can be detected and structured. Language timelines and filters make mixed-language material navigable. Different recognition capabilities can be combined into one structured result. A separate translation layer is optional.
+
+### E. Processing profiles
+Described conceptually. Concrete configurations are not published.
+
+| Profile | Purpose |
+|---|---|
+| Forensic / evidence-oriented processing | Difficult or historical material; several evidence layers; review visibility |
+| Multilingual specialist processing | Recordings with several or rapidly changing languages, or with a specific language focus |
+| Fast media processing | Quick media-and-transcript output without the full editorial cascade |
+
+For historical or degraded recordings an optional restoration step is available. The original stays the reference.
+
+### F. Archive & delivery
+The result is a media-bound, navigable and offline-capable archive. Depending on the workflow it can include a synchronized player, searchable transcript, reading / source / speaker views, evidence maps, filters and jump navigation. Structured exports (JSON, SRT, VTT) come from the same evidence timeline.
+
+---
+
+## 4. Optional analysis layer
+
+Chapters, summaries, entities and context notes can be generated with local language models when a workflow asks for them. LLM-based interpretation can be configured according to the purpose of the workflow and remains distinct from source transcription and provenance. Outputs can be labelled as provisional or pending review.
+
+---
+
+## 5. Inputs and outputs
+
+| Inputs | Outputs |
+|---|---|
+| Audio and video files | Interactive offline HTML archive |
+| Optional metadata (e.g. speaker lists, reference material) | Structured transcript with speakers and timestamps |
+| | JSON, SRT, VTT |
+| | Optional summaries, chapters, entities, context notes, translation layer |
+
+---
+
+## 6. Operation
+
+- Local, offline-first processing is supported; material is not sent to public cloud transcription services by default.
+- Handling, storage and retention conditions are defined in the project scope.
+- Runs are reproducible: processing settings are recorded with each result.
+- Project workflows can include human review before final delivery.
+
+See [Trust](https://r2-mechanics.com/en/trust/).
+
+---
+
+## 7. Disclosure & boundary
+
+This document serves transparent, non-operational disclosure of capabilities and methodology.
+
+- It contains no scripts, commands, configurations or decision rules.
+- It is not sufficient to reproduce the production pipeline.
+- Review of the operational system is possible within cooperation frameworks or NDA-based audits.
+
+Operated by **R2 MECHANICS sp. z o.o.**, Poland · [office@r2-mechanics.com](mailto:office@r2-mechanics.com) · [r2-mechanics.com](https://r2-mechanics.com)

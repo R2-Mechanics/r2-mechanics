@@ -69,7 +69,7 @@ C’est une capacité centrale de R2. L’audio et la vidéo sont traités comme
 
 - lecteur audio/vidéo synchronisé avec transcript interrogeable
 - lignes temporelles des locuteurs, des langues et des sources, avec filtres et navigation par saut direct
-- archives HTML offline portables, utilisables sur ordinateur, tablette et smartphone
+- archives HTML offline portables, responsive et utilisables dans les navigateurs de bureau et mobiles
 - formats structurés tels que JSON, SRT et VTT
 - analyse éditoriale ou basée sur LLM en option (chapitres, résumés, entités, notes de contexte), toujours signalée comme telle
 
@@ -133,7 +133,7 @@ R2 Mechanics a été activement développé tout au long de 2026. L’architectu
 - cartes de preuves et de vérification le long de la ligne temporelle du média
 - traitement multilingue avec structure tenant compte des langues
 - workflows de restauration en option pour les enregistrements historiques, avec conservation de l’original
-- archives offline portables, également utilisables sur smartphone et tablette
+- archives offline portables, responsive et utilisables dans les navigateurs de bureau et mobiles
 - workflows média rapides en complément du traitement éditorial complet
 
 ---
@@ -144,14 +144,15 @@ Le dépôt public documente l’architecture, la méthodologie, les capacités e
 
 ---
 
-## Documents historiques (2025)
+## Documentation
 
-Les documents suivants sont historiques (2025). Ils ne décrivent **pas** l’état actuel de la production ; les sections ci-dessus le font.
+- [System Overview 2026 (EN)](docs/system_overview_en.md) · [System Overview 2026 (DE)](docs/system_overview.md)
+- [Whitepaper 2026 (EN)](docs/whitepaper_public_en.md) · [Whitepaper 2026 (DE)](docs/whitepaper_public.md)
+- [Schéma d’architecture 2026](docs/architecture_2026.md)
 
-- [System Overview (DE)](docs/system_overview.md) · [System Overview (EN)](docs/system_overview_en.md)
-- [Whitepaper (DE, PDF)](docs/whitepaper_de.pdf) · [Whitepaper (EN, PDF)](docs/whitepaper_en.pdf)
-- [Fiche projet (DE)](docs/projektsteckbrief.md)
+Ces documents sont disponibles en anglais et en allemand.
 
+**Historique (2025)** – ne décrivent **pas** l’état actuel de la production : [Whitepaper 2025 (EN, PDF)](docs/whitepaper_en.pdf) · [Whitepaper 2025 (DE, PDF)](docs/whitepaper_de.pdf) · [Fiche projet (DE)](docs/projektsteckbrief.md)
 ---
 
 ## Contact

@@ -1,91 +1,124 @@
-> **Historisches Dokument (2025).** Beschreibt nicht den aktuellen Produktionsstand von R2 Mechanics. Aktuell: [README_DE.md](../README_DE.md) und [r2-mechanics.com](https://r2-mechanics.com).
+# System Overview – R2 Mechanics (öffentlich, nicht-operativ) · 2026
 
-# 📜 System Overview – R2 Mechanics (öffentlich, nicht-operativ)
+Technische Kurzreferenz zur Architektur von R2 Mechanics. Sie beschreibt Ebenen, Konzepte und Ergebnisse. Sie ist keine Implementierungsanleitung: Orchestrierungslogik, Engine-Auswahl, Entscheidungsregeln, Schwellenwerte und Prompts sind proprietär und nicht Teil dieses Repositories.
 
-Dieses Dokument beschreibt die Grundstruktur, Zielsetzung und methodische Umsetzung von **R2 Mechanics** – einem System zur strukturierten, datenschutzkonformen Transkription, Annotation und interaktiven Visualisierung audiobasierter Inhalte.
-
-Ziel ist es, eine nachvollziehbare, aber nicht vollständig rekonstruierbare Beschreibung der Systemarchitektur bereitzustellen, die den First-Mover-Anspruch absichert und potenziellen Partnern Orientierung bietet.
+Siehe auch: [Architekturdiagramm](architecture_2026.md) · [Whitepaper](whitepaper_public.md) · [README](../README_DE.md) · [Live-Demos](https://r2-mechanics.com/de/transkriptions-demos/)
 
 ---
 
-## 🔧 Systemstruktur (abstrahiert)
+## 1. Was sich seit 2025 geändert hat
 
-### **1. Eingabeformate**
-- Einzelne Audiodateien (z. B. `.mp3`, `.wav`)
-- Optional: Begleitinformationen wie Sprecherlisten, Zeitmarkierungen, Metadaten
+Die Beschreibung von 2025 war eine lineare Kette: Transkription, Sprechertrennung, LLM-Bericht. Heute folgt R2 Mechanics einer anderen Idee:
 
----
+> Quelle erhalten → Evidenz strukturieren → auf der Zeitachse kartieren → Unsicherheit sichtbar halten → erst danach optional interpretieren.
 
-### **2. Verarbeitungsschritte**
-1. **Transkription (lokal, offline):**
-   - CUDA-beschleunigt
-   - WhisperX mit Diarisierung (Sprechertrennung)
-   - Sicherer, DSGVO-konformer Betrieb ohne Cloud
-
-2. **Strukturierung:**
-   - Einlesen oder Erzeugen einer Kapiteldatei (`.txt`)
-   - Titel, Startzeit, Beschreibung pro Kapitel
-
-3. **LLM-gestützte Analyse:**
-   - Lokale Generierung von Zusammenfassungen
-   - Automatische semantische Notizen mit exakten Zeitmarken
-   - Formatierung in konsistente Sekundentimestamps
-
-4. **Visuelle Anreicherung:**
-   - Kapitelbasierte Bildgenerierung via Stable Diffusion
-   - Lokale Prompt-to-Image-Pipeline
-   - Seriosität und Dokumentarcharakter
+Die Transkription ist eine Evidenzebene unter mehreren. Sprach- und Sprecherstruktur, Text-Provenance und prüfwürdige Bereiche werden auf derselben Zeitachse wie das Originalmedium abgebildet. LLM-basierte Analyse ist eine optionale Ebene darüber und nicht die Quelle des Transkripts.
 
 ---
 
-### **3. Ausgabeformate**
-- **Interaktives HTML-Transkript**:
-  - Audio-Player mit Sprungmarken
-  - Automatisch generiertes Inhaltsverzeichnis (TOC)
-  - Kapitelüberschriften mit SD-generierten Illustrationen
-  - Zusammenfassungen pro Kapitel
-  - Sprechersegmente mit Zeitmarken und Rollen
-  - Integrierte Notizen / Sidenotes (zeitkorreliert)
-  - Vollständiges CSS-Styling im R2-Mechanics-Stil
-  - Optionaler Export als statische Website / GitHub Pages
+## 2. Architekturebenen
 
----
-
-## 🧩 Verzeichnisstruktur (typische Anwendung)
-
-```
-input_audio/ # Original-Audiodateien
-output_html/ # Generierte Endformate
-projektname_transkript.html
-chapters/ # Kapitelstruktur-Dateien
-projektname_chapters.txt
-summaries/ # Generierte Kurzfassungen
-notes/ # LLM-Annotationsdateien
-images/ # Generierte Illustrationen
-scripts/ # Eigene Python-Module (nicht öffentlich)
-
+```text
+QUELLMEDIUM                         Audio / Video, Original erhalten
+        ↓
+QUELLEN- & ZEITACHSENANALYSE        Sprechaktivität · Sprecherbereiche
+                                    Sprachbereiche · Medien-Timing
+        ↓
+TRANSKRIPTIONSEBENE                 mehrere unabhängige ASR-Perspektiven
+                                    provenance-bewusste Textauswahl
+                                    spezialisierte mehrsprachige Verarbeitung
+        ↓
+EVIDENCE & TIMELINE INTELLIGENCE    Sprecher-, Sprach-, Textquellen-Mapping
+                                    schwierige / prüfwürdige Bereiche
+                                    synchronisierte Navigation zur Quelle
+        ↓
+OPTIONALE ANALYSE                   fokussierte Zusammenfassungen,
+                                    redaktionelle und kontextuelle Anreicherung
+                                    — nur wenn der Workflow es verlangt
+        ↓
+AUSLIEFERUNG                        synchronisierter Media-Player · durchsuch-
+                                    bares Transkript · visuelle Maps · Filter
+                                    Offline-HTML · JSON / SRT / VTT
 ```
 
----
-
-## ✅ Besonderheiten
-- GPU-beschleunigte lokale Transkription (WhisperX)
-- Sprechertrennung und Zeitmarken
-- Automatisierte LLM-Annotationen mit exakten Zeiten
-- SD-Kapitelbilder, offline generiert
-- HTML-Export mit Audio, Navigation, Sprunglinks
-- 100 % offline und auditierbar – kein Cloud-Upload nötig
-- Einfach integrierbar in Archiv- oder Forschungs-Workflows
+Derselbe Ablauf als Diagramm: [architecture_2026.md](architecture_2026.md).
 
 ---
 
-## 🔐 Offenlegung & Schutz
+## 3. Kernkonzepte
 
-Dieses Dokument dient der **transparenzbasierten Prioritätssicherung**:
-- Es enthält keine operativen Skripte oder ausführbaren Befehle
-- Die Methodik ist systematisch dokumentiert, aber nicht direkt reproduzierbar
-- Das vollständige System wird ausschließlich **lokal und offline betrieben**
+### A. Quellenerhaltende Verarbeitung
+Die Originalaufnahme bleibt die zeitliche Referenz. Sie wird nie überschrieben; eine kontrollierte Arbeitskopie wird erstellt und dokumentiert. Jedes Ergebnis bleibt auf die Quelle zurückführbar.
 
-Für kooperationsbereite Institutionen stehen Vorführversionen und Testläufe auf Anfrage bereit.
+### B. Multi-Engine-Transkription
+Mehrere unabhängige Transkriptionsperspektiven können auf dasselbe Material angewendet werden. Unterschiede werden verglichen und nachvollziehbar behandelt, statt stillschweigend zusammengeführt zu werden. Die Herkunft des gewählten Textes kann erhalten bleiben. Wie Kandidaten gewichtet werden, wird nicht veröffentlicht. Etablierte offene Technologien wie WhisperX und pyannote.audio bleiben Teil des Stacks.
 
-📧 Kontakt: **R2 MECHANICS sp. z o.o.** – office@r2-mechanics.com
+### C. Evidence Mapping & Timeline Intelligence
+Eine zentrale R2-Fähigkeit. Die Aufnahme wird als navigierbare Zeitachse behandelt, die Folgendes trägt:
+
+- Sprecherbereiche
+- Sprachbereiche
+- Text- und Engine-Provenance
+- schwierige oder prüfwürdige Bereiche
+- direkte Navigation zurück zum Originalmedium
+
+> R2 Mechanics reduziert eine Aufnahme nicht auf einen einzelnen Textblock. Sprecher-, Sprach-, Transkriptionsquellen- und Prüfinformationen können entlang der Original-Zeitachse erhalten und visualisiert werden.
+
+Prüfhinweise sind Navigationshilfen für menschliche Prüfer. Sie sind keine Aussage über Korrektheit oder Fehlerrate.
+
+### D. Mehrsprachige Verarbeitung
+Mehrere Sprachen, auch schnelle Wechsel innerhalb einer Aufnahme, können erkannt und strukturiert werden. Sprach-Zeitachsen und Filter machen gemischtsprachiges Material navigierbar. Unterschiedliche Erkennungsfähigkeiten können in einem strukturierten Ergebnis zusammengeführt werden. Eine getrennte Übersetzungsebene ist optional.
+
+### E. Verarbeitungsprofile
+Nur konzeptionell beschrieben. Konkrete Konfigurationen werden nicht veröffentlicht.
+
+| Profil | Zweck |
+|---|---|
+| Forensische / evidenzorientierte Verarbeitung | Schwieriges oder historisches Material; mehrere Evidenzebenen; Prüfsichtbarkeit |
+| Mehrsprachige Spezialverarbeitung | Aufnahmen mit mehreren oder schnell wechselnden Sprachen oder mit besonderem Sprachfokus |
+| Schnelle Media-Verarbeitung | Schnelle Ausgabe aus Medium und Transkript ohne die volle redaktionelle Kaskade |
+
+Für historische oder degradierte Aufnahmen steht ein optionaler Restaurierungsschritt zur Verfügung. Das Original bleibt die Referenz.
+
+### F. Archiv & Auslieferung
+Das Ergebnis ist ein mediengebundenes, navigierbares und offline-fähiges Archiv. Je nach Workflow kann es einen synchronisierten Player, ein durchsuchbares Transkript, Lese-, Quellen- und Sprecheransicht, Evidence-Maps, Filter und Sprungnavigation enthalten. Strukturierte Exporte (JSON, SRT, VTT) entstehen aus derselben Evidenz-Zeitachse.
+
+---
+
+## 4. Optionale Analyseebene
+
+Kapitel, Zusammenfassungen, Entitäten und Kontexthinweise können mit lokalen Sprachmodellen erzeugt werden, wenn ein Workflow sie verlangt. LLM-basierte Interpretation kann je nach Zweck des Workflows konfiguriert werden und bleibt von Quelltranskription und Provenance getrennt. Ergebnisse können als vorläufig oder prüfungsausstehend gekennzeichnet werden.
+
+---
+
+## 5. Ein- und Ausgaben
+
+| Eingaben | Ausgaben |
+|---|---|
+| Audio- und Videodateien | Interaktives Offline-HTML-Archiv |
+| Optionale Metadaten (z. B. Sprecherlisten, Referenzmaterial) | Strukturiertes Transkript mit Sprechern und Zeitmarken |
+| | JSON, SRT, VTT |
+| | Optional Zusammenfassungen, Kapitel, Entitäten, Kontexthinweise, Übersetzungsebene |
+
+---
+
+## 6. Betrieb
+
+- Lokale, Offline-First-Verarbeitung wird unterstützt; Material wird standardmäßig nicht an öffentliche Cloud-Transkriptionsdienste gesendet.
+- Handhabung, Speicherung und Aufbewahrung werden im Projektumfang festgelegt.
+- Läufe sind reproduzierbar: Verarbeitungseinstellungen werden mit jedem Ergebnis festgehalten.
+- Projekt-Workflows können eine menschliche Prüfung vor der finalen Auslieferung enthalten.
+
+Siehe [Vertrauen / Trust](https://r2-mechanics.com/en/trust/).
+
+---
+
+## 7. Offenlegung & Grenze
+
+Dieses Dokument dient der transparenten, nicht-operativen Offenlegung von Fähigkeiten und Methodik.
+
+- Es enthält keine Skripte, Befehle, Konfigurationen oder Entscheidungsregeln.
+- Es reicht nicht aus, die Produktionspipeline nachzubauen.
+- Eine Einsicht in das operative System ist im Rahmen von Kooperationen oder NDA-basierten Audits möglich.
+
+Betrieben von der **R2 MECHANICS sp. z o.o.**, Polen · [office@r2-mechanics.com](mailto:office@r2-mechanics.com) · [r2-mechanics.com](https://r2-mechanics.com)

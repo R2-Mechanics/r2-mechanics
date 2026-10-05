@@ -69,7 +69,7 @@ Das ist eine zentrale R2-Fähigkeit. Audio und Video werden als navigierbare Zei
 
 - synchronisierter Audio-/Video-Player mit durchsuchbarem Transkript
 - Sprecher-, Sprach- und Quellen-Zeitachsen mit Filtern und direkter Sprungnavigation
-- portable Offline-HTML-Archive, nutzbar auf Desktop, Tablet und Smartphone
+- portable Offline-HTML-Archive, responsiv und in Desktop- sowie mobilen Browsern nutzbar
 - strukturierte Formate wie JSON, SRT und VTT
 - optionale redaktionelle oder LLM-basierte Auswertung (Kapitel, Zusammenfassungen, Entitäten, Kontexthinweise), stets als solche gekennzeichnet
 
@@ -133,7 +133,7 @@ R2 Mechanics wurde 2026 aktiv weiterentwickelt. Die heutige Architektur geht deu
 - Evidence- und Review-Maps entlang der Medien-Zeitachse
 - mehrsprachige Verarbeitung mit sprachbewusster Struktur
 - optionale Restaurierungs-Workflows für historische Aufnahmen, bei erhaltenem Original
-- portable Offline-Archive, die auch auf Smartphone und Tablet funktionieren
+- portable Offline-Archive, responsiv und in Desktop- sowie mobilen Browsern nutzbar
 - schnelle Media-Workflows neben der vollen redaktionellen Verarbeitung
 
 ---
@@ -144,14 +144,13 @@ Das öffentliche Repository dokumentiert Architektur, Methodik, Fähigkeiten und
 
 ---
 
-## Historische Dokumente (2025)
+## Dokumentation
 
-Die folgenden Dokumente sind historisch (2025). Sie beschreiben **nicht** den aktuellen Produktionsstand; das tun die Abschnitte oben.
+- [System Overview 2026 (DE)](docs/system_overview.md) · [System Overview 2026 (EN)](docs/system_overview_en.md)
+- [Whitepaper 2026 (DE)](docs/whitepaper_public.md) · [Whitepaper 2026 (EN)](docs/whitepaper_public_en.md)
+- [Architekturdiagramm 2026](docs/architecture_2026.md)
 
-- [System Overview (DE)](docs/system_overview.md) · [System Overview (EN)](docs/system_overview_en.md)
-- [Whitepaper (DE, PDF)](docs/whitepaper_de.pdf) · [Whitepaper (EN, PDF)](docs/whitepaper_en.pdf)
-- [Projektsteckbrief (DE)](docs/projektsteckbrief.md)
-
+**Historisch (2025)** – beschreiben **nicht** den aktuellen Produktionsstand: [Whitepaper 2025 (DE, PDF)](docs/whitepaper_de.pdf) · [Whitepaper 2025 (EN, PDF)](docs/whitepaper_en.pdf) · [Projektsteckbrief (DE)](docs/projektsteckbrief.md)
 ---
 
 ## Kontakt
