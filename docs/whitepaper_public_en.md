@@ -137,7 +137,7 @@ Material is processed on infrastructure operated by R2 Mechanics and is not sent
 
 Typical users are archives and museums, universities and research institutions, public institutions with sensitive collections, and documentary and investigative media.
 
-Current public demonstrations are hosted on [r2-mechanics.com](https://r2-mechanics.com/en/demos/): a difficult historical recording (Nixon Exhibit 21), a full-length legal hearing (Kennedy v. Braidwood), a multilingual institutional archive, two congressional hearings and a long-form lecture. They are working outputs; this repository holds no copy of them.
+Current public demonstrations are hosted on [r2-mechanics.com](https://r2-mechanics.com/en/demos/): a difficult historical recording (Nixon Exhibit 21), a full-length legal hearing (Kennedy v. Braidwood), a multilingual institutional archive and a long-form lecture. They are working outputs; this repository holds no copy of them.
 
 ## 15. Limitations and human review
 

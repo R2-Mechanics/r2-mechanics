@@ -137,7 +137,7 @@ Material wird auf von R2 Mechanics betriebener Infrastruktur verarbeitet und sta
 
 Typische Nutzer sind Archive und Museen, Universitäten und Forschungseinrichtungen, öffentliche Einrichtungen mit sensiblen Sammlungen sowie Dokumentar- und Investigativmedien.
 
-Die aktuellen öffentlichen Demonstrationen liegen auf [r2-mechanics.com](https://r2-mechanics.com/de/transkriptions-demos/): eine schwierige historische Aufnahme (Nixon Exhibit 21), eine vollständige juristische Anhörung (Kennedy v. Braidwood), ein mehrsprachiges institutionelles Archiv, zwei Kongress-Anhörungen und ein langer Vortrag. Es sind echte Ergebnisse; dieses Repository enthält keine Kopie davon.
+Die aktuellen öffentlichen Demonstrationen liegen auf [r2-mechanics.com](https://r2-mechanics.com/de/transkriptions-demos/): eine schwierige historische Aufnahme (Nixon Exhibit 21), eine vollständige juristische Anhörung (Kennedy v. Braidwood), ein mehrsprachiges institutionelles Archiv und ein langer Vortrag. Es sind echte Ergebnisse; dieses Repository enthält keine Kopie davon.
 
 ## 15. Grenzen und menschliche Prüfung
 

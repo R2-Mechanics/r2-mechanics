@@ -105,10 +105,6 @@ The current demos are hosted exclusively on [r2-mechanics.com](https://r2-mechan
 
 **Additional examples**
 
-- **[UAP Congressional Hearing (2024)](https://r2-mechanics.com/en/uap-congressional-hearing-2024)**
-  A full-length public hearing with about 16 speakers: speaker-aware segmentation, chapter navigation, segment-level playback.
-- **[UAP Congressional Hearing (Sep 2025)](https://r2-mechanics.com/en/uap-hearing-sep-2025-v1)**
-  A long public hearing as a navigable, structured transcript with timestamp navigation.
 - **[Alan Watts – The Natural Environment](https://r2-mechanics.com/en/alan-watts-the-natural-environment/)**
   A long-form lecture as a synchronized reading and listening experience.
 
