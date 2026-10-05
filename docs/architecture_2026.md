@@ -25,7 +25,7 @@ flowchart TD
     REF["<b>REFERENCE MATERIAL</b> (optional)<br/>transcripts · typescripts · PDFs · scans<br/>archival documentation · metadata"]
     EXT["Text extraction<br/>OCR only where the material requires it<br/>(supporting workflow)"]
     ALN["Reference alignment<br/>comparison with the media-derived transcript"]
-    RVW["Review support<br/>discrepancy identification"]
+    RVW["Review document ·<br/>discrepancy list for human review"]
 
     ARC["<b>INTERACTIVE MEDIA ARCHIVE</b><br/>synchronized player · searchable transcript<br/>evidence maps · filters · jump navigation<br/>portable, offline-capable HTML"]
 
@@ -65,5 +65,5 @@ flowchart TD
 - **Parallel outputs.** Structured exports and the interactive archive both come from the same evidence timeline. Neither is a prerequisite of the other.
 - **Optional analysis feeds the archive.** Where a workflow asks for it, the analysis layer adds chapters, summaries and similar enrichment to the archive.
 - **Translation is a derived layer.** The source-language transcript remains preserved as the reference. A translation adds a derived view that the archive can switch to, for research, access and multilingual navigation.
-- **Reference material supports review.** Where a project has reference documents, text extracted from them (with OCR where required) can be compared with the media-derived transcript to support review and the identification of discrepancies. Original reference documents remain unchanged, and the media source stays the primary reference. It does not replace or rewrite the transcription of the source recording, and it is not used in every project.
+- **Reference documents support review;** they never replace or rewrite the transcript of the source recording, which remains the primary reference.
 - **Fast media workflow.** A fast media run skips the full editorial analysis, not the evidence timeline: player, transcript, navigation and the maps that are available stay usable.
