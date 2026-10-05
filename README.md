@@ -63,7 +63,16 @@ This is a core R2 capability. Audio and video are treated as a navigable timelin
 - language timelines and language filters
 - specialized workflows for multilingual and language-specific material
 - results from different recognition capabilities are merged into one structured record
-- optional separate translation layer for research and access
+- optional derived translation layer for research, access and multilingual navigation; the source-language transcript remains preserved as the reference, and the archive can switch between the source-language and the translated view
+
+### Reference-assisted review
+
+- Existing reference material (transcripts, typescripts, PDFs, scans, archival documentation, speaker lists and other metadata) can be included where a project has it.
+- Existing text layers can be extracted directly; OCR is used only where the material requires it, in a supporting workflow before comparison with the media-derived transcript.
+- Original reference documents remain unchanged; extracted or OCR-derived text is treated as a derived working representation.
+- The text is aligned with and compared to the media-derived transcript to support review and the identification of discrepancies.
+- Reference material supports review. It does not automatically correct or replace anything, and the media source remains the primary reference.
+- This branch is optional and is not used in every project.
 
 ### Interactive archive & delivery
 
@@ -134,6 +143,7 @@ R2 Mechanics has been actively developed throughout 2026. The architecture today
 - multi-engine transcription with documented text provenance
 - evidence and review maps along the media timeline
 - multilingual processing with language-aware structure
+- optional derived translation layer and reference-assisted review (extraction, alignment, discrepancy identification)
 - optional restoration workflows for historical recordings, with the original preserved
 - portable offline archives, responsive and usable across desktop and mobile browsers
 - fast media workflows next to the full editorial processing

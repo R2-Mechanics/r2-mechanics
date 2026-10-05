@@ -74,7 +74,7 @@ Depending on the workflow, the interactive archive can include visual maps above
 
 ## 8. Multilingual processing
 
-Recordings with several languages are a typical weak point of standard tools. R2 Mechanics can detect and structure several languages within one recording, including rapid switches, and keep them on one timeline. Language timelines and filters make such material navigable. Different recognition capabilities can be combined into one structured result, and specialised workflows exist for multilingual and language-specific material. A separate translation layer for research and access is optional and is kept distinct from the source-language text. The public Multilingual Institutional Archive demonstration covers a long recording with 11 detected languages.
+Recordings with several languages are a typical weak point of standard tools. R2 Mechanics can detect and structure several languages within one recording, including rapid switches, and keep them on one timeline. Language timelines and filters make such material navigable. Different recognition capabilities can be combined into one structured result, and specialised workflows exist for multilingual and language-specific material. Source-language transcription remains authoritative. Translation is an optional derived layer for research, access and multilingual navigation, kept distinct from the source-language text. The source-language transcript remains preserved as the reference, and the archive can switch between the source-language and the translated view. The public Multilingual Institutional Archive demonstration covers a long recording with 11 detected languages.
 
 ## 9. Provenance and uncertainty
 
@@ -86,6 +86,15 @@ Provenance answers where a passage came from. Uncertainty answers how much weigh
 
 Review indications are navigation cues for human reviewers. They are not a measure of correctness or an error rate.
 
+### Reference material as supporting evidence
+
+Some projects come with existing documentation: historical transcripts, typescripts, scanned documents, PDFs, archival notes, speaker lists. R2 Mechanics can include such material as supporting evidence. Reference materials can be text-extracted and, where required, OCR-processed in a supporting workflow before comparison with the media-derived transcript, to support review, alignment and identification of discrepancies. Existing text layers can be extracted directly; OCR is used only where the material requires it.
+
+- Original reference documents remain unchanged; extracted or OCR-derived text is treated as a derived working representation. Nothing is edited to fit the recording.
+- Alignment is review support. It shows where the two differ; it does not automatically correct either side, and it does not replace or rewrite the transcription of the source recording. The media source remains the primary reference.
+- A reference document is itself imperfect: typescripts and historical transcripts contain errors, omissions and editorial conventions, and OCR adds its own uncertainty. Discrepancies therefore call for human judgement.
+- This branch is optional and is not used in every project.
+
 ## 10. Optional LLM analysis
 
 Language models can add a further layer: chapters, summaries, entities and context notes. The separation is deliberate:
@@ -93,9 +102,13 @@ Language models can add a further layer: chapters, summaries, entities and conte
 ```text
 source media
   → transcription / speaker / language evidence
-    → structured timeline
-      → optional LLM interpretation
+    → structured timeline ──→ archive / structured outputs
+         ├─ optional reference alignment (review support)
+         ├─ optional translation (derived access layer)
+         └─ optional LLM interpretation
 ```
+
+Reference alignment, translation and LLM interpretation are parallel optional layers on the structured timeline. None of them is a source authority.
 
 LLM-based interpretation can be configured according to the purpose of the workflow and remains distinct from source transcription and provenance. It is an optional analysis layer, not a source authority. It runs locally where the workflow requires, and it is only used when requested. Its outputs can contain errors and should be read as interpretation, not as evidence.
 
@@ -133,6 +146,8 @@ Current public demonstrations are hosted on [r2-mechanics.com](https://r2-mechan
 - Restoration can change what is audible; it is optional and can be explicitly identified.
 - LLM-based analysis can be wrong or incomplete.
 - Review indications show where to look; they do not guarantee that unmarked passages are correct.
+- Reference documents and OCR output contain errors of their own. Alignment shows discrepancies; it does not decide which side is right.
+- Translations are derived and can be inaccurate. The source-language transcript is authoritative.
 - No transcript is a ground truth by itself. Project workflows can include human review before final delivery.
 
 ## 16. Proprietary boundary

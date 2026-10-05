@@ -63,7 +63,16 @@ Das ist eine zentrale R2-Fähigkeit. Audio und Video werden als navigierbare Zei
 - Sprach-Zeitachsen und Sprachfilter
 - spezialisierte Workflows für mehrsprachiges und sprachspezifisches Material
 - Ergebnisse unterschiedlicher Erkennungsfähigkeiten werden in einem strukturierten Ergebnis zusammengeführt
-- optionale, getrennte Übersetzungsebene für Recherche und Zugang
+- optionale, abgeleitete Übersetzungsebene für Recherche, Zugang und mehrsprachige Navigation; das Transkript in der Quellsprache bleibt als Referenz erhalten, und das Archiv kann zwischen der Quellsprach- und der übersetzten Ansicht umschalten
+
+### Referenzgestützte Prüfung
+
+- Vorhandenes Referenzmaterial (Transkripte, Typoskripte, PDFs, Scans, Archivdokumentation, Sprecherlisten und andere Metadaten) kann einbezogen werden, wenn ein Projekt es besitzt.
+- Vorhandene Textebenen können direkt extrahiert werden; OCR kommt nur zum Einsatz, wenn das Material es erfordert, in einem unterstützenden Workflow vor dem Vergleich mit dem aus dem Medium abgeleiteten Transkript.
+- Originale Referenzdokumente bleiben unverändert; extrahierter oder per OCR gewonnener Text wird als abgeleitete Arbeitsrepräsentation behandelt.
+- Der Text wird mit dem aus dem Medium abgeleiteten Transkript abgeglichen und verglichen, um die Prüfung und das Erkennen von Abweichungen zu unterstützen.
+- Referenzmaterial unterstützt die Prüfung. Es korrigiert oder ersetzt nichts automatisch, und die Medienquelle bleibt die primäre Referenz.
+- Dieser Zweig ist optional und wird nicht in jedem Projekt genutzt.
 
 ### Interaktives Archiv & Auslieferung
 
@@ -132,6 +141,7 @@ R2 Mechanics wurde 2026 aktiv weiterentwickelt. Die heutige Architektur geht deu
 - Multi-Engine-Transkription mit dokumentierter Text-Provenance
 - Evidence- und Review-Maps entlang der Medien-Zeitachse
 - mehrsprachige Verarbeitung mit sprachbewusster Struktur
+- optionale, abgeleitete Übersetzungsebene und referenzgestützte Prüfung (Extraktion, Abgleich, Erkennen von Abweichungen)
 - optionale Restaurierungs-Workflows für historische Aufnahmen, bei erhaltenem Original
 - portable Offline-Archive, responsiv und in Desktop- sowie mobilen Browsern nutzbar
 - schnelle Media-Workflows neben der vollen redaktionellen Verarbeitung

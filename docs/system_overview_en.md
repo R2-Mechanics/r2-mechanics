@@ -41,7 +41,7 @@ DELIVERY                            synchronized media player · searchable
                                     offline HTML · JSON / SRT / VTT
 ```
 
-The same flow as a diagram: [architecture_2026.md](architecture_2026.md).
+The same flow as a diagram: [architecture_2026.md](architecture_2026.md). Two optional branches sit alongside this flow: a derived translation layer and reference-assisted review (concepts D and G).
 
 ---
 
@@ -67,7 +67,7 @@ A core R2 capability. The recording is treated as a navigable timeline that carr
 Review indications are navigation cues for human reviewers. They are not a statement of correctness or error rate.
 
 ### D. Multilingual processing
-Several languages, including rapid switches within one recording, can be detected and structured. Language timelines and filters make mixed-language material navigable. Different recognition capabilities can be combined into one structured result. A separate translation layer is optional.
+Several languages, including rapid switches within one recording, can be detected and structured. Language timelines and filters make mixed-language material navigable. Different recognition capabilities can be combined into one structured result. An optional, derived translation layer (for research, access and multilingual navigation) is kept separate: the source-language transcript remains preserved as the reference, and the archive can switch between the source-language and the translated view.
 
 ### E. Processing profiles
 Described conceptually. Concrete configurations are not published.
@@ -83,6 +83,9 @@ For historical or degraded recordings an optional restoration step is available.
 ### F. Archive & delivery
 The result is a media-bound, navigable and offline-capable archive. Depending on the workflow it can include a synchronized player, searchable transcript, reading / source / speaker views, evidence maps, filters and jump navigation. Structured exports (JSON, SRT, VTT) come from the same evidence timeline.
 
+### G. Reference-assisted review
+Where a project has existing reference material (transcripts, typescripts, PDFs, scans, archival documentation, speaker lists or other metadata), it can be included as supporting evidence. Reference materials can be text-extracted and, where required, OCR-processed in a supporting workflow before comparison with the media-derived transcript. Existing text layers can be extracted directly; OCR is used only where the material requires it. Original reference documents remain unchanged; extracted or OCR-derived text is treated as a derived working representation. The text is compared and aligned with the media-derived transcript to support review and the identification of discrepancies. Reference material does not automatically correct or replace anything, and the media source remains the primary reference. The branch is optional and not used in every project.
+
 ---
 
 ## 4. Optional analysis layer
@@ -96,9 +99,9 @@ Chapters, summaries, entities and context notes can be generated with local lang
 | Inputs | Outputs |
 |---|---|
 | Audio and video files | Interactive offline HTML archive |
-| Optional metadata (e.g. speaker lists, reference material) | Structured transcript with speakers and timestamps |
+| Optional metadata (e.g. speaker lists) and reference material (transcripts, scans, PDFs, archival documentation) | Structured transcript with speakers and timestamps |
 | | JSON, SRT, VTT |
-| | Optional summaries, chapters, entities, context notes, translation layer |
+| | Optional summaries, chapters, entities, context notes, derived translation layer, reference comparison for review support |
 
 ---
 

@@ -74,7 +74,7 @@ Je nach Workflow kann das interaktive Archiv visuelle Maps über dem Transkript 
 
 ## 8. Mehrsprachige Verarbeitung
 
-Aufnahmen mit mehreren Sprachen sind ein typischer Schwachpunkt von Standardwerkzeugen. R2 Mechanics kann mehrere Sprachen innerhalb einer Aufnahme erkennen und strukturieren, auch bei schnellen Wechseln, und sie auf einer Zeitachse halten. Sprach-Zeitachsen und Filter machen solches Material navigierbar. Unterschiedliche Erkennungsfähigkeiten können in einem strukturierten Ergebnis zusammengeführt werden, und es gibt spezialisierte Workflows für mehrsprachiges und sprachspezifisches Material. Eine getrennte Übersetzungsebene für Recherche und Zugang ist optional und bleibt vom Text in der Quellsprache getrennt. Die öffentliche Demonstration Multilingual Institutional Archive zeigt eine lange Aufnahme mit 11 erkannten Sprachen.
+Aufnahmen mit mehreren Sprachen sind ein typischer Schwachpunkt von Standardwerkzeugen. R2 Mechanics kann mehrere Sprachen innerhalb einer Aufnahme erkennen und strukturieren, auch bei schnellen Wechseln, und sie auf einer Zeitachse halten. Sprach-Zeitachsen und Filter machen solches Material navigierbar. Unterschiedliche Erkennungsfähigkeiten können in einem strukturierten Ergebnis zusammengeführt werden, und es gibt spezialisierte Workflows für mehrsprachiges und sprachspezifisches Material. Die Transkription in der Quellsprache bleibt maßgeblich. Übersetzung ist eine optionale, abgeleitete Ebene für Recherche, Zugang und mehrsprachige Navigation und bleibt vom Text in der Quellsprache getrennt. Das Transkript in der Quellsprache bleibt als Referenz erhalten, und das Archiv kann zwischen der Quellsprach- und der übersetzten Ansicht umschalten. Die öffentliche Demonstration Multilingual Institutional Archive zeigt eine lange Aufnahme mit 11 erkannten Sprachen.
 
 ## 9. Provenance und Unsicherheit
 
@@ -86,6 +86,15 @@ Provenance beantwortet, woher eine Passage stammt. Unsicherheit beantwortet, wie
 
 Prüfhinweise sind Navigationshilfen für menschliche Prüfer. Sie sind kein Maß für Korrektheit und keine Fehlerrate.
 
+### Referenzmaterial als unterstützende Evidenz
+
+Manche Projekte bringen vorhandene Dokumentation mit: historische Transkripte, Typoskripte, gescannte Dokumente, PDFs, Archivnotizen, Sprecherlisten. R2 Mechanics kann solches Material als unterstützende Evidenz einbeziehen. Referenzmaterial kann textlich erschlossen und, wo erforderlich, in einem unterstützenden Workflow per OCR verarbeitet werden, bevor es mit dem aus dem Medium abgeleiteten Transkript verglichen wird, um Prüfung, Abgleich und das Erkennen von Abweichungen zu unterstützen. Vorhandene Textebenen können direkt extrahiert werden; OCR kommt nur zum Einsatz, wenn das Material es erfordert.
+
+- Originale Referenzdokumente bleiben unverändert; extrahierter oder per OCR gewonnener Text wird als abgeleitete Arbeitsrepräsentation behandelt. Nichts wird an die Aufnahme angepasst.
+- Der Abgleich ist Prüfunterstützung. Er zeigt, wo beide Seiten voneinander abweichen; er korrigiert keine Seite automatisch und ersetzt oder überschreibt die Transkription der Quellaufnahme nicht. Die Medienquelle bleibt die primäre Referenz.
+- Ein Referenzdokument ist selbst unvollkommen: Typoskripte und historische Transkripte enthalten Fehler, Auslassungen und redaktionelle Konventionen, und OCR bringt eigene Unsicherheit mit. Abweichungen erfordern deshalb menschliches Urteil.
+- Dieser Zweig ist optional und wird nicht in jedem Projekt genutzt.
+
 ## 10. Optionale LLM-Analyse
 
 Sprachmodelle können eine weitere Ebene ergänzen: Kapitel, Zusammenfassungen, Entitäten und Kontexthinweise. Die Trennung ist bewusst:
@@ -93,9 +102,13 @@ Sprachmodelle können eine weitere Ebene ergänzen: Kapitel, Zusammenfassungen, 
 ```text
 Quellmedium
   → Transkriptions- / Sprecher- / Sprach-Evidenz
-    → strukturierte Zeitachse
-      → optionale LLM-Interpretation
+    → strukturierte Zeitachse ──→ Archiv / strukturierte Ausgaben
+         ├─ optionaler Referenzabgleich (Prüfunterstützung)
+         ├─ optionale Übersetzung (abgeleitete Zugangsebene)
+         └─ optionale LLM-Interpretation
 ```
+
+Referenzabgleich, Übersetzung und LLM-Interpretation sind parallele, optionale Ebenen auf der strukturierten Zeitachse. Keine davon ist eine Quellautorität.
 
 LLM-basierte Interpretation kann je nach Zweck des Workflows konfiguriert werden und bleibt von Quelltranskription und Provenance getrennt. Sie ist eine optionale Analyseebene und keine Quellautorität. Sie läuft lokal, wo der Workflow es verlangt, und wird nur auf Anforderung genutzt. Ihre Ausgaben können Fehler enthalten und sind als Interpretation zu lesen, nicht als Evidenz.
 
@@ -133,6 +146,8 @@ Die aktuellen öffentlichen Demonstrationen liegen auf [r2-mechanics.com](https:
 - Restaurierung kann verändern, was hörbar ist; sie ist optional und kann ausdrücklich kenntlich gemacht werden.
 - LLM-basierte Analyse kann falsch oder unvollständig sein.
 - Prüfhinweise zeigen, wo man hinschauen sollte; sie garantieren nicht, dass nicht markierte Passagen korrekt sind.
+- Referenzdokumente und OCR-Ergebnisse enthalten eigene Fehler. Der Abgleich zeigt Abweichungen; er entscheidet nicht, welche Seite recht hat.
+- Übersetzungen sind abgeleitet und können ungenau sein. Die Transkription in der Quellsprache ist maßgeblich.
 - Kein Transkript ist für sich eine Ground Truth. Projekt-Workflows können eine menschliche Prüfung vor der finalen Auslieferung enthalten.
 
 ## 16. Proprietäre Grenze

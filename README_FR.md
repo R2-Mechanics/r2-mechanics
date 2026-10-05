@@ -63,7 +63,16 @@ C’est une capacité centrale de R2. L’audio et la vidéo sont traités comme
 - lignes temporelles des langues et filtres de langue
 - workflows spécialisés pour le matériau multilingue ou propre à une langue
 - les résultats de différentes capacités de reconnaissance sont réunis dans un résultat structuré commun
-- couche de traduction séparée et optionnelle pour la recherche et l’accès
+- couche de traduction dérivée et optionnelle pour la recherche, l’accès et la navigation multilingue ; la transcription en langue source reste conservée comme référence, et l’archive peut basculer entre la vue en langue source et la vue traduite
+
+### Vérification assistée par matériel de référence
+
+- Le matériel de référence existant (transcriptions, tapuscrits, PDF, scans, documentation d’archives, listes de locuteurs et autres métadonnées) peut être intégré lorsqu’un projet en dispose.
+- Les couches de texte existantes peuvent être extraites directement ; l’OCR n’est utilisé que lorsque le matériau l’exige, dans un workflow de soutien avant la comparaison avec la transcription issue du média.
+- Les documents de référence originaux restent inchangés ; le texte extrait ou obtenu par OCR est traité comme une représentation de travail dérivée.
+- Le texte est aligné et comparé à la transcription issue du média afin de faciliter la vérification et l’identification des divergences.
+- Le matériel de référence soutient la vérification. Il ne corrige ni ne remplace rien automatiquement, et la source média reste la référence principale.
+- Cette branche est optionnelle et n’est pas utilisée dans tous les projets.
 
 ### Archive interactive & livraison
 
@@ -132,6 +141,7 @@ R2 Mechanics a été activement développé tout au long de 2026. L’architectu
 - transcription multi-moteurs avec provenance documentée du texte
 - cartes de preuves et de vérification le long de la ligne temporelle du média
 - traitement multilingue avec structure tenant compte des langues
+- couche de traduction dérivée optionnelle et vérification assistée par matériel de référence (extraction, alignement, identification des divergences)
 - workflows de restauration en option pour les enregistrements historiques, avec conservation de l’original
 - archives offline portables, responsive et utilisables dans les navigateurs de bureau et mobiles
 - workflows média rapides en complément du traitement éditorial complet

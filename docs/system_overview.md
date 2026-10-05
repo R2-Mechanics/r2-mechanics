@@ -41,7 +41,7 @@ AUSLIEFERUNG                        synchronisierter Media-Player · durchsuch-
                                     Offline-HTML · JSON / SRT / VTT
 ```
 
-Derselbe Ablauf als Diagramm: [architecture_2026.md](architecture_2026.md).
+Derselbe Ablauf als Diagramm: [architecture_2026.md](architecture_2026.md). Zwei optionale Zweige liegen neben diesem Ablauf: eine abgeleitete Übersetzungsebene und die referenzgestützte Prüfung (Konzepte D und G).
 
 ---
 
@@ -67,7 +67,7 @@ Eine zentrale R2-Fähigkeit. Die Aufnahme wird als navigierbare Zeitachse behand
 Prüfhinweise sind Navigationshilfen für menschliche Prüfer. Sie sind keine Aussage über Korrektheit oder Fehlerrate.
 
 ### D. Mehrsprachige Verarbeitung
-Mehrere Sprachen, auch schnelle Wechsel innerhalb einer Aufnahme, können erkannt und strukturiert werden. Sprach-Zeitachsen und Filter machen gemischtsprachiges Material navigierbar. Unterschiedliche Erkennungsfähigkeiten können in einem strukturierten Ergebnis zusammengeführt werden. Eine getrennte Übersetzungsebene ist optional.
+Mehrere Sprachen, auch schnelle Wechsel innerhalb einer Aufnahme, können erkannt und strukturiert werden. Sprach-Zeitachsen und Filter machen gemischtsprachiges Material navigierbar. Unterschiedliche Erkennungsfähigkeiten können in einem strukturierten Ergebnis zusammengeführt werden. Eine optionale, abgeleitete Übersetzungsebene (für Recherche, Zugang und mehrsprachige Navigation) bleibt getrennt: Das Transkript in der Quellsprache bleibt als Referenz erhalten, und das Archiv kann zwischen der Quellsprach- und der übersetzten Ansicht umschalten.
 
 ### E. Verarbeitungsprofile
 Nur konzeptionell beschrieben. Konkrete Konfigurationen werden nicht veröffentlicht.
@@ -83,6 +83,9 @@ Für historische oder degradierte Aufnahmen steht ein optionaler Restaurierungss
 ### F. Archiv & Auslieferung
 Das Ergebnis ist ein mediengebundenes, navigierbares und offline-fähiges Archiv. Je nach Workflow kann es einen synchronisierten Player, ein durchsuchbares Transkript, Lese-, Quellen- und Sprecheransicht, Evidence-Maps, Filter und Sprungnavigation enthalten. Strukturierte Exporte (JSON, SRT, VTT) entstehen aus derselben Evidenz-Zeitachse.
 
+### G. Referenzgestützte Prüfung
+Wenn ein Projekt vorhandenes Referenzmaterial besitzt (Transkripte, Typoskripte, PDFs, Scans, Archivdokumentation, Sprecherlisten oder andere Metadaten), kann es als unterstützende Evidenz einbezogen werden. Referenzmaterial kann textlich erschlossen und, wo erforderlich, in einem unterstützenden Workflow per OCR verarbeitet werden, bevor es mit dem aus dem Medium abgeleiteten Transkript verglichen wird. Vorhandene Textebenen können direkt extrahiert werden; OCR kommt nur zum Einsatz, wenn das Material es erfordert. Originale Referenzdokumente bleiben unverändert; extrahierter oder per OCR gewonnener Text wird als abgeleitete Arbeitsrepräsentation behandelt. Der Text wird mit dem aus dem Medium abgeleiteten Transkript verglichen und abgeglichen, um die Prüfung und das Erkennen von Abweichungen zu unterstützen. Referenzmaterial korrigiert oder ersetzt nichts automatisch, und die Medienquelle bleibt die primäre Referenz. Der Zweig ist optional und wird nicht in jedem Projekt genutzt.
+
 ---
 
 ## 4. Optionale Analyseebene
@@ -96,9 +99,9 @@ Kapitel, Zusammenfassungen, Entitäten und Kontexthinweise können mit lokalen S
 | Eingaben | Ausgaben |
 |---|---|
 | Audio- und Videodateien | Interaktives Offline-HTML-Archiv |
-| Optionale Metadaten (z. B. Sprecherlisten, Referenzmaterial) | Strukturiertes Transkript mit Sprechern und Zeitmarken |
+| Optionale Metadaten (z. B. Sprecherlisten) und Referenzmaterial (Transkripte, Scans, PDFs, Archivdokumentation) | Strukturiertes Transkript mit Sprechern und Zeitmarken |
 | | JSON, SRT, VTT |
-| | Optional Zusammenfassungen, Kapitel, Entitäten, Kontexthinweise, Übersetzungsebene |
+| | Optional Zusammenfassungen, Kapitel, Entitäten, Kontexthinweise, abgeleitete Übersetzungsebene, Referenzvergleich zur Prüfunterstützung |
 
 ---
 
