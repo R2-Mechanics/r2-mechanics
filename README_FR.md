@@ -103,11 +103,6 @@ Les démos actuelles sont hébergées exclusivement sur [r2-mechanics.com](https
 - **[Multilingual Institutional Archive](https://r2-mechanics.com/showcases/multilingual-institutional-archive/)**
   Un long enregistrement institutionnel reconstruit sur 11 langues détectées et plusieurs locuteurs, avec extraits reliés à la source, navigation par langue et par locuteur et couche de traduction allemande séparée.
 
-**Autres exemples**
-
-- **[Alan Watts – The Natural Environment](https://r2-mechanics.com/en/alan-watts-the-natural-environment/)**
-  Une longue conférence présentée comme une expérience de lecture et d’écoute synchronisées.
-
 Les anciennes démos de 2025 hébergées dans ce dépôt ont été retirées ; leurs anciennes URL redirigent vers l’aperçu actuel des démos.
 
 ---

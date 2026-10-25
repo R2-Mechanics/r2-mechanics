@@ -103,11 +103,6 @@ Die aktuellen Demos werden ausschließlich auf [r2-mechanics.com](https://r2-mec
 - **[Multilingual Institutional Archive](https://r2-mechanics.com/showcases/multilingual-institutional-archive/)**
   Eine lange institutionelle Aufnahme, rekonstruiert über 11 erkannte Sprachen und mehrere Sprecher, mit quellenverknüpften Auszügen, Sprach- und Sprechernavigation und einer separaten deutschen Übersetzungsebene.
 
-**Weitere Beispiele**
-
-- **[Alan Watts – The Natural Environment](https://r2-mechanics.com/en/alan-watts-the-natural-environment/)**
-  Ein langer Vortrag als synchronisiertes Lese- und Hörerlebnis.
-
 Die früheren 2025-Demos, die in diesem Repository lagen, wurden zurückgezogen; ihre alten URLs leiten auf die aktuelle Demo-Übersicht weiter.
 
 ---

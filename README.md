@@ -103,11 +103,6 @@ The current demos are hosted exclusively on [r2-mechanics.com](https://r2-mechan
 - **[Multilingual Institutional Archive](https://r2-mechanics.com/showcases/multilingual-institutional-archive/)**
   A long institutional recording reconstructed across 11 detected languages and multiple speakers, with source-linked excerpts, language and speaker navigation and a separate German translation layer.
 
-**Additional examples**
-
-- **[Alan Watts – The Natural Environment](https://r2-mechanics.com/en/alan-watts-the-natural-environment/)**
-  A long-form lecture as a synchronized reading and listening experience.
-
 Earlier 2025 demos that were hosted in this repository have been retired; their old URLs forward to the current demo overview.
 
 ---
